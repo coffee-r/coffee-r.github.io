@@ -40,11 +40,13 @@
       >
       </v-btn>
     </v-app-bar>
-    <v-content>
-      <v-container>
-        <nuxt />
-      </v-container>
-    </v-content>
+    <transition name="page">
+      <v-content>
+        <v-container>
+          <nuxt />
+        </v-container>
+      </v-content>
+    </transition>
     <v-navigation-drawer
       v-model="rightDrawer"
       :right="right"
@@ -109,3 +111,12 @@ export default {
   }
 }
 </script>
+
+<style>
+.page-enter {
+   opacity: 0;
+ }
+ .page-enter-active {
+   transition: opacity 2s;
+ }
+</style>
