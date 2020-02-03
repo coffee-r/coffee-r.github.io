@@ -14,9 +14,9 @@
           こーひーあーるのポートフォリオサイト
         </v-card-title>
         <v-card-text>
-          なんか良い感じの一言<br/>
-          なんか良い感じの画像<br/>
-          なんか良い感じの各種リンク<br/>
+          Re Painter<br/>
+          ぱりんぱりん惑星<br/>
+          その他作った物<br/>
           <div class="text-xs-right">
           </div>
           <hr class="my-3">

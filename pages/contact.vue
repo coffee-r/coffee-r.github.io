@@ -15,8 +15,7 @@
         </v-card-title>
         <v-card-text>
           なんか良い感じの一言<br/>
-          なんか良い感じの画像<br/>
-          なんか良い感じの各種リンク<br/>
+          なんか良い感じの問合せリンク<br/>
           <div class="text-xs-right">
           </div>
           <hr class="my-3">
