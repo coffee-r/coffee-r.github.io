@@ -117,6 +117,6 @@ export default {
    opacity: 0;
  }
  .page-enter-active {
-   transition: opacity 2s;
+   transition: opacity 1.5s;
  }
 </style>
