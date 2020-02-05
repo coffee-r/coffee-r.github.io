@@ -29,6 +29,7 @@
       :clipped-left="clipped"
       fixed
       app
+      color="rgba(255, 255, 255, 1)"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
@@ -113,10 +114,16 @@ export default {
 </script>
 
 <style>
-.page-enter {
+ .page-leave-active {
    opacity: 0;
+   transition: opacity 0.3s;
  }
  .page-enter-active {
-   transition: opacity 1.5s;
+   opacity: 1;
+   transition: opacity 0.5s;
  }
+ .page-enter {
+   opacity: 0;
+ }
+
 </style>

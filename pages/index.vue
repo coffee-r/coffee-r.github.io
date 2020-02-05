@@ -1,26 +1,20 @@
+
 <template>
   <v-layout
     column
     justify-center
-    align-center
   >
+  
     <v-flex
       xs12
       sm8
       md6
     >
+    <v-img src="title.png" aspect-ratio="2" contain></v-img>
       <v-card>
         <v-card-title class="headline">
-          こーひーあーるのポートフォリオサイト
+          工事中のこーひーあーるのポートフォリオサイトへよーこそ。
         </v-card-title>
-        <v-card-text>
-          なんか良い感じの一言<br/>
-          なんか良い感じの画像<br/>
-          なんか良い感じの各種リンク<br/>
-          <div class="text-xs-right">
-          </div>
-          <hr class="my-3">
-        </v-card-text>
         <v-card-actions>
           <v-spacer />
           <v-btn
