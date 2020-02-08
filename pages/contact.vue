@@ -1,36 +1,24 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
-    >
-      <v-card>
-        <v-card-title class="headline">
-          こーひーあーるのポートフォリオサイト
-        </v-card-title>
-        <v-card-text>
-          なんか良い感じの一言<br/>
-          なんか良い感じの問合せリンク<br/>
-          <div class="text-xs-right">
-          </div>
-          <hr class="my-3">
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/Contact"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
+  <v-layout column justify-center align-center>
+    <v-flex xs12 sm8 md6>
+      
+      <v-container>
+           <v-row justify="space-around" justify-left>
+            <v-icon size=180>mdi-email</v-icon>
+          </v-row>
+
+          <span class="pt-12">
+            <div class="headline">こーひーあーる</div>
+            https://twitter.com/plus_marumaru <br/>
+            game.developer.ryo@gmail.com <br/>
+            <br/>
+            Twitterからご連絡頂けると早いと思います。
+          </span>
+          
+            </v-col>
+          </v-row>
+      </v-container>
+
     </v-flex>
   </v-layout>
 </template>
