@@ -68,22 +68,22 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-home',
           title: 'Top',
           to: '/'
         },
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-account',
           title: 'About',
           to: '/about/'
         },
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-apps-box',
           title: 'Works',
           to: '/works/'
         },
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-email',
           title: 'Contact',
           to: '/contact/'
         }

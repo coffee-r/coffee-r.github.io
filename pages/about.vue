@@ -10,6 +10,14 @@
       md6
     >
       <v-card>
+    
+          <v-avatar
+              class="profile"
+              color="grey"
+              size="164"
+            >
+              <v-img src="../avater.png"></v-img>
+            </v-avatar>
         <v-card-title class="headline">
           こーひーあーるのポートフォリオサイト
         </v-card-title>
