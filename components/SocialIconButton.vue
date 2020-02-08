@@ -1,9 +1,9 @@
 <template>
-  <span class="px-5">
-        <v-btn icon :href="url" target="_blank">
-          <v-icon size="48">{{ name }}</v-icon>
-        </v-btn>
-      </span>
+  <span class="px-2">
+    <v-btn icon :href="url" target="_blank">
+      <v-icon size="48">{{ name }}</v-icon>
+    </v-btn>
+  </span>
 </template>
 
 <script>
