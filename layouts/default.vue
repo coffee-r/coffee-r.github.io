@@ -53,7 +53,6 @@
       :fixed="fixed"
       app
     >
-      <span>&copy; 2020</span>
     </v-footer>
   </v-app>
 </template>
@@ -61,6 +60,7 @@
 <script>
 
 export default {
+  
   data () {
     return {
       clipped: true,
