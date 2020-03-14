@@ -17,7 +17,7 @@
                   魚釣りと肉とコーヒーが好きなプログラマーです。ラテアートちょっとデキル☕︎<br/>
                   仕事はWeb系のシステムの運用/開発、趣味でゲームの開発。作ったことに対する反応が楽しみ。<br/>
                   社会不安を抱えていてメンタルは弱め。優しく接してくれると助かります。<br/>
-                  マルチ・ポテンシャライトな気質があって、興味関心のある対象はコロコロ変わります。現在はAWSでのサーバー構築をしてハードウェアメンテナンスの手間やコストを削り、周りの人の作業を楽にするのが目標です。<br/>
+                  マルチ・ポテンシャライトな気質があって、興味関心のある対象はコロコロ変わります。<br/>
                 </p>
               </div>
             </v-col>
@@ -35,7 +35,7 @@
                   <li>2019.07 ECサイト開発会社</li>
                   <li>2018.07 個人ゲーム開発 「Re Painter」</li>
                   <li>2015.04 モバイルブラウザゲーム運営会社</li>
-                  <li>2011.04 材料系工業大学</li>
+                  <li>2011.04 工業大学</li>
                 </ul>
               </v-col>
             </v-row>
@@ -67,11 +67,11 @@ export default {
       icons: [
         {
           url: 'https://twitter.com/plus_marumaru',
-          name: 'mdi-twitter-circle'
+          name: 'mdi-twitter'
         },
         {
           url: 'https://github.com/coffee-r',
-          name: 'mdi-github-circle'
+          name: 'mdi-github'
         },
         {
           url: 'https://unityroom.com/users/3cr10wv7fsuxmag8h594',

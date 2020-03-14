@@ -45,11 +45,11 @@ export default {
       icons: [
         {
           url: 'https://twitter.com/plus_marumaru',
-          name: 'mdi-twitter-circle'
+          name: 'mdi-twitter'
         },
         {
           url: 'https://github.com/coffee-r',
-          name: 'mdi-github-circle'
+          name: 'mdi-github'
         },
         {
           url: 'https://unityroom.com/users/3cr10wv7fsuxmag8h594',
