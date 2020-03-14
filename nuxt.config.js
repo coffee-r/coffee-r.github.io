@@ -7,11 +7,19 @@ export default {
   */
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    title: 'Laboratory こーひーあーる',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: 'ゲームやウェブシステムをつくっている 開発者こーひーあーるの個人サイト' },
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+      { hid: 'twitter:creator', name: 'twitter:creator', content: 'plus_marumaru' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:title', property: 'og:title', content: 'Laboratory こーひーあーる' },
+      { hid: 'og:url', property: 'og:url', content: 'https://coffee-r.github.io/'},
+      { hid: 'og:description', property: 'og:description', content: 'ゲームやウェブシステムをつくっている 開発者こーひーあーるの個人サイト' },
+      { hid: 'og:image', property: 'og:image', content: 'https://coffee-r.github.io/twitter_card.png' },
+      { hid: 'og:site_name', name: 'og:site_name', content: 'Laboratory こーひーあーる' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
