@@ -14,9 +14,9 @@
           :to="item.to"
           router
           exact
-          @click.stop="drawer = !drawer"
+          @click.stop="drawer = reverse_draw(drawer)"
         >
-          <v-list-item-action >
+          <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
@@ -35,11 +35,6 @@
 
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-      </v-btn>
     </v-app-bar>
     <transition name="page">
       <v-content>
@@ -48,7 +43,7 @@
         </v-container>
       </v-content>
     </transition>
-    
+
     <v-footer
       :fixed="fixed"
       app
@@ -58,9 +53,7 @@
 </template>
 
 <script>
-
 export default {
-  
   data () {
     return {
       clipped: true,
@@ -92,6 +85,15 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Menu'
+    }
+  },
+  methods: {
+    reverse_draw (isDraw) {
+      // スマホ、タブレットと判断した場合
+      if(window.innerWidth < 1280){
+        return isDraw;
+      }
+      return !isDraw;
     }
   }
 }
