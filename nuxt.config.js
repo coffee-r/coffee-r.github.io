@@ -11,7 +11,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'ゲームやウェブシステムをつくっている 開発者こーひーあーるの個人サイト' },
+      { hid: 'description', name: 'description', content: 'ゲームやウェブシステムをつくっている開発者こーひーあーるのサイト' },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
       { hid: 'twitter:creator', name: 'twitter:creator', content: 'plus_marumaru' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
