@@ -1,5 +1,50 @@
 # coffee-r.github.io
 
+## サイトの目的
+
+* 自分の自己紹介
+* 自分の職務経歴の振り返り
+* 何か置きたいツールとかあれば置く
+
+## プロジェクト作成ログ
+
+```
+yarn create nuxt-app coffee-r.github.io
+yarn create v1.22.19
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+success Installed "create-nuxt-app@4.0.0" with binaries:
+      - create-nuxt-app
+[################################################################################] 342/342
+create-nuxt-app v4.0.0
+✨  Generating Nuxt.js project in coffee-r.github.io
+? Project name: coffee-r.github.io
+? Programming language: JavaScript
+? Package manager: Yarn
+? UI framework: Tailwind CSS
+? Nuxt.js modules: Axios - Promise based HTTP client
+? Linting tools: ESLint, Prettier
+? Testing framework: None
+? Rendering mode: Single Page App
+? Deployment target: Static (Static/Jamstack hosting)
+? Development tools: jsconfig.json (Recommended for VS Code if you're not using typescript)
+
+
+? Continuous integration: None
+? Version control system: Git
+```
+
+## GitHubActionsのワークフロー作成
+.github/workflows/cd.yml
+
+## GitHub Pagesのブランチ設定
+coffee-r.github.io > Settings > Pages
+Sourceを「gh-pages」に設定
+
+
+
 ## Build Setup
 
 ```bash
