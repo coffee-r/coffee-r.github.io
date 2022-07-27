@@ -1,11 +1,12 @@
 <template>
-	<aside class="text-center md:w-1/4">
+	<aside class="text-center">
 		<a href="/"><img class="w-20 m-auto" src="/avator.jpeg" alt="avator"/></a>
-		<h1 class="mt-2 text-2xl">coffee-r</h1>
-		<h1 class="text-2xl">こーひーあーる</h1>
-
+		<div class="md:mt-2 md:mb-6">
+			<h1 class="text-2xl">coffee-r</h1>
+			<h1 class="text-2xl">こーひーあーる</h1>
+		</div>
 		<nav>
-			<ul class="mt-3 mb-6 flex justify-around sm:flex-col leading-8">
+			<ul class="mt-3 mb-8 flex justify-around sm:flex-col">
 				<li><a href="/">About</a></li>
 				<li><a href="/game">Game</a></li>
 				<li><a href="/web">Web</a></li>

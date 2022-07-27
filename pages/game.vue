@@ -1,64 +1,67 @@
 <template>
 
 <div>
-	<main class="mt-10 flex flex-col md:flex-row justify-between ">
+	<main class="flex flex-col md:flex-row justify-between mt-4 md:mt-10 leading-8">
 
-
-	<SideMenu />
+	<SideMenu class="md:w-1/4" />
 
 	<article class="px-4 md:mr-24 md:w-3/4">
 
 		<div class="mb-10">
-			<h2 class="text-4xl">Re Painter</h2>
-			<img src="/games/repainter.png" alt="repainter"/>
-			<iframe class="w-full" style="aspect-ratio: 16/9" src="https://www.youtube.com/embed/EuoIQ7YWto0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			
-			<p>親しみやすい見下ろし視点のスクロールアクションに描いたイラストが必殺技になるシステムを加えた、短編アクションゲームです。</p>
-			<p>開発期間 無職1年間 + 会社員のあまり1年間</p>
+			<h2 class="font-semibold text-4xl">Re Painter</h2>
+			<iframe class="w-full" style="aspect-ratio: 16/9" src="https://www.youtube.com/embed/EuoIQ7YWto0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>			
+			<p>
+				親しみやすい見下ろし視点のスクロールアクションに描いたイラストが必殺技になるシステムを加えた、短編アクションゲーム。
+				開発に会社員として勤めながらの1年間と無職の1年間の計2年間かかってしまいました。
+			</p>
 			<div class="text-center">
-			<button class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full">
-				Steamのストアサイトを見る
-			</button>
+				<a href="https://store.steampowered.com/app/1096420/Re_Painter/?l=japanese" target="_blank" >
+					<button class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full">
+						Steamのストアサイトを見る
+					</button>
+				</a>
 			</div>
 		</div>
 
 		<div class="mb-10">
-
-			<h2 class="text-4xl">Yozora Maker</h2>
+			<h2 class="font-semibold text-4xl">Yozora Maker</h2>
 			<img src="/games/yozoramaker.jpeg" alt="yozoramaker"/>
-			<p>自分で星を作って、星を避け続けるゲームです。</p>
-			<p>開発期間 1週間くらい</p>
+			<p>ゲームジャムに参加して1週間くらいで作った、自分で星を作って星を避け続けるゲームです。</p>
 			<div class="text-center">
-			<button class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full">
-				Unityroomでプレイする
-			</button>
+				<a href="https://unityroom.com/games/coffee-r-202002" target="_blank" >
+					<button class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full">
+						unityroomでプレイする
+					</button>
+				</a>
 			</div>
 		</div>
 
 		<div class="mb-10">
 
-			<h2 class="text-4xl">ぱりんぱりん惑星</h2>
-			<img src="/games/parinparin.png" alt="parinparin"/>
-			<p>クリックで爆弾を仕掛けてぱりんぱりんするタワーディフェンス系ゲームです</p>
-			<p>開発期間 1週間くらい</p>
+			<h2 class="font-semibold text-4xl">ぱりんぱりん惑星</h2>
+			<img src="/games/parinparin.jpeg" alt="parinparin"/>
+			<p>ゲームジャムに参加して1週間くらいで作った、クリックで爆弾を仕掛けてぱりんぱりんするタワーディフェンス系ゲームです。</p>
 			<div class="text-center">
-			<button class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full">
-				Unityroomでプレイする
-			</button>
+				<a href="https://unityroom.com/users/3cr10wv7fsuxmag8h594" target="_blank" >
+					<button class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full">
+						unityroomでプレイする
+					</button>
+				</a>
 			</div>
 		</div>
 
 		<div class="mb-10">
 
-			<h2 class="text-4xl">その他</h2>
-
-			Unityroomに細々とアップロードしています。
+			<h2 class="font-semibold text-4xl">その他</h2>
+			<p>フリーゲーム投稿サイト unityroomにいくつか投稿をしています。</p>
 			<div class="text-center">
-			<button class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full">
-				投稿ゲーム一覧を見る
-			</button>
+				<a href="https://unityroom.com/users/3cr10wv7fsuxmag8h594" target="_blank" >
+					<button class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full">
+						投稿ゲーム一覧を見る
+					</button>
+				</a>
 			</div>
-			https://unityroom.com/users/3cr10wv7fsuxmag8h594
+			
 		</div>
 
 			<CustomFooter />
@@ -71,6 +74,6 @@
 
 <script>
 export default {
-	name: 'IndexPage',
+	name: 'GamePage',
 }
 </script>
