@@ -30,7 +30,7 @@
 			<div class="text-center">
 				<a href="https://unityroom.com/games/coffee-r-202002" target="_blank" >
 					<button class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full">
-						unityroomでプレイする
+						PCブラウザでプレイする
 					</button>
 				</a>
 			</div>
@@ -44,7 +44,7 @@
 			<div class="text-center">
 				<a href="https://unityroom.com/users/3cr10wv7fsuxmag8h594" target="_blank" >
 					<button class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full">
-						unityroomでプレイする
+						PCブラウザでプレイする
 					</button>
 				</a>
 			</div>
