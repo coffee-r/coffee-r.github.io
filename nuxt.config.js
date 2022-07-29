@@ -36,7 +36,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     // https://analytics.google.com/
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-gtag'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -55,7 +55,8 @@ export default {
   build: {},
 
   // Google Analytics
-  googleAnalytics: {
-    id: 'G-326H2L9B51'
+  'google-gtag': {
+    id: 'G-326H2L9B51',
+    debug: false,
   },
 }
