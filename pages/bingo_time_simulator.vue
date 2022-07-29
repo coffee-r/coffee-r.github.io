@@ -29,10 +29,15 @@
 					<label for="winningTime" class="block mb-2 font-medium text-gray-900 dark:text-gray-300">1回の当選にかける秒数</label>
 					<input type="number" id="winningTime" v-model="winningTime" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
 				</div>
+				<div class="text-center">
+					<button type="button" v-on:click="simulate" class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full">
+						計算する
+					</button>
+				</div>
 			</form>
 
 			<section id="simulation-result">
-				<div>ビンゴ終了に {{Math.floor(simulation.minEndTimeSeconds / 60)}} ~ {{Math.floor(simulation.maxEndTimeSeconds / 60)}} 分ほどかかります。</div>
+				{{simulationMessage}}
 			</section>
 
 			<h2 class="text-xl mt-12">細かいこと</h2>
@@ -61,19 +66,20 @@
 
 export default {
 	data(){
-    return {
-      	personCount: 100,
-		winningItemCount: 20,
-		lotteryTime: 30,
-		winningTime: 60
-    }
+		return {
+			personCount: 100,
+			winningItemCount: 20,
+			lotteryTime: 30,
+			winningTime: 60,
+			simulationMessage: "",
+		}
   },
   watch: {
 	personCount(input) {
 		this.personCount = this.personCountLimit(input);
 	},
 	winningItemCount(input) {
-		this.winningItemCount = this.winningItemCountLimit(input);
+		this.winningItemCount = this.pwinningItemCountLimit(input);
 	},
 	lotteryTime(input) {
 		this.lotteryTime = this.timeLimit(input);
@@ -84,32 +90,36 @@ export default {
 
   },
   methods: {
-    personCountLimit(input) {
-		if(input > 300) {return 300;}
+	personCountLimit(input){
 		if(input < 1) {return 1;}
+		if(input > 999) {return 999;}
 		if(input < this.winningItemCount) {return this.winningItemCount;}
 		return input;
-    },
-	winningItemCountLimit(input) {
-		if(input > 300) {return 300;}
+	},
+	pwinningItemCountLimit(input){
 		if(input < 1) {return 1;}
+		if(input > 999) {return 999;}
 		if(input > this.personCount) {return this.personCount;}
 		return input;
-    },
-	timeLimit(input) {
+	},
+	timeLimit(input){
 		if(input < 1) {return 1;}
 		return input;
+	},
+	simulate(){
+		try{
+			let bingoTournamentCollection = new BingoTournamentCollection([]);
+			for(let i=0; i<100; i++){
+				bingoTournamentCollection = bingoTournamentCollection.add(new BingoTournament(BingoSheetFactory, new LotteryBingoNumberStack(), this.personCount, this.winningItemCount, this.lotteryTime, this.winningTime));
+			}
+			const result = bingoTournamentCollection.calculatePlayTime();
+			this.simulationMessage = "ビンゴ終了に " + Math.floor(result.minEndTimeSeconds / 60)+ " ~ " + Math.floor(result.maxEndTimeSeconds / 60) +"分ほどかかります。";
+
+		}catch (error){
+			this.simulationMessage = error;
+		}
     },
   },
-  computed:{
-    simulation(){
-      let bingoTournamentCollection = new BingoTournamentCollection([]);
-	  for(let i=0; i<100; i++){
-		bingoTournamentCollection = bingoTournamentCollection.add(new BingoTournament(BingoSheetFactory, new LotteryBingoNumberStack(), this.personCount, this.winningItemCount, this.lotteryTime, this.winningTime));
-	  }
-	  return bingoTournamentCollection.calculatePlayTime();
-    }
-  }
 }
 
 </script>
