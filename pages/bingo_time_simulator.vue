@@ -13,19 +13,19 @@
 			</p>
 
 			<form class="mt-8">
-				<div class="mb-6">
+				<div class="mb-4 md:mb-6">
 					<label for="personCount" class="block mb-2 font-medium text-gray-900 dark:text-gray-300">参加人数</label>
 					<input type="number" id="personCount" v-model="personCount" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
 				</div>
-				<div class="mb-6">
+				<div class="mb-4 md:mb-6">
 					<label for="winningItemCount" class="block mb-2 font-medium text-gray-900 dark:text-gray-300">景品数</label>
 					<input type="number" id="winningItemCount" v-model="winningItemCount" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
 				</div>
-				<div class="mb-6">
+				<div class="mb-4 md:mb-6">
 					<label for="lotteryTime" class="block mb-2 font-medium text-gray-900 dark:text-gray-300">1回の番号抽選にかける秒数</label>
 					<input type="number" id="lotteryTime" v-model="lotteryTime" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
 				</div>
-				<div class="mb-6">
+				<div class="mb-4 md:mb-6">
 					<label for="winningTime" class="block mb-2 font-medium text-gray-900 dark:text-gray-300">1回の当選にかける秒数</label>
 					<input type="number" id="winningTime" v-model="winningTime" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
 				</div>
