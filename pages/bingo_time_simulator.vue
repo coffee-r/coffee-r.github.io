@@ -55,7 +55,7 @@
 			<h2 class="text-xl mt-12">細かいこと</h2>
 
 			<ul class="list-disc list-inside">
-				<li>100回開催を試した時の最短・最長の時間を計算</li>
+				<li>100回開催を試した時の時間を計算</li>
 				<li>5×5マスのビンゴを想定</li>
 				<li>参加者1人に最大1個の景品を想定</li>
 			</ul>
