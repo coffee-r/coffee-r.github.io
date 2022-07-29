@@ -14,7 +14,7 @@
 
 		<div class="mb-10">
 
-			<h2 class="font-semibold text-4xl">ビンゴ計算シュミレーター</h2>
+			<h2 class="font-semibold text-4xl">ビンゴ大会終了時間計算シュミレーター</h2>
 			<p>パーティーや宴会などでタイムスケジュールを立てる際にビンゴの所要見込み時間をシュミレーションするもの。宴会の主催者が時間を予測するのに困っていたの作ってみた。</p>
 
 			<div class="text-center">
