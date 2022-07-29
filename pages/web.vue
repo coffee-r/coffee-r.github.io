@@ -16,11 +16,13 @@
 
 			<h2 class="font-semibold text-4xl">ビンゴ計算シュミレーター</h2>
 			<p>パーティーや宴会などでタイムスケジュールを立てる際にビンゴの所要見込み時間をシュミレーションするもの。宴会の主催者が時間を予測するのに困っていたの作ってみた。</p>
-			
+
 			<div class="text-center">
-			<button class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full">
-				所要見込み時間を計算する
-			</button>
+				<a href="/bingo_time_simulator" target="_blank" >
+					<button class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full">
+						ブラウザで見る
+					</button>
+				</a>
 			</div>
 		</div>
 
