@@ -5,6 +5,7 @@
 		<SideMenu class="md:w-1/4" />
 
 		<article class="px-4 md:mr-24 md:w-3/4">
+
 			<div class="mb-10">
 				<h2 class="font-semibold text-4xl">About</h2>
 				<p class="mt-3">

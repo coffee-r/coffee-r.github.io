@@ -1,6 +1,5 @@
 <template>
 
-<div>
 	<main class="flex flex-col md:flex-row justify-between mt-4 md:mt-10 leading-8">
 
 		<SideMenu class="md:w-1/4" />
@@ -62,9 +61,7 @@
 
 			<CustomFooter />
 		</article>
-	</main>
-</div>
-		
+	</main>	
 
 </template>
 

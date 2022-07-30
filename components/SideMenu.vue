@@ -7,12 +7,12 @@
 		</div>
 		<nav>
 			<ul class="mt-3 mb-8 flex justify-around sm:flex-col">
-				<li><a href="/">About</a></li>
-				<li><a href="/game">Game</a></li>
-				<li><a href="/web">Web</a></li>
-				<li><a href="https://twitter.com/plus_marumaru" target="_blank">Twitter</a></li>
-				<li><a href="https://github.com/coffee-r" target="_blank">Github</a></li>
-				<li><a href="https://coffee-ryo.hatenablog.com" target="_blank">Blog</a></li>
+				<li class="hover:text-gray-500"><a href="/">About</a></li>
+				<li class="hover:text-gray-500"><a href="/game">Game</a></li>
+				<li class="hover:text-gray-500"><a href="/web">Web</a></li>
+				<li class="hover:text-gray-500"><a href="https://twitter.com/plus_marumaru" target="_blank">Twitter</a></li>
+				<li class="hover:text-gray-500"><a href="https://github.com/coffee-r" target="_blank">Github</a></li>
+				<li class="hover:text-gray-500"><a href="https://coffee-ryo.hatenablog.com" target="_blank">Blog</a></li>
 			</ul>
 		</nav>
 	</aside>
