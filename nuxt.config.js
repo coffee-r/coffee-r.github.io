@@ -19,8 +19,8 @@ export default {
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:url', property: 'og:url', content: 'coffee-r.github.io' },
       { hid: 'og:title', property: 'og:title', content: 'coffee-r.github.io' },
-      { hid: 'og:description', property: 'og:description', content: 'Game開発者こーひーあーるのサイト' },
-      { hid: 'og:image', property: 'og:image', content: '/avator.jpeg' },
+      { hid: 'og:description', property: 'og:description', content: 'Web&Game開発者こーひーあーるのサイト' },
+      { hid: 'og:image', property: 'og:image', content: 'https://coffee-r.github.io/avator.jpeg' },
       { name: 'twitter:card', content: 'summary' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
