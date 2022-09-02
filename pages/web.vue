@@ -17,12 +17,6 @@
 						</button>
 					</a>
 				</div>
-
-			</div>
-
-			<div class="mb-10">
-				<h2 class="font-semibold text-4xl">coffee-r.github.io</h2>
-				<p>今見ているこのサイト。Vue.jsとTailwind CSSの学習を兼ねて作成。</p>
 			</div>
 
 			<div class="mb-10">
@@ -31,12 +25,17 @@
 				<p>パーティーや宴会などでタイムスケジュールを立てる際にビンゴの所要見込み時間をシュミレーションするもの。宴会の主催者が時間を予測するのに困っていたの作ってみた。</p>
 
 				<div class="text-center lg:text-left">
-					<a href="/bingo_time_simulator" target="_blank" >
+					<a href="https://bingo-time-simulator.vercel.app" target="_blank" >
 						<button class="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-full">
 							ブラウザで見る
 						</button>
 					</a>
 				</div>
+			</div>
+
+			<div class="mb-10">
+				<h2 class="font-semibold text-4xl">coffee-r.github.io</h2>
+				<p>今見ているこのサイト。Vue.jsとTailwind CSSの学習を兼ねて作成。</p>
 			</div>
 
 			<CustomFooter />
