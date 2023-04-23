@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Menu() {
 	return (
 		<aside className="text-center md:w-1/4">
@@ -9,11 +11,11 @@ export default function Menu() {
             
             <nav>
                 <ul className="mt-3 mb-8 flex justify-around md:flex-col">
-                    <li className="hover:text-gray-500"><a href="/">About</a></li>
-                    <li className="hover:text-gray-500"><a href="/products">Products</a></li>
-                    <li className="hover:text-gray-500"><a href="https://twitter.com/plus_marumaru" target="_blank">Twitter</a></li>
-                    <li className="hover:text-gray-500"><a href="https://github.com/coffee-r" target="_blank">Github</a></li>
-                    <li className="hover:text-gray-500"><a href="https://coffee-ryo.hatenablog.com" target="_blank">Blog</a></li>
+                    <li className="hover:text-gray-500"><Link href="/">About</Link></li>
+                    <li className="hover:text-gray-500"><Link href="/products">Products</Link></li>
+                    <li className="hover:text-gray-500"><Link href="https://twitter.com/plus_marumaru" target="_blank">Twitter</Link></li>
+                    <li className="hover:text-gray-500"><Link href="https://github.com/coffee-r" target="_blank">Github</Link></li>
+                    <li className="hover:text-gray-500"><Link href="https://coffee-ryo.hatenablog.com" target="_blank">Blog</Link></li>
                 </ul>
             </nav>
         </aside>
