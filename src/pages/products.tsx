@@ -32,7 +32,7 @@ export default function Index() {
 
             <div className="mb-10">
 				<h2 className="font-semibold text-2xl">Re Painter</h2>
-				<iframe className="w-full" style={{aspectRatio: 16/9}} src="https://www.youtube.com/embed/EuoIQ7YWto0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>			
+				<iframe className="w-full" style={{aspectRatio: 16/9}} src="https://www.youtube.com/embed/EuoIQ7YWto0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>			
 				<p>
 					親しみやすい見下ろし視点のスクロールアクションに描いたイラストが必殺技になるシステムを加えた、短編アクションゲーム。
 					開発に会社員として勤めながらの1年間と無職の1年間の計2年間かけて作りました。
