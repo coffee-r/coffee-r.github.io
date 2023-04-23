@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Menu() {
 	return (
 		<aside className="text-center md:w-1/4">
-            <a href="/"><img className="w-20 m-auto" src="/avator.jpeg" alt="avator"/></a>
+            <Link href="/"><img className="w-20 m-auto" src="/avator.jpeg" alt="avator"/></Link>
             <div className="md:mt-2 md:mb-6">
                 <h1 className="text-2xl">こーひーあーる</h1>
                 <h1>@plus_marumaru</h1>
