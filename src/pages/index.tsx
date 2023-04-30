@@ -50,7 +50,7 @@ export default function Index() {
 					<li>LPICレベル1 (2015/7 合格)</li>
 					<li>OSS-DB Silver (2015/8 合格)</li>
 					<li>PHP5初級技術者 (2017/5 合格)</li>
-					<li>AWS Certified Solutions Architect - Associate (2020/4 合格)</li>
+					<li>AWS Certified Solutions Architect - Associate (2020/4,2023/4 合格)</li>
 					<li>基本情報技術者 (2022/11 取得)</li>
 				</ul>
 				</div>
