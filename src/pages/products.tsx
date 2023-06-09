@@ -18,12 +18,6 @@ export default function Index() {
 				<LinkButton url="https://bingo-time-simulator.vercel.app" text="ブラウザで見る" />
 			</div>
 
-			<div className="mb-10">
-				<h3 className="font-semibold text-2xl">あにまるにゃ〜ん</h3>
-				<p>動物の言葉でしか呟けないSNS風Webアプリ。Laravelの学習を兼ねて作成。</p>
-				<LinkButton url="https://animal-meow.com" text="ブラウザで見る" />
-			</div>
-
 			<div className="mt-16 mb-10">
 				<h2 className="font-semibold text-4xl">Game (With Unity)</h2>
 			</div>
