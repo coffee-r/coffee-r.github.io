@@ -34,7 +34,7 @@ export default function Index() {
 
 				<h3 className="mt-3 text-xl">2019/07 ~ 2022/04 嗜好・健康品 通販会社</h3>
 				<p>
-					Webシステム開発を行なっている事業部で、LAMP系エンジニアとして携わる
+					Webシステム開発を行なっている事業部で、バックエンドエンジニアとして携わる
 				</p>
 
 				<h3 className="mt-3 text-xl"> 2022/5 ~ 休職</h3>
