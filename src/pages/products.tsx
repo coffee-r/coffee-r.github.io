@@ -13,6 +13,12 @@ export default function Index() {
 			</div>
 
 			<div className="mb-10">
+				<h3 className="font-semibold text-2xl">GodotPlayer</h3>
+				<p>Godot Engineに対応したフリーゲーム投稿サイト。ゲームを投稿してブラウザ上で遊べる。</p>
+				<LinkButton url="https://godotplayer.com" text="ブラウザで見る" />
+			</div>
+
+			<div className="mb-10">
 				<h3 className="font-semibold text-2xl">ビンゴ大会終了時間計算シュミレーター</h3>
 				<p>パーティーや宴会などでタイムスケジュールを立てる際にビンゴの所要見込み時間をシュミレーションするもの。宴会の主催者が時間を予測するのに困っていたの作ってみた。</p>
 				<LinkButton url="https://bingo-time-simulator.vercel.app" text="ブラウザで見る" />
