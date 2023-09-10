@@ -22,24 +22,29 @@ export default function Index() {
 
 				<h2 className="font-semibold text-4xl">Career</h2>
 				
-				<h3 className="mt-3 text-xl">2015/04 ~ 2018/06 中小Webシステム開発会社</h3>
+				<h3 className="mt-3 text-xl">2015/4 ~ 2018/6 中小Webシステム開発会社</h3>
 				<p>
 					モバイルブラウザゲーム事業部の版権ソーシャルゲームを扱うチームで、LAMP系エンジニアとして携わる
 				</p>
 
-				<h3 className="mt-3 text-xl">2018/07 ~ 2019/06 無職</h3>
+				<h3 className="mt-3 text-xl">2018/7 ~ 2019/6 無職</h3>
 				<p>
 					Unityを使った個人ゲーム開発に打ち込む
 				</p>
 
-				<h3 className="mt-3 text-xl">2019/07 ~ 2022/04 嗜好・健康品 通販会社</h3>
+				<h3 className="mt-3 text-xl">2019/7 ~ 2022/4 嗜好・健康品 通販会社</h3>
 				<p>
 					Webシステム開発を行なっている事業部で、バックエンドエンジニアとして携わる
 				</p>
 
-				<h3 className="mt-3 text-xl"> 2022/5 ~ 休職</h3>
+				<h3 className="mt-3 text-xl">2022/5 ~ 2023/8</h3>
 				<p>
 					精神疾患のため療養
+				</p>
+
+				<h3 className="mt-3 text-xl">2023/9 ~ 嗜好・健康品 通販会社</h3>
+				<p>
+					Webシステム開発を行なっている事業部で、バックエンドエンジニアとして携わる
 				</p>
 
 				</div>
@@ -84,7 +89,7 @@ export default function Index() {
 					<li>自社ECサイトにSeleniumを使ったE2Eテストを導入</li>
 					<li>オンプレミスのDNSサーバーで公開しているホストゾーンをAWS Route53に移行</li>
 					<li>新規BtoBtoCサイトの画像配信システムをAWS S3とCloudFrontで構築</li>
-					<li>自社ECサイトのREST APIを新規実装 (頓挫気味)</li>
+					<li>自社ECサイトのREST APIを新規実装</li>
 					<li>自社ECサイトのREST API開発にPHPUnitを導入</li>
 				</ul>
 				
