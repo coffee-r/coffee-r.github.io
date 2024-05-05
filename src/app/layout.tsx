@@ -10,6 +10,11 @@ export const metadata: Metadata = {
     title: "こーひーあーる",
     description: "こーひーあーる ポートフォリオサイト",
     images: "https://coffee-r.github.io/avator.jpeg"
+  },
+  twitter: {
+    title: "こーひーあーる",
+    description: "こーひーあーる ポートフォリオサイト",
+    images: "https://coffee-r.github.io/avator.jpeg"
   }
 };
 
