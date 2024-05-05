@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-screen-lg">
+    <div className="max-w-screen-lg mx-auto px-4">
       <div className="flex flex-col md:flex-row justify-between mt-8 md:mt-10">
 
         <aside className="text-center hidden md:block md:w-1/4">
@@ -21,7 +21,7 @@ export default function Home() {
         </aside>
 
         <div className="flex justify-center mb-8 md:hidden">
-          <img className="w-28 h-28" src="/avator.jpeg" alt="avator" />
+          <img className="w-24 h-24" src="/avator.jpeg" alt="avator" />
           <div className="px-2 flex flex-col justify-center leading-normal">
             <h5 className="font-bold text-xl">こーひーあーる</h5>
             <p className="text-xl">バックエンドエンジニア</p>
@@ -33,8 +33,8 @@ export default function Home() {
           </div>
 
         </div>
-
-        <article className="prose mx-auto px-4">
+        
+        <article className="prose mx-auto">
 
           <h3>プロフィール</h3>
 
@@ -155,6 +155,10 @@ export default function Home() {
           </ul>
 
           <h3>趣味</h3>
+
+          <p>
+            自然と触れ合うアウトドアが好きです。
+          </p>
 
           <img className="w-full" src="/yarigatake.jpeg" alt="yarigatake"/>
 

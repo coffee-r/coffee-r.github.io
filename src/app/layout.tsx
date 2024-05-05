@@ -3,7 +3,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "こーひーあーる",
-  description: "こーひーあーるの自己紹介ページです",
+  description: "こーひーあーる ポートフォリオサイト",
+  openGraph: {
+    type: "website",
+    url: "https://coffee-r.github.io",
+    title: "こーひーあーる",
+    description: "こーひーあーる ポートフォリオサイト",
+    images: "https://coffee-r.github.io/avator.jpeg"
+  }
 };
 
 export default function RootLayout({

@@ -13,6 +13,21 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              wordBreak: 'break-all',
+            },
+            p: {
+              wordBreak: 'break-all',
+            },
+            li: {
+              wordBreak: 'break-all',
+            },
+          },
+        },
+      },
     },
   },
   plugins: [
