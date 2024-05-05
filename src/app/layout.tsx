@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     images: "https://coffee-r.github.io/avator.jpeg"
   },
   twitter: {
+    card: "summary",
     title: "こーひーあーる",
     description: "こーひーあーる ポートフォリオサイト",
     images: "https://coffee-r.github.io/avator.jpeg"
