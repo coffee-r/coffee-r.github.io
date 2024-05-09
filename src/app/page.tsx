@@ -157,7 +157,7 @@ export default function Home() {
           <h3>趣味</h3>
 
           <p>
-            自然と触れ合うアウトドアが好きです
+            自然と触れ合うアウトドアが好きです。
           </p>
 
           <img className="w-full" src="/yarigatake.jpeg" alt="yarigatake"/>
