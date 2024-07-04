@@ -100,6 +100,7 @@ export default function Home() {
             <li>AWS Certified Solutions Architect - Associate (2020/4,2023/4 合格)</li>
             <li>基本情報技術者 (2022/11 取得)</li>
             <li>応用情報技術者 (2023/6 取得)</li>
+            <li>ネットワークスペシャリスト (2024/7 取得)</li>
           </ul>
 
           <h3>仕事でやったこと</h3>
