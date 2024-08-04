@@ -155,6 +155,22 @@ export default function Home() {
             </li>
           </ul>
 
+          <h3>関わったシステムのシステム構成図</h3>
+          <ul>
+            <li>
+              <p>某IPモバイルブラウザゲーム</p>
+              <img className="w-full" src="/systemdiagram1.png" alt="systemdiagram1"/>
+            </li>
+            <li>
+              <p>嗜好品・健康品 通販会社の通販システム</p>
+              <img className="w-full" src="/systemdiagram2.png" alt="systemdiagram2"/>
+            </li>
+            <li>
+              <p>個人開発 GodotPlayer</p>
+              <img className="w-full" src="/systemdiagram3.png" alt="systemdiagram3"/>
+            </li>
+          </ul>
+
           <h3>趣味</h3>
 
           <p>
