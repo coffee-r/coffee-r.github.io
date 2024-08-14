@@ -46,7 +46,7 @@ export default function Home() {
 
           <ul className="timeline timeline-vertical timeline-compact not-prose">
             <li>
-              <div className="timeline-start">2015/4 ~ 2018/6 Webシステム開発会社</div>
+              <div className="timeline-start">Webシステム開発会社 (2015/4 ~ 2018/6)</div>
               <div className="timeline-middle">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><circle cx="10" cy="10" r="6" fill="#474e59"></circle></svg>
               </div>
@@ -55,7 +55,7 @@ export default function Home() {
             </li>
             <li>
               <hr/>
-              <div className="timeline-start">2018/7 ~ 2019/6 個人プロジェクト</div>
+              <div className="timeline-start">個人プロジェクト (2018/7 ~ 2019/6)</div>
               <div className="timeline-middle">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><circle cx="10" cy="10" r="6" fill="#474e59"></circle></svg>
               </div>
@@ -64,7 +64,7 @@ export default function Home() {
             </li>
             <li>
               <hr/>
-              <div className="timeline-start">2019/7 ~ 2022/4 嗜好品・健康品 通販会社</div>
+              <div className="timeline-start">嗜好品・健康品 通販会社 (2019/7 ~ 2022/4)</div>
               <div className="timeline-middle">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><circle cx="10" cy="10" r="6" fill="#474e59"></circle></svg>
               </div>
@@ -73,7 +73,7 @@ export default function Home() {
             </li>
             <li>
               <hr/>
-              <div className="timeline-start">2022/5 ~ 2023/8 休職</div>
+              <div className="timeline-start">休職 (2022/5 ~ 2023/8)</div>
               <div className="timeline-middle">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><circle cx="10" cy="10" r="6" fill="#474e59"></circle></svg>
               </div>
@@ -82,7 +82,7 @@ export default function Home() {
             </li>
             <li>
               <hr/>
-              <div className="timeline-start">2023/9 ~ 嗜好品・健康品 通販会社</div>
+              <div className="timeline-start">嗜好品・健康品 通販会社 (2023/9 ~)</div>
               <div className="timeline-middle">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><circle cx="10" cy="10" r="6" fill="#474e59"></circle></svg>
               </div>
@@ -122,13 +122,13 @@ export default function Home() {
           <h3>資格</h3>
 
           <ul>
-            <li>LPICレベル1 (2015/7 合格)</li>
-            <li>OSS-DB Silver (2015/8 合格)</li>
-            <li>PHP5初級技術者 (2017/5 合格)</li>
-            <li>AWS Certified Solutions Architect - Associate (2020/4,2023/4 合格)</li>
-            <li>IPA 基本情報技術者試験 (2022/11 合格)</li>
-            <li>IPA 応用情報技術者試験 (2023/6 合格)</li>
             <li>IPA ネットワークスペシャリスト試験 (2024/7 合格)</li>
+            <li>IPA 応用情報技術者試験 (2023/6 合格)</li>
+            <li>IPA 基本情報技術者試験 (2022/11 合格)</li>
+            <li>AWS Certified Solutions Architect - Associate (2020/4,2023/4 合格)</li>
+            <li>PHP5初級技術者 (2017/5 合格)</li>
+            <li>OSS-DB Silver (2015/8 合格)</li>
+            <li>LPICレベル1 (2015/7 合格)</li>
           </ul>
 
           <h3>個人開発</h3>
