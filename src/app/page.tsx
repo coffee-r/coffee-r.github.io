@@ -13,9 +13,9 @@ export default function Home() {
           </div>
           <nav>
             <ul className="mt-3 flex justify-around flex-col">
-              <li className="hover:text-gray-500 mb-1"><Link href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer">X (旧Twitter)</Link></li>
-              <li className="hover:text-gray-500 mb-1"><Link href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer">Github</Link></li>
-              <li className="hover:text-gray-500 mb-1"><Link href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer">Zenn</Link></li>
+              <li className="mb-1"><Link className="underline hover:text-gray-500" href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer">X (旧Twitter)</Link></li>
+              <li className="mb-1"><Link className="underline hover:text-gray-500" href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer">Github</Link></li>
+              <li className="mb-1"><Link className="underline hover:text-gray-500" href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer">Zenn</Link></li>
             </ul>
           </nav>
         </aside>
@@ -26,9 +26,9 @@ export default function Home() {
             <h5 className="font-bold text-xl">こーひーあーる</h5>
             <p className="text-xl">バックエンドエンジニア</p>
             <ul className="mt-1 flex justify-between">
-              <li className="hover:text-gray-500"><Link href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer">X (旧Twitter)</Link></li>
-              <li className="hover:text-gray-500"><Link href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer">Github</Link></li>
-              <li className="hover:text-gray-500"><Link href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer">Zenn</Link></li>
+              <li className="underline hover:text-gray-500"><Link href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer">X (旧Twitter)</Link></li>
+              <li className="underline hover:text-gray-500"><Link href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer">Github</Link></li>
+              <li className="underline hover:text-gray-500"><Link href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer">Zenn</Link></li>
             </ul>
           </div>
 
@@ -135,20 +135,16 @@ export default function Home() {
 
           <ul>
             <li>
-              フリーゲーム投稿サイト GodotPlayer<br/>
-              <Link href="https://godotplayer.com" target="_blank" rel="noopener noreferrer">https://godotplayer.com</Link>
+              <Link className="hover:text-gray-500" href="https://godotplayer.com" target="_blank" rel="noopener noreferrer">フリーゲーム投稿サイト GodotPlayer</Link>
             </li>
             <li>
-              ビンゴ大会終了時間計算シュミレーター<br/>
-              <Link href="https://bingo-time-simulator.vercel.app" target="_blank" rel="noopener noreferrer">https://bingo-time-simulator.vercel.app</Link>
+              <Link className="hover:text-gray-500" href="https://bingo-time-simulator.vercel.app" target="_blank" rel="noopener noreferrer">ビンゴ大会終了時間計算シュミレーター</Link>
             </li>
             <li>
-              PCゲーム Re Painter<br/>
-              <Link href="https://store.steampowered.com/app/1096420/Re_Painter" target="_blank" rel="noopener noreferrer">https://store.steampowered.com/app/1096420/Re_Painter</Link>
+              <Link className="hover:text-gray-500" href="https://store.steampowered.com/app/1096420/Re_Painter" target="_blank" rel="noopener noreferrer">PCゲーム Re Painter</Link>
             </li>
             <li>
-              ブラウザで遊べるミニゲーム集<br/>
-              <Link href="https://unityroom.com/users/3cr10wv7fsuxmag8h594" target="_blank" rel="noopener noreferrer">https://unityroom.com/users/3cr10wv7fsuxmag8h594</Link>
+              <Link className="hover:text-gray-500" href="https://unityroom.com/users/3cr10wv7fsuxmag8h594" target="_blank" rel="noopener noreferrer">ブラウザで遊べるミニゲーム集</Link>
             </li>
           </ul>
 
