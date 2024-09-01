@@ -116,6 +116,7 @@ export default function Home() {
             <li>BtoBtoCサイトの画像配信システムをAWS S3とCloudFrontで構築</li>
             <li>自社ECサイト向けREST APIの新規実装とPHPUnit導入</li>
             <li>GMOペイメントゲートウェイを利用したクレジットカード決済に3DS2.0を追加実装</li>
+            <li>自社ECサイトにGMOペイメントゲートウェイを利用してd払いを追加実装</li>
           </ul>
           <img className="w-full" src="/systemdiagram2.png" alt="systemdiagram2"/>
 
