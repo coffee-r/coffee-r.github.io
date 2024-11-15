@@ -1,183 +1,227 @@
-import Link from "next/link";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import Image from "next/image"
+import Link from "next/link"
 
-export default function Home() {
+export default function ProfilePage() {
   return (
-    <div className="max-w-screen-lg mx-auto px-4">
-      <div className="flex flex-col md:flex-row justify-between mt-8 md:mt-10">
-
-        <aside className="text-center hidden md:block md:w-1/4">
-          <img className="mx-auto w-24" src="/avator.jpeg" alt="avator"/>
-          <div className="md:mt-2 md:mb-6">
-              <h1 className="font-bold">こーひーあーる</h1>
-              <h1>バックエンドエンジニア</h1>
-          </div>
-          <nav>
-            <ul className="mt-3 flex justify-around flex-col">
-              <li className="mb-1"><Link className="underline hover:text-gray-500" href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer">X (旧Twitter)</Link></li>
-              <li className="mb-1"><Link className="underline hover:text-gray-500" href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer">Github</Link></li>
-              <li className="mb-1"><Link className="underline hover:text-gray-500" href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer">Zenn</Link></li>
-            </ul>
+    <div className="min-h-screen bg-background flex flex-col">
+      <header className="px-4 lg:px-6 h-14 flex items-center">
+        <div className="flex flex-1 items-center justify-between">
+          <nav className="flex items-center space-x-4 lg:space-x-6">
+            <Button variant="ghost" className="text-lg font-bold">
+              <Link href="/">
+                TOP
+              </Link>
+            </Button>
           </nav>
-        </aside>
-
-        <div className="flex justify-center mb-8 md:hidden">
-          <img className="w-24 h-24" src="/avator.jpeg" alt="avator" />
-          <div className="px-2 flex flex-col justify-center leading-normal">
-            <h5 className="font-bold text-xl">こーひーあーる</h5>
-            <p className="text-xl">バックエンドエンジニア</p>
-            <ul className="mt-1 flex justify-between">
-              <li className="underline hover:text-gray-500"><Link href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer">X (旧Twitter)</Link></li>
-              <li className="underline hover:text-gray-500"><Link href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer">Github</Link></li>
-              <li className="underline hover:text-gray-500"><Link href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer">Zenn</Link></li>
-            </ul>
+          <div className="flex items-center space-x-4">
+            <a href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer">
+              <Image src="/github.svg" width={20} height={20} alt="GitHub" />
+            </a>
+            <a href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer">
+              <Image src="/x.svg" width={20} height={20} alt="X" />
+            </a>
+            <a href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer">
+              <Image src="/zenn.svg" width={20} height={20} alt="Zenn" />
+            </a>
           </div>
-
         </div>
-        
-        <article className="prose mx-auto">
-
-          <h3>プロフィール</h3>
-
-          <p>
-            工業大学で材料工学を学んでいましたが、就職活動にはあまり力を入れていませんでした。大学の教授にプログラミングを勧められたことで、専攻とは違う分野に興味を持ち、Webシステム開発の道に進みました。ものづくりが好きで、気が向いたときには個人開発にもチャレンジしています。
-          </p>
-
-          <h3>キャリア</h3>
-
-          <ul className="timeline timeline-vertical timeline-compact not-prose">
-            <li>
-              <div className="timeline-start">Webシステム開発会社 (2015/4 ~ 2018/6)</div>
-              <div className="timeline-middle">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><circle cx="10" cy="10" r="6" fill="#474e59"></circle></svg>
+      </header>
+      <main className="flex-1">
+        <section className="w-full py-12 md:py-16 lg:py-24">
+          <div className="w-full px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <Image
+                src="/avator.jpeg"
+                width={200}
+                height={200}
+                alt="こーひーあーる"
+                className="rounded-full"
+              />
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                  こーひーあーる
+                </h1>
+                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+                  気まぐれITエンジニア
+                </p>
               </div>
-              <div className="timeline-end pb-6">モバイルブラウザゲーム事業部でPHPエンジニアとして、Webアプリケーションの保守・追加開発、スロークエリの解消、カスタマーサポート業務を担当しました。</div>
-              <hr/>
-            </li>
-            <li>
-              <hr/>
-              <div className="timeline-start">個人プロジェクト (2018/7 ~ 2019/6)</div>
-              <div className="timeline-middle">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><circle cx="10" cy="10" r="6" fill="#474e59"></circle></svg>
-              </div>
-              <div className="timeline-end pb-6">Unityを使って個人ゲームの開発に取り組み、ゲームの設計からグラフィックス、プログラミング、宣伝、販売まで一手に行いました。</div>
-              <hr/>
-            </li>
-            <li>
-              <hr/>
-              <div className="timeline-start">嗜好品・健康品 通販会社 (2019/7 ~ 2022/4)</div>
-              <div className="timeline-middle">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><circle cx="10" cy="10" r="6" fill="#474e59"></circle></svg>
-              </div>
-              <div className="timeline-end pb-6">情報システム部門でPHPエンジニアとして、Webシステムの改修や機能移植、テストの導入、AWSへの移行などを担当しました。</div>
-              <hr/>
-            </li>
-            <li>
-              <hr/>
-              <div className="timeline-start">休職 (2022/5 ~ 2023/8)</div>
-              <div className="timeline-middle">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><circle cx="10" cy="10" r="6" fill="#474e59"></circle></svg>
-              </div>
-              <div className="timeline-end pb-6">精神疾患のため療養し、回復に専念しました。</div>
-              <hr/>
-            </li>
-            <li>
-              <hr/>
-              <div className="timeline-start">嗜好品・健康品 通販会社 (2023/9 ~)</div>
-              <div className="timeline-middle">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><circle cx="10" cy="10" r="6" fill="#474e59"></circle></svg>
-              </div>
-              <div className="timeline-end pb-6">情報システム部門でPHPエンジニアとして復帰し、システムの保守・改善に取り組んでいます。</div>
-            </li>
-          </ul>
-
-          <h3>仕事でやってきたこと</h3>
-
-          <h4>Webシステム開発会社 モバイルブラウザゲーム事業部</h4>
-          <ul>
-            <li>既存イベント・キャンペーンのWebシステム保守と改修</li>
-            <li>不具合発生時の補填作業や運用対応</li>
-            <li>MySQLサーバーのスロークエリ解消と負荷軽減</li>
-            <li>排他制御未実装によるデータ不整合の軽減</li>
-            <li>ゲームプランナー向けCMSのWebシステム開発</li>
-            <li>新規イベント・キャンペーンのWebシステム追加開発</li>
-            <li>ユーザーデータ調査からエンドユーザーへの返信メール作成までのカスタマーサポート業務</li>
-            <li>テスター協力会社の工数管理</li>
-          </ul>
-          <img className="w-full" src="/systemdiagram1.png" alt="systemdiagram1"/>
-          
-          <h4>嗜好品・健康品 通販会社 情報システム部門</h4>
-          <ul>
-            <li>関連会社のHPをWordPressで制作</li>
-            <li>LINEソーシャルログイン、クーポン機能、商品レビュー機能を別のECサイトへ移植</li>
-            <li>法定停電時のオンプレミスサーバー保守</li>
-            <li>自社ECサイトのPHPバージョンアップ（5系→7系）、CodeIgniterバージョンアップ（2系→3系）</li>
-            <li>Seleniumを用いたE2Eテストの導入</li>
-            <li>オンプレミスのDNSサーバーからAWS Route53への移行</li>
-            <li>BtoBtoCサイトの画像配信システムをAWS S3とCloudFrontで構築</li>
-            <li>自社ECサイト向けREST APIの新規実装とPHPUnit導入</li>
-            <li>GMOペイメントゲートウェイを利用したクレジットカード決済に3DS2.0を追加実装</li>
-            <li>自社ECサイトにGMOペイメントゲートウェイを利用してd払いを追加実装</li>
-          </ul>
-          <img className="w-full" src="/systemdiagram2.png" alt="systemdiagram2"/>
-
-          <h3>仕事でやっていきたいこと</h3>
-          <p>
-            ソーシャルゲームのプロジェクトではバグ修正を後回しにして売り上げだけを追求するチームにいました。
-            カスタマーサポートもやっていたこともあり、エンドユーザーから厳しい意見を毎日頂いていました。<br/>
-            通販会社のシステムでは20年前から稼働しているPHP製Webアプリケーションがあり、複雑なコードと仕様に圧倒され、修正や追加開発に疲弊していました。<br/><br/>
-            このような経験から、
-            <ul>
-              <li>自分がユーザーだとしてもお金を払って安心して使用できる</li>
-              <li>長期的にメンテナンスしやすい</li>
-            </ul>
-            システムを提供できるような提案や行動をしたいです。<br/>
-          </p>
-
-          <h3>資格</h3>
-
-          <ul>
-            <li>IPA ネットワークスペシャリスト試験 (2024/7 合格)</li>
-            <li>IPA 応用情報技術者試験 (2023/6 合格)</li>
-            <li>IPA 基本情報技術者試験 (2022/11 合格)</li>
-            <li>AWS Certified Solutions Architect - Associate (2020/4,2023/4 合格)</li>
-            <li>PHP5初級技術者 (2017/5 合格)</li>
-            <li>OSS-DB Silver (2015/8 合格)</li>
-            <li>LPICレベル1 (2015/7 合格)</li>
-          </ul>
-
-          <h3>個人開発</h3>
-
-          <ul>
-            <li>
-              <Link className="hover:text-gray-500" href="https://godotplayer.com" target="_blank" rel="noopener noreferrer">フリーゲーム投稿サイト GodotPlayer</Link>
-            </li>
-            <li>
-              <Link className="hover:text-gray-500" href="https://bingo-time-simulator.vercel.app" target="_blank" rel="noopener noreferrer">ビンゴ大会終了時間計算シュミレーター</Link>
-            </li>
-            <li>
-              <Link className="hover:text-gray-500" href="https://store.steampowered.com/app/1096420/Re_Painter" target="_blank" rel="noopener noreferrer">PCゲーム Re Painter</Link>
-            </li>
-            <li>
-              <Link className="hover:text-gray-500" href="https://unityroom.com/users/3cr10wv7fsuxmag8h594" target="_blank" rel="noopener noreferrer">ブラウザで遊べるミニゲーム集</Link>
-            </li>
-          </ul>
-
-          <h3>趣味</h3>
-
-          <p>
-            自然と触れ合うアウトドアが好きです。
-          </p>
-
-          <img className="w-full" src="/yarigatake.jpeg" alt="yarigatake"/>
-
-        </article>
-
-      </div>
-
-      <footer className="mt-12 mb-4 text-center">
-        <p>&copy; 2024 coffee-r</p>
+            </div>
+            <div className="mx-auto max-w-3xl mt-12">
+              <Card>
+                <CardHeader>
+                  <CardTitle>自己紹介</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    事業会社でWebサービスの開発を仕事としています、こーひーあーると申します。
+                    大学時代にラテアート作りを嗜んでたんでこの名前になってますが、最近はコーヒー愛薄れてきてます、すまんな...。
+                    ものづくりが好きで、気が向いたときには個人開発にもチャレンジしています。
+                    最近のマイブームは登山とキャンプです。
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="w-full px-16 md:px-32">
+            <div className="flex flex-col items-center space-y-4">
+              <Image
+                src="/yarigatake.jpeg"
+                width={1200}
+                height={900}
+                alt="登山の風景"
+                className="rounded-lg object-cover w-full"
+              />
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+          <div className="w-full px-4 md:px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">興味や関心があるもの</h2>
+            <div className="grid gap-6 lg:grid-cols-6">
+              <Card className="col-start-2 col-span-2">
+                <CardHeader>
+                  <CardTitle>技術</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-wrap gap-2">
+                  <Badge>バックエンド開発</Badge>
+                  <Badge>ゲーム開発</Badge>
+                  <Badge>個人開発</Badge>
+                  <Badge>チーム開発</Badge>
+                  <Badge>PHP</Badge>
+                  <Badge>Go</Badge>
+                  <Badge>Kotlin</Badge>
+                  <Badge>Unity</Badge>
+                  <Badge>Godot</Badge>
+                  <Badge>IPA 試験</Badge>
+                  <Badge>チームにバフをかける</Badge>
+                </CardContent>
+              </Card>
+              <Card className="col-start-4 col-span-2">
+                <CardHeader>
+                  <CardTitle>趣味</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-wrap gap-2">
+                  <Badge>トレッキング</Badge>
+                  <Badge>キャンプ</Badge>
+                  <Badge>釣り</Badge>
+                  <Badge>読書</Badge>
+                  <Badge>暴飲暴食</Badge>
+                  <Badge>ブルーアーカイブ</Badge>
+                  <Badge>睡眠</Badge>
+                  <Badge>メンタルケア</Badge>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="w-full px-4 md:px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">個人開発したもの</h2>
+            <div className="grid gap-6 lg:grid-cols-2">
+              <Card>
+                <CardHeader>
+                  <CardTitle>フリーゲーム投稿サイト GodotPlayer</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    GodotEngineに対応したブラウザゲーム投稿サイト
+                  </p>
+                  <Button className="mt-4" variant="outline">
+                    <a href="https://godotplayer.com" target="_blank" rel="noopener noreferrer">
+                      サイトへ
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>ビンゴ大会終了時間シュミレーター</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    宴会とかで使えるツール
+                  </p>
+                  <Button className="mt-4" variant="outline">
+                    <a href="https://bingo-time-simulator.vercel.app" target="_blank" rel="noopener noreferrer">
+                      サイトへ
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>PCゲーム Re Painter</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    自分の書いたイラストが必殺技になるアクションミニゲーム
+                  </p>
+                  <Button className="mt-4" variant="outline">
+                    <a href="https://store.steampowered.com/app/1096420/Re_Painter" target="_blank" rel="noopener noreferrer">
+                      Steamへ
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>ブラウザで遊べるUnity製ミニゲーム集</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    3分くらい暇つぶしできるものを作ってあります
+                  </p>
+                  <Button className="mt-4" variant="outline">
+                    <a href="https://unityroom.com/users/3cr10wv7fsuxmag8h594" target="_blank" rel="noopener noreferrer">
+                      unityroomへ
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+          <div className="w-full px-4 md:px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">リンク</h2>
+            <div className="flex justify-center space-x-4">
+              <Button asChild variant="outline">
+                <a href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer">
+                  <Image src="/github.svg" width={20} height={20} alt="GitHub" /> GitHub
+                </a>
+              </Button>
+              <Button asChild variant="outline">
+                <a href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer">
+                  <Image src="/x.svg" width={20} height={20} alt="X" /> X (旧Twitter)
+                </a>
+              </Button>
+              <Button asChild variant="outline">
+                <a href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer">
+                  <Image src="/zenn.svg" width={20} height={20} alt="Zenn" /> Zenn
+                </a>
+              </Button>
+            </div>
+            <p className="text-center text-gray-500 dark:text-gray-400 my-6">採用ご担当様はレジュメをご覧ください。</p>
+            <div className="flex justify-center space-x-4">
+              <Button asChild variant="outline">
+                <Link href="/resume">
+                  レジュメ
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          © 2024 こーひーあーる
+        </p>
       </footer>
-
     </div>
-  );
+  )
 }
