@@ -315,6 +315,28 @@ export default function ResumePage() {
             </ul>
           </section>
         </div>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+          <div className="w-full px-4 md:px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">リンク</h2>
+            <div className="flex justify-center space-x-4">
+              <Button asChild variant="outline">
+                <a href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer">
+                  <Image src="/github.svg" width={20} height={20} alt="GitHub" /> GitHub
+                </a>
+              </Button>
+              <Button asChild variant="outline">
+                <a href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer">
+                  <Image src="/x.svg" width={20} height={20} alt="X" /> X (旧Twitter)
+                </a>
+              </Button>
+              <Button asChild variant="outline">
+                <a href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer">
+                  <Image src="/zenn.svg" width={20} height={20} alt="Zenn" /> Zenn
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-gray-500 dark:text-gray-400">
