@@ -75,6 +75,9 @@ export default function ResumePage() {
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                   Webサービスを支えるバックエンドエンジニア
                 </p>
+                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+                  チームの力を引き出せるエンジニアを目指してます
+                </p>
               </div>
             </div>
             </div>
@@ -270,12 +273,12 @@ export default function ResumePage() {
                 <p className="mb-2">チーム規模: 4名 (内、部長1名、エンジニア2名)</p>
                 <p className="mb-2">役割: エンジニア</p>
                 <p className="mb-2">期間: 2021年頃 - 2022年5月</p>
-                <p className="mb-4">概要: ビジネスモデルが同じ複数のECサイトで利用できるWebAPIを開発し、ECサイトを横展開できるようにする。</p>
+                <p className="mb-4">概要: 複数のECサイトで利用できるWebAPIを開発し、ビジネスモデルが同じECサイトを横展開できるようにする。</p>
                 <h4 className="font-bold mb-2">担当工程:</h4>
                 <ul className="list-disc pl-5">
-                  <li>Stoplight Studioを用いたOpenAPI仕様書の作成</li>
+                  <li>エンドポイントの設計、Stoplight Studioを用いたOpenAPI仕様書の作成</li>
                   <li>自社ECアプリケーションのプログラムの解読</li>
-                  <li>CodeIgniter3を用いたRESTishなWebAPIの設計・開発</li>
+                  <li>CodeIgniter3を用いたRESTishなWebAPIの実装</li>
                 </ul>
               </CardContent>
             </Card>
@@ -380,7 +383,7 @@ export default function ResumePage() {
                   ブラウザで遊べるミニゲーム集
                 </a>
                 <p className="text-sm text-gray-600">
-                  使用技術: Unity
+                  使用技術: Unity, C#
                 </p>
               </li>
             </ul>
@@ -398,16 +401,23 @@ export default function ResumePage() {
               <li>LPICレベル1 (2015/7 合格)</li>
             </ul>
           </section>
+          
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold mb-4">学歴</h2>
+            <p>2015年3月 芝浦工業大学 材料工学専攻 学部卒</p>
+          </section>
 
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-4">これからできるようになりたいこと</h2>
+            <h2 className="text-3xl font-bold mb-4">今後の目標</h2>
             <ul className="list-disc pl-5 space-y-2">
-              <li>PHP以外のバックエンド言語を1つ以上商業的に使いこなせる</li>
+              <li>チームメンバーの成長や成果を後押しする存在。プロマネやテックリードのポジションではなくとも、積極的に知識共有やサポートを行い、メンバーのスキル向上や業務効率化を促進。</li>
+              <li>PHP以外のバックエンド言語を1つ以上商業的に使いこなせる (Go、サーバーサイドKotlinなど)</li>
               <li>パブリッククラウドでWebサービスの環境構築ができる</li>
               <li>IPA 高度情報技術者試験に4つ合格している</li>
-              <li>週1出社程度のリモートワーク</li>
-              <li>技術ブログ執筆の促進</li>
-              <li>OSSにちょこっと貢献 (数行直すとか翻訳とか)</li>
+              <li>週1出社程度のリモートワークを実現</li>
+              <li>自他ともにメンタルヘルスのケアができる人物</li>
+              <li>技術ブログを定期的に執筆し、ナレッジ共有を促進</li>
+              <li>OSSにちょこっと貢献 (翻訳プロジェクトや小規模なコード修正を通じて)</li>
             </ul>
           </section>
         </div>
