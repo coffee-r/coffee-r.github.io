@@ -181,9 +181,9 @@ export default function ResumePage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4">職務経歴</h2>
             <ul className="list-disc pl-5 space-y-2">
-              <li>2023年9月 - 現在 / 株式会社Gnzo / ECサイトへ決済サービス導入、RESTtishなWebAPI、テスト自動化など</li>
+              <li>2023年9月 - 現在 / 株式会社Gnzo / ECサイトの決済機能改良、RESTtishなWebAPI、テスト自動化など</li>
               <li>2022年6月 - 2023年8月 / 休職 / 回復に専念</li>
-              <li>2019年7月 - 2022年5月 / 株式会社Gnzo / ECサイトの開発・運用、RESTtishなWebAPI、BtoBtoCサイト開発、AWS移行</li>
+              <li>2019年7月 - 2022年5月 / 株式会社Gnzo / ECサイトの開発・運用、RESTtishなWebAPI、BtoBtoCサイト開発、DNSサーバ移行</li>
               <li>2018年7月 - 2019年6月 /  個人ゲーム開発者 / Unityを使用したゲーム制作および販売</li>
               <li>2015年4月 - 2018年6月 / 株式会社テンダ / ブラウザソーシャルゲームの開発・運用</li>
             </ul>
