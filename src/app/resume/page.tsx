@@ -101,7 +101,7 @@ export default function ResumePage() {
                 </CardHeader>
                 <CardContent>
                   <ul className="list-disc pl-5">
-                    <li>PHP: 7年の実務経験 + 1年の個人開発経験</li>
+                    <li><strong>PHP: 7年の実務経験 + 1年の個人開発経験</strong></li>
                     <li>Python: Seleniumを用いたE2Eテストの作成経験あり</li>
                     <li>Shell: サーバ運用手順を自動化し、1コマンドで実行できるスクリプトを作成</li>
                     <li>C# (Unity): 2年の個人開発経験</li>
