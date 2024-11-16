@@ -271,7 +271,7 @@ export default function ResumePage() {
               </CardHeader>
               <CardContent>
                 <p className="mb-2">チーム規模: 4名 (内、部長1名、エンジニア2名)</p>
-                <p className="mb-2">役割: エンジニア</p>
+                <p className="mb-2">役割: 設計・実装・テスト担当</p>
                 <p className="mb-2">期間: 2021年頃 - 2022年5月</p>
                 <p className="mb-4">概要: 複数のECサイトで利用できるWebAPIを開発し、ビジネスモデルが同じECサイトを横展開できるようにする。</p>
                 <h4 className="font-bold mb-2">担当工程:</h4>
@@ -320,7 +320,7 @@ export default function ResumePage() {
               </CardHeader>
               <CardContent>
                 <p className="mb-2">チーム規模: 2名 (内 部長1名)</p>
-                <p className="mb-2">役割: 移行計画・移行作業担当</p>
+                <p className="mb-2">役割: 実装・テスト者</p>
                 <p className="mb-2">時期: 2020年</p>
                 <p className="mb-4">概要: 自社で使用しているOracleDBのバージョンアップに合わせて、自社ECサイトのPHPバージョンアップ（5系→7系）、CodeIgniterバージョンアップ（2系→3系）を実施</p>
                 <h4 className="font-bold mb-2">担当工程:</h4>
@@ -413,6 +413,7 @@ export default function ResumePage() {
               <li>チームメンバーの成長や成果を後押しする存在。プロマネやテックリードのポジションではなくとも、積極的に知識共有やサポートを行い、メンバーのスキル向上や業務効率化を促進。</li>
               <li>PHP以外のバックエンド言語を1つ以上商業的に使いこなせる (Go、サーバーサイドKotlinなど)</li>
               <li>パブリッククラウドでWebサービスの環境構築ができる</li>
+              <li>レガシーなシステムをよしなに改良できる</li>
               <li>IPA 高度情報技術者試験に4つ合格している</li>
               <li>週1出社程度のリモートワークを実現</li>
               <li>自他ともにメンタルヘルスのケアができる人物</li>
