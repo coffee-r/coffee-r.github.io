@@ -174,6 +174,9 @@ export default function ResumePage() {
                   <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                     Webサービスを支えるバックエンドエンジニア
                   </p>
+                  <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+                    game.developer.ryo@gmail.com
+                  </p>
                 </div>
               </div>
             </div>
