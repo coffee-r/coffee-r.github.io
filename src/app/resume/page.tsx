@@ -211,7 +211,6 @@ export default function ResumePage() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => toggleCard(index)}
                     aria-expanded={expandedCards.includes(index)}
                   >
                     {expandedCards.includes(index) ? (
