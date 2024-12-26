@@ -290,6 +290,7 @@ export default function ResumePage() {
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">資格</h2>
             <ul className="list-disc pl-5 space-y-2">
+              <li>IPA データベーススペシャリスト試験 (2024/12 合格)</li>
               <li>IPA ネットワークスペシャリスト試験 (2024/7 合格)</li>
               <li>IPA 応用情報技術者試験 (2023/6 合格)</li>
               <li>IPA 基本情報技術者試験 (2022/11 合格)</li>
