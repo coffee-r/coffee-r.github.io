@@ -125,6 +125,21 @@ export default function ProfilePage() {
             <div className="grid gap-6 lg:grid-cols-2">
               <Card>
                 <CardHeader>
+                  <CardTitle>Webゲーム置き場 TsumikiKichi</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    気軽にWebゲームを置いておける場所
+                  </p>
+                  <Button className="mt-4" variant="outline">
+                    <a href="https://tsumiki-kichi.com" target="_blank" rel="noopener noreferrer">
+                      サイトへ
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
                   <CardTitle>フリーゲーム投稿サイト GodotPlayer</CardTitle>
                 </CardHeader>
                 <CardContent>

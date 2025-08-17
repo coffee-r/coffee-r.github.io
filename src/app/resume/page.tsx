@@ -21,10 +21,27 @@ export default function ResumePage() {
 
   const projects = [
     {
+      title : "ECモールのフルフィルメント化",
+      team : "チーム規模: 6名 (内、部長1名、要件定義・サービス設計1名、フロントエンド1名、バックエンド2名) ※企画部門や倉庫部門含めると数十名",
+      role : "役割: バックエンド 機能開発担当",
+      time : "期間: 2025年7月 - 現在",
+      description : "概要: Yahoo/楽天型の自社ECモールを、AmazonライクなECモールにする",
+      roleTasks : [
+        "企画・倉庫・カスタマー・販売管理・経理などが関わる業務フロー図を書いてみた",
+        "業務フロー図に基づいてシステムと利用者の全体像を把握できるユースケース図の作成",
+        "ユースケース図に基づいて開発が必要な機能一覧の作成",
+        "商品登録・変更の仕様叩き作成",
+        "ERPの受注データをWebAPIを介してWebサイトから取得する仕様の叩き作成",
+        "倉庫保管手数料を算出するための倉庫保管実績の記録仕様の叩き作成",
+        "ECモールWebアプリケーションのバックエンド実装",
+        "ECモールの管理Webアプリケーションのバックエンド実装",
+      ]
+    },
+    {
       title : "SOAP WebAPIのリプレイス",
-      team : "チーム規模: 現在2名 (内、部長1名)",
+      team : "チーム規模: 2名 (内、部長1名、別機能担当エンジニア2名)",
       role : "役割: メインエンジニア",
-      time : "期間: 2024年9月 - 現在",
+      time : "期間: 2024年9月 - 2025年6月 (内7ヶ月間稼働)",
       description : "概要: 10年以上前に協力会社により作成された、ERPと各種アプリケーションを連携させているSOAPプロトコルのWebAPIを内製化し、RESTishなWebAPIにリプレイスするプロジェクト。エラーレートの削減による機会損失の低減、機能要件に自社で対応できるようにすることを目的としています。",
       roleTasks : [
         "タスクの洗い出しおよび進捗管理",
@@ -35,6 +52,7 @@ export default function ResumePage() {
         "プログラムの解析を元にLaravelで再実装",
         "OpenAPI仕様書と実装が乖離していないかのPHPUnit実装",
         "GitLab CI/CDパイプラインの構築",
+        "各種クライアントで、旧APIから作ったAPIへ呼び出しを切り替える作業"
       ]
     },
     {
@@ -64,7 +82,7 @@ export default function ResumePage() {
     {
       title : "社内LTの主催",
       team : "チーム規模: 10名程度 (内、部長1名、ITエンジニア8名)",
-      role : "役割: メインエンジニア",
+      role : "役割: 企画・主担当",
       time : "期間: 2023年10月 - 2024年9月",
       description : "概要: チームの技術力を上げて高品質なサービスを提供するため、社内LTを主催。",
       roleTasks : [
@@ -108,7 +126,7 @@ export default function ResumePage() {
     {
       title : "自社ECアプリケーションのPHPおよびCodeIgniterのバージョンアップ",
       team : "チーム規模: 2名 (内 部長1名)",
-      role : "役割: 実装・テスト者",
+      role : "役割: 実装・テスト",
       time : "時期: 2020年",
       description : "概要: 自社で使用しているOracleDBのバージョンアップに合わせて、自社ECサイトのPHPバージョンアップ（5系→7系）、CodeIgniterバージョンアップ（2系→3系）を実施。",
       roleTasks : [
@@ -184,7 +202,7 @@ export default function ResumePage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4">職務経歴</h2>
             <ul className="list-disc pl-5 space-y-2">
-              <li>2023年9月 - 現在 / 株式会社Gnzo / ECサイトの決済機能改良、RESTishなWebAPI、テスト自動化など</li>
+              <li>2023年9月 - 現在 / 株式会社Gnzo / ECサイトの決済機能改良、ECモールのフルフィルメント化、RESTishなWebAPI、テスト自動化など</li>
               <li>2022年6月 - 2023年8月 / 休職 / 回復に専念</li>
               <li>2019年7月 - 2022年5月 / 株式会社Gnzo / ECサイトの開発・運用、RESTishなWebAPI、BtoBtoCサイト開発、DNSサーバ移行</li>
               <li>2018年7月 - 2019年6月 /  個人ゲーム開発者 / Unityを使用したゲーム制作および販売</li>
@@ -196,7 +214,7 @@ export default function ResumePage() {
             <h2 className="text-2xl font-bold mb-4">スキルセット</h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>言語: PHP (7年), Python, Shell, C# (Unity)</li>
-              <li>フレームワーク: CodeIgniter (4年), Laravel (1年), Unity (2年)</li>
+              <li>フレームワーク: CodeIgniter3 (4年), Laravel (1年), Unity (2年)</li>
               <li>インフラ: AWS (半年), CentOS, AlmaLinux, Apache, NGINX</li>
               <li>データベース: MySQL (3年), OracleDB (3年), SQL Server (1年)</li>
             </ul>
@@ -252,6 +270,14 @@ export default function ResumePage() {
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">個人開発</h2>
             <ul className="list-disc pl-5 space-y-4">
+              <li>
+                <a className="hover:text-gray-500" target="_blank" rel="noopener noreferrer" href="https://tsumiki-kichi.com">
+                  Webゲーム置き場 TsumikiKichi
+                </a>
+                <p className="text-sm text-gray-600">
+                  使用技術: Laravel、React、TailwindCSS、Golang (Echo)　※開発に際して生成AI(Claude)を活用しています
+                </p>
+              </li>
               <li>
                 <a className="hover:text-gray-500" target="_blank" rel="noopener noreferrer" href="https://godotplayer.com">
                   フリーゲーム投稿サイト GodotPlayer
@@ -309,7 +335,7 @@ export default function ResumePage() {
               <li>無理せず長く働き続けたい</li>
               <li>チームメンバーに対して知見共有やサポートをしながら安定的に開発できる環境を望む</li>
               <li>週1出社程度のリモートワークを実現 (家族との時間を大切にしたい)</li>
-              <li>IPA 高度情報技術者試験に4つ合格を目標</li>
+              <li>IPA システムアーキテクト・情報処理安全確保支援士 試験合格</li>
               <li>PHP以外のことも少しはできるようになっておきたい</li>
               <li>パブリッククラウドで簡単なWebサービスの環境構築をできるように</li>
               <li>歴史あるシステムをよしなに改良できるように</li>
