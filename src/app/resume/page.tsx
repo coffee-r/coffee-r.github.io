@@ -39,7 +39,7 @@ export default function ResumePage() {
     },
     {
       title : "SOAP WebAPIのリプレイス",
-      team : "チーム規模: 2名 (内、部長1名、別機能担当エンジニア2名)",
+      team : "チーム規模: 4名 (内、部長1名、別機能担当エンジニア2名)",
       role : "役割: メインエンジニア",
       time : "期間: 2024年9月 - 2025年6月 (内7ヶ月間稼働)",
       description : "概要: 10年以上前に協力会社により作成された、ERPと各種アプリケーションを連携させているSOAPプロトコルのWebAPIを内製化し、RESTishなWebAPIにリプレイスするプロジェクト。エラーレートの削減による機会損失の低減、機能要件に自社で対応できるようにすることを目的としています。",
@@ -199,12 +199,11 @@ export default function ResumePage() {
               </div>
             </div>
           </section>
+
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4">職務経歴</h2>
             <ul className="list-disc pl-5 space-y-2">
-              <li>2023年9月 - 現在 / 株式会社Gnzo / ECサイトの決済機能改良、ECモールのフルフィルメント化、RESTishなWebAPI、テスト自動化など</li>
-              <li>2022年6月 - 2023年8月 / 休職 / 回復に専念</li>
-              <li>2019年7月 - 2022年5月 / 株式会社Gnzo / ECサイトの開発・運用、RESTishなWebAPI、BtoBtoCサイト開発、DNSサーバ移行</li>
+              <li>2019年7月 - 現在 / 株式会社Gnzo / ECサイトの開発・運用、RESTishなWebAPI、BtoBtoCサイト開発、DNSサーバ移行</li>
               <li>2018年7月 - 2019年6月 /  個人ゲーム開発者 / Unityを使用したゲーム制作および販売</li>
               <li>2015年4月 - 2018年6月 / 株式会社テンダ / ブラウザソーシャルゲームの開発・運用</li>
             </ul>
@@ -333,12 +332,23 @@ export default function ResumePage() {
             <h2 className="text-2xl font-bold mb-4">今後の展望</h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>無理せず長く働き続けたい</li>
-              <li>チームメンバーに対して知見共有やサポートをしながら安定的に開発できる環境を望む</li>
-              <li>週1出社程度のリモートワークを実現 (家族との時間を大切にしたい)</li>
+              <li>神奈川にある実家近くに住み、定期的に両親や兄弟とコミュニケーションを取りたい</li>
+              <li>テックリード的な存在を目指しており、現場の課題を踏まえた設計をしたい</li>
               <li>IPA システムアーキテクト・情報処理安全確保支援士 試験合格</li>
-              <li>PHP以外のことも少しはできるようになっておきたい</li>
+              <li>PHP以外にバックエンド言語を1つ使いこなせるように</li>
+              <li>TypeScriptベースのWebフロントエンドを最低限触れるように</li>
               <li>パブリッククラウドで簡単なWebサービスの環境構築をできるように</li>
               <li>歴史あるシステムをよしなに改良できるように</li>
+            </ul>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold mb-4">その他</h2>
+            <p className='mb-4'>健康上の理由により、下記期間で休職しております。クリニックに通いながら、安定した就労を目指しています。</p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>2025年9月 - 現在</li>
+              <li>2025年2月 - 2025年4月</li>
+              <li>2022年6月 - 2023年8月</li>
             </ul>
           </section>
         </div>
