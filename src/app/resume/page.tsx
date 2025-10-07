@@ -26,15 +26,31 @@ export default function ResumePage() {
       role : "役割: バックエンド 機能開発担当",
       time : "期間: 2025年7月 - 現在",
       description : "概要: Yahoo/楽天型の自社ECモールを、AmazonライクなECモールにする",
-      roleTasks : [
-        "企画・倉庫・カスタマー・販売管理・経理などが関わる業務フロー図を書いてみた",
-        "業務フロー図に基づいてシステムと利用者の全体像を把握できるユースケース図の作成",
-        "ユースケース図に基づいて開発が必要な機能一覧の作成",
+      challenge : [
+        "開発担当としてアサインされたもののシステム全体像が不明瞭で何を開発すればいいかわからない状態だった",
+        "ERPシステムの制約（仕様変更すると在庫管理・販売管理が影響を受け、部門業務の変更が必要になる）",
+        "業務フローは存在したが、開発可能な粒度まで落とし込まれていない"
+      ],
+      actions : [
+        "既存の業務フロー図を分析し、開発可能な粒度まで再整理",
+        "企画・倉庫・カスタマー・販売管理・経理など、関係部門を網羅した業務フロー図を作成",
+        "業務フローからシステム接点を抽出し、ユースケース図を作成",
+        "ユースケース図から開発が必要な機能一覧を作成し、スケジュール表に落とし込み",
+        "ERPパッケージ運用担当にヒアリングし、制約条件を明確化",
+        "WebAPI経由でERPの受注データを取得する仕様を設計（ERP変更を回避）",
         "商品登録・変更の仕様叩き作成",
-        "ERPの受注データをWebAPIを介してWebサイトから取得する仕様の叩き作成",
-        "倉庫保管手数料を算出するための倉庫保管実績の記録仕様の叩き作成",
-        "ECモールWebアプリケーションのバックエンド実装",
-        "ECモールの管理Webアプリケーションのバックエンド実装",
+        "倉庫保管手数料算出のための記録仕様を作成",
+        "ECモールWebアプリ・管理アプリのバックエンド実装（初期フェーズ）"
+      ],
+      results : [
+        "業務フロー・ユースケース図により、システム全体像を可視化",
+        "開発スコープを明確化し、「何をすれば完了か」をチーム全体で共有",
+        "ERP制約を整理し、既存業務への影響を最小化した",
+        "納品計画登録画面のバックエンド実装を完了",
+      ],
+      learnings : [
+        "曖昧な要件を図解で可視化することで、関係者の認識を揃えられることを実感",
+        "既存のシステムを活用する際には制約条件を確認しておく必要性を学んだ",
       ]
     },
     {
@@ -43,17 +59,35 @@ export default function ResumePage() {
       role : "役割: メインエンジニア",
       time : "期間: 2024年9月 - 2025年6月 (内7ヶ月間稼働)",
       description : "概要: 10年以上前に協力会社により作成された、ERPと各種アプリケーションを連携させているSOAPプロトコルのWebAPIを内製化し、RESTishなWebAPIにリプレイスするプロジェクト。エラーレートの削減による機会損失の低減、機能要件に自社で対応できるようにすることを目的としています。",
-      roleTasks : [
+      challenge : [
+        "ERPとその他のアプリケーションとで不整合がしばしば発覚することはわかっていたが、何が原因かはチームでわかっていなかった",
+        "ERPが稼働し続ける限りAPIも同様に稼働させ続ける必要があったので、メンテナンスしやすいアプリ構成にする必要があると感じた",
+        "これまで活用していたCodeIgniter3がメンテナンス切れていたため、バージョンを上げるかフレームワークを変える必要があった",
+        "CentOSのサポートも切れていたため、今回改めて開発するアプリの構成や実績が他でも流用される可能性があった",
+        "チームがテストコードを書く文化がなかったので、この機に布教できないかを考えていた"
+      ],
+      actions : [
+        "現行サーバのIISからアクセスログを取得し分析",
+        "AlmaLinux + Podman + NGINX + PHPFPMをベースに、いくつかプロトタイプを作り技術構成案を作成",
+        "AlmaLinuxから社内DBサーバ(Oracle、SQLServer)にCRUDできるアプリをいくつか作成",
         "タスクの洗い出しおよび進捗管理",
-        "IISのアクセスログより現状の使用状況やボトルネックの特定",
-        "Podmanを用いたコンテナ技術、AlmaLinux、PHP8系、Laravelなどの技術選定およびそれらを用いたプロトタイプの作成",
         "REST APIのエンドポイントおよびIN/OUT設計",
         "10年ほど前に作っていただいたC#製アプリケーションのプログラムの解析",
         "プログラムの解析を元にLaravelで再実装",
         "OpenAPI仕様書と実装が乖離していないかのPHPUnit実装",
         "GitLab CI/CDパイプラインの構築",
+        "LaravelPintとLarastanとPHPUnitをgit precommitで検証するスクリプトを作成",
         "各種クライアントで、旧APIから作ったAPIへ呼び出しを切り替える作業"
-      ]
+      ],
+      results : [
+        "ログ分析より、決まった時間のERPの日時処理におけるデータベースインデックス再作成のタイミングでAPIエラーが多発することを特定",
+        "CodeIgniter4かLaravelで迷ったものの、学習リソースがより充実していてメンバーがついて行きやすいだろうLaravelを選択",
+        "コンテナでもVMでもAlmaLinuxからDB接続を確認したことで、他のアプリでも構成を真似できるようにした",
+        "構成をコンテナファイル化することで部分的にIaCを実践し、オープンソースやミドルウェアのバージョンアップをしやすくした",
+        "OpenAPI仕様書と実装との差異を減らし、仕様書を信じられる状況にした",
+        "テストコードを敷くことにより世間一般で標準的な開発に寄せた",
+      ],
+      learnings : []
     },
     {
       title : "d払いの導入",
@@ -61,11 +95,16 @@ export default function ResumePage() {
       role : "役割: メインエンジニア",
       time : "期間: 2024年6月 - 2024年8月",
       description : "概要: 自社ECサイトでGMOペイメントゲートウェイの決済サービスを利用したd払いの導入。",
-      roleTasks : [
+      challenge : [],
+      actions : [
         "タスクの洗い出しおよび進捗管理",
         "自社ECサイトの決済周りのプログラム解読および影響範囲調査",
         "GMOペイメントゲートウェイのモジュールを用いた決済機能呼び出し実装",
-      ]
+      ],
+      results : [
+        "d払い決済を無事リリース、決済手段の選択肢を拡大"
+      ],
+      learnings : []
     },
     {
       title : "3Dセキュア2.0対応",
@@ -73,10 +112,22 @@ export default function ResumePage() {
       role : "役割: メインエンジニア",
       time : "期間: 2024年3月 - 2024年5月",
       description : "概要: 自社ECサイトでGMOペイメントゲートウェイの決済サービスを利用したクレジット決済に3Dセキュア2.0を対応。",
-      roleTasks : [
+      challenge : [
+        "サーバに入っている決済用PHPモジュールが古くて3DS2.0に対応していない",
+        "クレカ決済の注文を当日中にキャンセルしたい要望が別途あった",
+        "注文は完了しているが決済が未完了などの不整合をマンパワー運用でカバーしている"
+      ],
+      actions : [
         "タスクの洗い出しおよび進捗管理",
         "自社ECサイトの決済周りのプログラム解読および影響範囲調査",
+        "決済用PHPモジュールを入れ替え",
         "GMOペイメントゲートウェイのモジュールを用いた決済機能呼び出し実装",
+        "キャンセルするための一部決済データをDBに追加記録し、注文キャンセル時に読み取る"
+      ],
+      results : [],
+      learnings : [
+        "シーケンス図の読み方などを習得",
+        "結果整合性を保つための、決済結果通知方式があることを知る"
       ]
     },
     {
@@ -85,8 +136,17 @@ export default function ResumePage() {
       role : "役割: 企画・主担当",
       time : "期間: 2023年10月 - 2024年9月",
       description : "概要: チームの技術力を上げて高品質なサービスを提供するため、社内LTを主催。",
-      roleTasks : [
+      challenge : [
+        "いいビジネスをするためによりよくソフトウエアを作りたいが、そのためにチームメンバー全体のスキルアップが必要だと感じた"
+      ],
+      actions : [
         "月に1回のペースでLTとして発表をした",
+      ],
+      results : [
+        "1年間12回、スライド資料を作って発表するのをやり遂げた"
+      ],
+      learnings : [
+        "何かしらの文化を導入すること自体は楽だが、メンバーが誰一人発表しなかったので浸透させることの困難さを知った"
       ]
     },
     {
@@ -95,10 +155,22 @@ export default function ResumePage() {
       role : "役割: 設計・実装・テスト 主担当",
       time : "期間: 2021年頃 - 2022年5月",
       description : "概要: 複数のECサイトで利用できるWebAPIを開発し、ビジネスモデルが同じECサイトを横展開できるようにする。",
-      roleTasks : [
+      challenge : [
+        "共通の顧客テーブルを参照している複数のECサイトで、全く同じ機能を実装したり運用する人的コストが高い状態だった",
+        "WebAPIの開発は当時のメンバーで経験者がいなかった",
+        "WebAPIとして切り出す現行ECの機能実装が複雑怪奇で解析が困難"
+      ],
+      actions : [
+        "WebAPIの作り方について学習",
+        "現行ECサイトのPHPコードを読み、Excelに仕様を書き出していく",
         "エンドポイントの設計、Stoplight Studioを用いたOpenAPI仕様書の作成",
-        "自社ECアプリケーションのプログラムの解読",
         "CodeIgniter3を用いたRESTishなWebAPIの実装",
+      ],
+      results : [
+        "注文フォーム画面用に最適化したWebAPIを担当してリリースした"
+      ],
+      learnings : [
+        "CodeIgniter3でのRESTAPI開発が辛かったので、もう少し技術的に調べて提案すればよかったと反省",
       ]
     },
     {
@@ -107,9 +179,15 @@ export default function ResumePage() {
       role : "役割: AWS担当",
       time : "時期: 2021年",
       description : "概要: ヘルスケアなどのメーカーと一般消費者を繋ぐコミュニティサイトの開発。",
-      roleTasks : [
+      challenge : [
+        "動画コンテンツを取引先企業が無制限に登録される可能性が要件として上がったため、スケーラブルな容量を持つサーバが必要だった"
+      ],
+      actions : [
         "AWSのS3とCloudFrontを用いた静的コンテンツ配信の仕組みの構築",
-      ]
+        "AWS S3のWebAPIをPHPを使ってCALLするデモスクリプトを作って他開発者に展開"
+      ],
+      results : [],
+      learnings : []
     },
     {
       title : "オンプレミスの公開DNSサーバのクラウド移行",
@@ -117,10 +195,27 @@ export default function ResumePage() {
       role : "役割: 移行計画・移行作業 主担当",
       time : "時期: 2020年",
       description : "概要: 可用性向上のため、オンプレミスのBINDサーバで管理していたゾーンファイルをAWSのRoute53に移行。",
-      roleTasks : [
-        "仮のドメインを用いた移行方法の検証・手順の作成",
+      challenge : [
+        "社内にAWSに詳しい人材がおらず、手探りでの作業",
+        "移行失敗時は数十時間のダウンタイムが予測され、ミスが許されない",
+        "オンプレミスのリンク負荷分散構成を、Route53で再現する必要"
+      ],
+      actions : [
+        "AWSの学習・調査",
+        "DNSの仕組みについて学習・調査",
+        "会社のルートアカウントがMFA対応していなかったのを対応",
+        "仮押さえしているドメインを用いた移行方法の検証・手順の作成、練習",
         "AWSのマネジメントコンソールからRoute53でゾーンファイル作成",
-        "名前解決の委譲先をRoute53にして移行実施",
+        "名前解決の委譲先をRoute53にして、売上規模の少ないドメインから移行実施",
+        "nslookupやdigコマンドでネームサーバが変わったことを確認",
+      ],
+      results: [
+        "全ドメインを障害なく移行完了、可用性向上を実現",
+        "Route53のフェイルオーバールーティング&ヘルスチェックで、リンク負荷分散を再現",
+        "AWS SAA（Solutions Architect Associate）試験に合格"
+      ],
+      learnings : [
+        "サービス数は少ないもののAWSを使った実務経験を通してAWSの知識獲得",
       ]
     },
     {
@@ -128,23 +223,54 @@ export default function ResumePage() {
       team : "チーム規模: 2名 (内 部長1名)",
       role : "役割: 実装・テスト",
       time : "時期: 2020年",
-      description : "概要: 自社で使用しているOracleDBのバージョンアップに合わせて、自社ECサイトのPHPバージョンアップ（5系→7系）、CodeIgniterバージョンアップ（2系→3系）を実施。",
-      roleTasks : [
-        "先行して別のECサイトでバージョンアップされた方がいたので進め方を教えてもらう",
-        "同じ手法でバージョンアップ作業を実施",
+      description : "概要: OracleDBバージョンアップに合わせ、自社ECサイトのPHP（5系→7系）、CodeIgniter（2系→3系）をバージョンアップ",
+      challenge : [
+        "PHP5→7、CodeIgniter2→3で非推奨関数や仕様変更が多数",
+        "自動テストがなく、影響範囲の調査や共通関数修正時のデグレ検知が困難"
+      ],
+      actions : [
+        "先行して別ECサイトでバージョンアップした担当者から手法をヒアリング",
+        "grep検索を駆使し、非推奨関数の使用箇所を全件洗い出し",
+        "PHP5→7、CodeIgniter2→3の仕様変更に対応したコード修正",
+        "手動テストにより、主要機能の動作確認を実施",
+        "本番環境へのリリース作業"
+      ],
+      results : [
+        "ログインから注文までの主要導線については大きな障害なく移行完了"
+      ],
+      learnings : [
+        "レガシーシステムのバージョンアップには、地道な調査と確認が不可欠と学んだ",
       ]
     },
     {
       title : "ブラウザソーシャルゲームの追加開発・保守",
       team : "チーム規模: 5名 (内 ディレクター1名、プランナー1名、Webデザイナー1名、プログラマ1名)",
-      role : "役割: プログラマ",
+      role : "役割: サーバサイドのプログラマ",
       time : "期間: 2016年 - 2018年",
-      description : "概要: 版権ソーシャルゲームの追加開発・保守業務。",
-      roleTasks : [
+      description : "概要: 版権ソーシャルゲームの追加開発・保守業務",
+      challenge : [
+        "ループ内での大量SQL発行やスロークエリにより、サーバ負荷が高くゲームが重い",
+        "排他制御が未実装で、増殖バグなどのデータ不整合が発生",
+        "レガシーなコードベースで、変更・追加開発が困難"
+      ],
+      actions : [
         "新規イベント・キャンペーンのWebシステム追加開発",
-        "MySQLサーバーのスロークエリ解消と負荷軽減",
-        "排他制御未実装によるデータ不整合の軽減",
-        "ユーザーデータ調査からエンドユーザーへの返信メール作成までのカスタマーサポート業務",
+        "イベントデータをExcelからSQL化し、本番DBへ投入",
+        "MySQLのスロークエリを特定し、インデックス追加やクエリ改善で負荷軽減",
+        "排他制御を実装し、データ不整合を軽減",
+        "ユーザーデータ調査からエンドユーザーへの返信メール作成まで、カスタマーサポート業務を担当"
+      ],
+      results : [
+        "スロークエリ解消により、ゲームの体感速度が向上",
+        "排他制御実装により、データ不整合の発生頻度を削減",
+      ],
+      learnings : [
+        "DB最適化（インデックス、クエリチューニング）がサービス品質に直結することを実感",
+        "自分でサービスを使い、体験を改善する重要性を学んだ",
+        "本番に近いデータ量でSQL実行速度を検証する必要性を体験",
+        "レガシーコードベースでの開発の難しさを学んだ",
+        "毎朝DAU・売上の確認を通じて、ビジネス視点でサービスを見る重要性を学んだ",
+        "カスタマーサポート対応を通じて、不具合がユーザー体験に与える影響の大きさを実感"
       ]
     },
   ];
@@ -223,7 +349,7 @@ export default function ResumePage() {
             <h2 className="text-2xl font-bold mb-4">関わった主なプロジェクト (クリックで詳細)</h2>
             {projects.map((project, index) => (
               <Card key={index} className="mb-4">
-                <CardHeader onClick={() => toggleCard(index)} className="flex flex-row items-center justify-between">
+                <CardHeader onClick={() => toggleCard(index)} className="flex flex-row items-center justify-between cursor-pointer">
                   <CardTitle>{project.title}</CardTitle>
                   <Button
                     variant="ghost"
@@ -246,12 +372,50 @@ export default function ResumePage() {
                     <p className="mb-2">{project.role}</p>
                     <p className="mb-2">{project.time}</p>
                     <p className="mb-4">{project.description}</p>
-                    <h4 className="font-bold mb-2">担当工程:</h4>
-                    <ul className="list-disc pl-5">
-                      {project.roleTasks.map((roletask, taskIndex) => (
-                        <li key={taskIndex}>{roletask}</li>
-                      ))}
-                    </ul>
+                    
+                    {project.challenge && project.challenge.length > 0 && (
+                      <>
+                        <h4 className="font-bold mb-2">背景・課題:</h4>
+                        <ul className="list-disc pl-5 mb-4">
+                          {project.challenge.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                    
+                    {project.actions && project.actions.length > 0 && (
+                      <>
+                        <h4 className="font-bold mb-2">担当工程:</h4>
+                        <ul className="list-disc pl-5 mb-4">
+                          {project.actions.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                    
+                    {project.results && project.results.length > 0 && (
+                      <>
+                        <h4 className="font-bold mb-2">成果:</h4>
+                        <ul className="list-disc pl-5 mb-4">
+                          {project.results.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                    
+                    {project.learnings && project.learnings.length > 0 && (
+                      <>
+                        <h4 className="font-bold mb-2">学び:</h4>
+                        <ul className="list-disc pl-5">
+                          {project.learnings.map((item, idx) => (
+                            <li key={idx}>{item}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
                   </CardContent>
                 )}
               </Card>
