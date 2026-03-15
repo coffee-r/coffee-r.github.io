@@ -1,0 +1,23 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<div class="navbar bg-base-100 border-b border-base-200 px-4 lg:px-6">
+  <div class="flex-1">
+    <nav class="flex items-center gap-4">
+      <a href="/" class="btn btn-ghost text-lg font-bold">TOP</a>
+    </nav>
+  </div>
+  <div class="flex-none flex items-center gap-3">
+    <a href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-circle" title="GitHub">
+      <img src="/github.svg" width="20" height="20" alt="GitHub" />
+    </a>
+    <a href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-circle" title="X (旧Twitter)">
+      <img src="/x.svg" width="20" height="20" alt="X" />
+    </a>
+    <a href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-circle" title="Zenn">
+      <img src="/zenn.svg" width="20" height="20" alt="Zenn" />
+    </a>
+    <ThemeToggle />
+  </div>
+</div>
