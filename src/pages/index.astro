@@ -3,23 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const techSkills = [
-  "バックエンド開発", "Webサービス開発", "ゲーム開発", "個人開発", "チーム開発",
-  "PHP", "Go", "TypeScript", "Unity", "Godot", "GameMaker", "IPA 試験",
-];
-
-const hobbies = [
-  "トレッキング", "キャンプ", "釣り", "読書", "暴飲暴食",
-  "ブルーアーカイブ", "睡眠", "メンタルケア",
-];
-
 const projects = [
-  {
-    title: "Webゲーム置き場 TsumikiKichi",
-    description: "気軽にWebゲームを置いておける場所",
-    link: "https://tsumiki-kichi.com",
-    linkText: "サイトへ",
-  },
   {
     title: "フリーゲーム投稿サイト GodotPlayer",
     description: "GodotEngineに対応したブラウザゲーム投稿サイト",
@@ -47,13 +31,13 @@ const projects = [
 ];
 
 const mountains = [
-  "北穂高岳", "五竜岳", "唐松岳", "雲取山", "塔ノ岳", "蛭ヶ岳", "達磨山", "剱岳", "北岳",
+  "入笠山", "北穂高岳", "五竜岳", "唐松岳", "雲取山", "塔ノ岳", "蛭ヶ岳", "達磨山", "剱岳", "北岳",
   "間ノ岳", "硫黄岳", "赤岳", "瑞牆山", "金峰山", "谷川岳", "槍ヶ岳", "燕岳",
   "天狗岳", "石割山", "三浦富士", "陣馬山", "高尾山", "大菩薩嶺", "那須岳", "奥穂高岳",
 ];
 
 const games = [
-  "ブルーアーカイブ (制約解除決戦109くらい)", "学園アイドルマスター", "聖剣伝説2 (SFC)",
+  "ブルーアーカイブ (制約解除決戦114くらい)", "学園アイドルマスター", "聖剣伝説2 (SFC)",
   "聖剣伝説3 (SFC)", "ロマンシングサガ3 (SFC)", "ロマンシングサガ2 (SFC、未クリア)",
   "ロマンシングサガ ミンストレルソング", "ヴィジランテ8", "サガフロ1 (未クリア)",
   "サガフロ2 (未クリア)", "PUBG", "Tree of Savior", "ドラクエ3", "ドラクエ8",
@@ -71,6 +55,10 @@ const manga = [
   "ヒナまつり 全巻", "棺担ぎのクロ 全巻", "灰と幻想のグリムガム 小説いくつか",
   "少女終末旅行 全巻", "しめじシュミレーション 2巻くらい",
 ];
+
+const kendama: string[] = [];
+
+const sports: string[] = [];
 
 const books = [
   "プロジェクトマネジメントの基本が全部わかる本 交渉・タスクマネジメント・計画立案から見積り・契約・要件定義・設計・テスト・保守改善まで",
@@ -137,6 +125,8 @@ const books = [
   "ゲームプログラマのためのコーディング技術",
 ];
 
+const recentBuys: string[] = [];
+
 const socialLinks = [
   { href: "https://github.com/coffee-r", icon: "/github.svg", alt: "GitHub", label: "GitHub" },
   { href: "https://x.com/plus_marumaru", icon: "/x.svg", alt: "X", label: "X (旧Twitter)" },
@@ -163,7 +153,7 @@ const socialLinks = [
               こーひーあーる
             </h1>
             <p class="mx-auto max-w-[700px] text-base-content/60 md:text-xl">
-              気まぐれITエンジニア
+              coffee-r
             </p>
           </div>
         </div>
@@ -172,10 +162,17 @@ const socialLinks = [
             <div class="card-body">
               <h2 class="card-title">自己紹介</h2>
               <p class="text-base-content/70">
-                事業会社でWebサービスの開発を仕事としています、こーひーあーると申します。
-                大学時代にラテアート作りを嗜んでたんでこの名前になってますが、最近はコーヒー愛薄れてきてます、すまんな...。
-                ものづくりが好きで、気が向いたときには個人開発にもチャレンジしています。
-                最近のマイブームは登山とキャンプです。
+                大学生時代にラテアート作りを嗜んでたところから、「こーひー」を冠した名前にしましたが、最近はコーヒー愛が冷めてあんまり飲んでいないです。
+                「あーる」は本名のイニシャルから取っています。
+              </p>
+              <p class="text-base-content/70">
+                小学3年生の頃から毎日タイピングゲームで遊んでいて、キーボードに触れることが当たり前になっていたのもあり、結果的にIT系技術職のお仕事に関わらせてもらってます。
+              </p>
+              <p class="text-base-content/70">
+                「自分らしさ」にモザイクをかけてしまっていて、自分のことをまだうまく説明できないのですが、最近は負けず嫌いで嫉妬しやすい、褒めて欲しい、ある程度上達したら飽きてしまう、タイプの人間だなと感じています。
+              </p>
+              <p class="text-base-content/70">
+                飽きっぽいところを活かして、いろんなことに手を出しては、ある程度できるようになったら次のことに挑戦し、幅広いことを経験していきたいと思っています。
               </p>
             </div>
           </div>
@@ -184,45 +181,15 @@ const socialLinks = [
     </section>
 
     <!-- Mountain photo -->
-    <section class="w-full py-12 md:py-24 lg:py-32">
-      <div class="w-full px-16 md:px-32">
-        <img
-          src="/yarigatake.webp"
-          width="1200"
-          height="900"
-          alt="登山の風景"
-          class="rounded-lg object-cover w-full"
-        />
-      </div>
-    </section>
-
-    <!-- Interests -->
-    <section class="w-full py-12 md:py-24 lg:py-32 bg-base-200">
-      <div class="w-full px-4 md:px-6">
-        <h2 class="text-3xl font-bold text-center mb-12">興味や関心があるもの</h2>
-        <div class="grid gap-6 lg:grid-cols-6 max-w-5xl mx-auto">
-          <div class="card bg-base-100 shadow-sm lg:col-start-2 lg:col-span-2">
-            <div class="card-body">
-              <h3 class="card-title">技術</h3>
-              <div class="flex flex-wrap gap-2">
-                {techSkills.map((item) => (
-                  <span class="badge badge-primary">{item}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div class="card bg-base-100 shadow-sm lg:col-start-4 lg:col-span-2">
-            <div class="card-body">
-              <h3 class="card-title">趣味</h3>
-              <div class="flex flex-wrap gap-2">
-                {hobbies.map((item) => (
-                  <span class="badge badge-secondary">{item}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section class="w-full">
+      <img
+        src="/mountain.webp"
+        width="1200"
+        height="900"
+        alt="登山の風景"
+        class="object-cover w-full max-h-screen"
+        loading="lazy"
+      />
     </section>
 
     <!-- Projects -->
@@ -232,6 +199,9 @@ const socialLinks = [
         <div class="grid gap-6 lg:grid-cols-2 max-w-4xl mx-auto">
           {projects.map((project) => (
             <div class="card bg-base-100 shadow-sm border border-base-200">
+              <figure class="bg-base-200 aspect-video flex items-center justify-center rounded-t-2xl">
+                <span class="text-base-content/30 text-sm">画像準備中</span>
+              </figure>
               <div class="card-body">
                 <h3 class="card-title">{project.title}</h3>
                 <p class="text-base-content/70">{project.description}</p>
@@ -247,15 +217,16 @@ const socialLinks = [
       </div>
     </section>
 
-    <!-- Breadth -->
+    <!-- 色々試したもの -->
     <section class="w-full py-12 md:py-24 lg:py-32 bg-base-200">
       <div class="w-full px-4 md:px-6">
-        <h2 class="text-3xl font-bold text-center mb-12">あそびの広さと深さ</h2>
+        <h2 class="text-3xl font-bold text-center mb-12">色々試したもの</h2>
         <div class="grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
-          <!-- 登頂した山々 -->
+
+          <!-- 登山した山々 -->
           <div class="card bg-base-100 shadow-sm">
             <div class="card-body">
-              <h3 class="card-title justify-center">登頂した山々</h3>
+              <h3 class="card-title justify-center">登山した山々</h3>
               <div class="flex flex-wrap gap-2 mt-2">
                 {mountains.slice(0, 5).map((m) => (
                   <span class="badge badge-outline">{m}</span>
@@ -320,28 +291,54 @@ const socialLinks = [
               </details>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Books -->
-    <section class="w-full py-12 md:py-24 lg:py-32">
-      <div class="w-full px-4 md:px-6">
-        <h2 class="text-3xl font-bold text-center mb-12">買った本</h2>
-        <div class="max-w-4xl mx-auto">
-          <div class="card bg-base-100 shadow-sm border border-base-200">
+          <!-- 成功したげん玉の技 -->
+          <div class="card bg-base-100 shadow-sm">
             <div class="card-body">
-              <ul class="grid gap-2 text-base-content/70">
+              <h3 class="card-title justify-center">成功したげん玉の技</h3>
+              {kendama.length > 0 ? (
+                <ul class="mt-2 space-y-1 text-sm text-base-content/70">
+                  {kendama.map((item) => (
+                    <li class="py-1 border-b border-base-200 last:border-b-0">{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p class="text-base-content/30 text-sm mt-2">準備中...</p>
+              )}
+            </div>
+          </div>
+
+          <!-- 少しできるスポーツ -->
+          <div class="card bg-base-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title justify-center">少しできるスポーツ</h3>
+              {sports.length > 0 ? (
+                <div class="flex flex-wrap gap-2 mt-2">
+                  {sports.map((item) => (
+                    <span class="badge badge-outline">{item}</span>
+                  ))}
+                </div>
+              ) : (
+                <p class="text-base-content/30 text-sm mt-2">準備中...</p>
+              )}
+            </div>
+          </div>
+
+          <!-- 読んだIT技術書 -->
+          <div class="card bg-base-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title justify-center">読んだIT技術書</h3>
+              <ul class="mt-2 space-y-1 text-sm text-base-content/70">
                 {books.slice(0, 3).map((book) => (
                   <li class="py-1 border-b border-base-200 last:border-b-0">{book}</li>
                 ))}
                 <li class="py-1 text-base-content/40">...</li>
               </ul>
-              <details class="mt-4">
-                <summary class="cursor-pointer btn btn-ghost btn-sm">
+              <details class="mt-2">
+                <summary class="cursor-pointer btn btn-ghost btn-sm w-full">
                   すべて見る ({books.length}冊)
                 </summary>
-                <ul class="grid gap-2 text-base-content/70 mt-4">
+                <ul class="mt-4 space-y-1 text-sm">
                   {books.map((book) => (
                     <li class="py-1 border-b border-base-200 last:border-b-0">{book}</li>
                   ))}
@@ -349,12 +346,29 @@ const socialLinks = [
               </details>
             </div>
           </div>
+
+          <!-- 最近買ってアガッたもの -->
+          <div class="card bg-base-100 shadow-sm lg:col-start-2">
+            <div class="card-body">
+              <h3 class="card-title justify-center">最近買ってアガッたもの</h3>
+              {recentBuys.length > 0 ? (
+                <ul class="mt-2 space-y-1 text-sm text-base-content/70">
+                  {recentBuys.map((item) => (
+                    <li class="py-1 border-b border-base-200 last:border-b-0">{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p class="text-base-content/30 text-sm mt-2">準備中...</p>
+              )}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
     <!-- Links -->
-    <section class="w-full py-12 md:py-24 lg:py-32 bg-base-200">
+    <section class="w-full py-12 md:py-24 lg:py-32">
       <div class="w-full px-4 md:px-6">
         <h2 class="text-3xl font-bold text-center mb-12">リンク</h2>
         <div class="flex justify-center flex-wrap gap-4">
