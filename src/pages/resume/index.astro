@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import SocialLinks from "../../components/SocialLinks.astro";
 
 const projects = [
   {
@@ -10,7 +11,7 @@ const projects = [
     role: "役割: バックエンド 機能開発担当",
     time: "期間: 2025年7月 - 現在",
     description: "概要: Yahoo/楽天型の自社ECモールを、AmazonライクなECモールにする",
-    challenge: [
+    situation: [
       "開発担当としてアサインされたもののシステム全体像が不明瞭で何を開発すればいいかわからない状態だった",
       "ERPシステムの制約（仕様変更すると在庫管理・販売管理が影響を受け、部門業務の変更が必要になる）",
       "業務フローは存在したが、開発可能な粒度まで落とし込まれていない",
@@ -43,7 +44,7 @@ const projects = [
     role: "役割: メインエンジニア",
     time: "期間: 2024年9月 - 2025年6月 (内7ヶ月間稼働)",
     description: "概要: 10年以上前に協力会社により作成された、ERPと各種アプリケーションを連携させているSOAPプロトコルのWebAPIを内製化し、RESTishなWebAPIにリプレイスするプロジェクト。エラーレートの削減による機会損失の低減、機能要件に自社で対応できるようにすることを目的としています。",
-    challenge: [
+    situation: [
       "ERPとその他のアプリケーションとで不整合がしばしば発覚することはわかっていたが、何が原因かはチームでわかっていなかった",
       "ERPが稼働し続ける限りAPIも同様に稼働させ続ける必要があったので、メンテナンスしやすいアプリ構成にする必要があると感じた",
       "これまで活用していたCodeIgniter3がメンテナンス切れていたため、バージョンを上げるかフレームワークを変える必要があった",
@@ -79,7 +80,7 @@ const projects = [
     role: "役割: メインエンジニア",
     time: "期間: 2024年6月 - 2024年8月",
     description: "概要: 自社ECサイトでGMOペイメントゲートウェイの決済サービスを利用したd払いの導入。",
-    challenge: [],
+    situation: [],
     actions: [
       "タスクの洗い出しおよび進捗管理",
       "自社ECサイトの決済周りのプログラム解読および影響範囲調査",
@@ -94,7 +95,7 @@ const projects = [
     role: "役割: メインエンジニア",
     time: "期間: 2024年3月 - 2024年5月",
     description: "概要: 自社ECサイトでGMOペイメントゲートウェイの決済サービスを利用したクレジット決済に3Dセキュア2.0を対応。",
-    challenge: [
+    situation: [
       "サーバに入っている決済用PHPモジュールが古くて3DS2.0に対応していない",
       "クレカ決済の注文を当日中にキャンセルしたい要望が別途あった",
       "注文は完了しているが決済が未完了などの不整合をマンパワー運用でカバーしている",
@@ -118,13 +119,14 @@ const projects = [
     role: "役割: 企画・主担当",
     time: "期間: 2023年10月 - 2024年9月",
     description: "概要: チームの技術力を上げて高品質なサービスを提供するため、社内LTを主催。",
-    challenge: [
+    situation: [
       "いいビジネスをするためによりよくソフトウエアを作りたいが、そのためにチームメンバー全体のスキルアップが必要だと感じた",
     ],
     actions: ["月に1回のペースでLTとして発表をした"],
     results: ["1年間12回、スライド資料を作って発表するのをやり遂げた"],
     learnings: [
       "何かしらの文化を導入すること自体は楽だが、メンバーが誰一人発表しなかったので浸透させることの困難さを知った",
+      "社内のコミュニケーション状況に対して疑問を持つようになった"
     ],
   },
   {
@@ -133,20 +135,22 @@ const projects = [
     role: "役割: 設計・実装・テスト 主担当",
     time: "期間: 2021年頃 - 2022年5月",
     description: "概要: 複数のECサイトで利用できるWebAPIを開発し、ビジネスモデルが同じECサイトを横展開できるようにする。",
-    challenge: [
+    situation: [
       "共通の顧客テーブルを参照している複数のECサイトで、全く同じ機能を実装したり運用する人的コストが高い状態だった",
       "WebAPIの開発は当時のメンバーで経験者がいなかった",
       "WebAPIとして切り出す現行ECの機能実装が複雑怪奇で解析が困難",
     ],
     actions: [
-      "WebAPIの作り方について学習",
       "現行ECサイトのPHPコードを読み、Excelに仕様を書き出していく",
       "エンドポイントの設計、Stoplight Studioを用いたOpenAPI仕様書の作成",
       "CodeIgniter3を用いたRESTishなWebAPIの実装",
     ],
-    results: ["注文フォーム画面用に最適化したWebAPIを担当してリリースした"],
+    results: [
+      "注文フォーム画面用に最適化したWebAPIを担当してリリースした",
+      "p_connectを設定してDB接続のオーバーヘッドを減らしたことで、注文フォームのレスポンスが速くなった",
+    ],
     learnings: [
-      "CodeIgniter3でのRESTAPI開発が辛かったので、もう少し技術的に調べて提案すればよかったと反省",
+      "CodeIgniter3でのRESTAPI開発が難しかった、Laravelフレームワークを使いたいと思うようになった、後それを提案できたらよかったなと反省",
     ],
   },
   {
@@ -155,7 +159,7 @@ const projects = [
     role: "役割: AWS担当",
     time: "時期: 2021年",
     description: "概要: ヘルスケアなどのメーカーと一般消費者を繋ぐコミュニティサイトの開発。",
-    challenge: [
+    situation: [
       "動画コンテンツを取引先企業が無制限に登録される可能性が要件として上がったため、スケーラブルな容量を持つサーバが必要だった",
     ],
     actions: [
@@ -163,7 +167,8 @@ const projects = [
       "AWS S3のWebAPIをPHPを使ってCALLするデモスクリプトを作って他開発者に展開",
     ],
     results: [],
-    learnings: [],
+    learnings: [
+    ],
   },
   {
     title: "オンプレミスの公開DNSサーバのクラウド移行",
@@ -171,26 +176,24 @@ const projects = [
     role: "役割: 移行計画・移行作業 主担当",
     time: "時期: 2020年",
     description: "概要: 可用性向上のため、オンプレミスのBINDサーバで管理していたゾーンファイルをAWSのRoute53に移行。",
-    challenge: [
-      "社内にAWSに詳しい人材がおらず、手探りでの作業",
-      "移行失敗時は数十時間のダウンタイムが予測され、ミスが許されない",
-      "オンプレミスのリンク負荷分散構成を、Route53で再現する必要",
+    situation: [
+      "当時の社員でAWSを触った人がいなかったため、AWSの知識がゼロの状態からのスタートだった",
+      "Dailyで何百万の売り上げがあるドメインのため、ダウンタイムなしで移行する必要があった",
+      "オンプレミスのリンク負荷分散構成を、Route53で生かしたかった",
     ],
     actions: [
-      "AWSの学習・調査",
-      "DNSの仕組みについて学習・調査",
       "会社のルートアカウントがMFA対応していなかったのを対応",
-      "仮押さえしているドメインを用いた移行方法の検証・手順の作成、練習",
       "AWSのマネジメントコンソールからRoute53でゾーンファイル作成",
       "名前解決の委譲先をRoute53にして、売上規模の少ないドメインから移行実施",
-      "nslookupやdigコマンドでネームサーバが変わったことを確認",
+      "Route53のフェイルオーバールーティングとヘルスチェックを用いて、リンク負荷分散を再現",
     ],
     results: [
       "全ドメインを障害なく移行完了、可用性向上を実現",
-      "Route53のフェイルオーバールーティング&ヘルスチェックで、リンク負荷分散を再現",
       "AWS SAA（Solutions Architect Associate）試験に合格",
     ],
-    learnings: ["サービス数は少ないもののAWSを使った実務経験を通してAWSの知識獲得"],
+    learnings: [
+      "マネージドサービスの利便性を感じつつ、オンプレミスから全面的に移行するのはどうやるんだろうと疑問に思うようになった",
+    ],
   },
   {
     title: "自社ECアプリケーションのPHPおよびCodeIgniterのバージョンアップ",
@@ -198,49 +201,50 @@ const projects = [
     role: "役割: 実装・テスト",
     time: "時期: 2020年",
     description: "概要: OracleDBバージョンアップに合わせ、自社ECサイトのPHP（5系→7系）、CodeIgniter（2系→3系）をバージョンアップ",
-    challenge: [
+    situation: [
+      "会社で使用していたOracleDBのバージョンアップに伴い、PHPとCodeIgniterのバージョンも上げる必要があった",
       "PHP5→7、CodeIgniter2→3で非推奨関数や仕様変更が多数",
       "自動テストがなく、影響範囲の調査や共通関数修正時のデグレ検知が困難",
     ],
     actions: [
-      "先行して別ECサイトでバージョンアップした担当者から手法をヒアリング",
-      "grep検索を駆使し、非推奨関数の使用箇所を全件洗い出し",
-      "PHP5→7、CodeIgniter2→3の仕様変更に対応したコード修正",
-      "手動テストにより、主要機能の動作確認を実施",
-      "本番環境へのリリース作業",
+      "先行して別ECサイトでバージョンアップした担当者から手法をヒアリングして、修正方法を流用",
+      "Seleniumを用いて、注文フォームの主要導線のE2Eテストを作成",
     ],
-    results: ["ログインから注文までの主要導線については大きな障害なく移行完了"],
-    learnings: ["レガシーシステムのバージョンアップには、地道な調査と確認が不可欠と学んだ"],
+    results: [
+      "ログインから注文までの主要導線については大きな障害なく移行完了"
+    ],
+    learnings: [
+      "E2Eテストを作ったが、メンテナンスされずに使われなくなった、テストコードもメンテナンスされないと勿体無いと反省",
+    ],
   },
   {
     title: "ブラウザソーシャルゲームの追加開発・保守",
     team: "チーム規模: 5名 (内 ディレクター1名、プランナー1名、Webデザイナー1名、プログラマ1名)",
-    role: "役割: サーバサイドのプログラマ",
+    role: "役割: サーバサイドPHPのプログラマ",
     time: "期間: 2016年 - 2018年",
-    description: "概要: 版権ソーシャルゲームの追加開発・保守業務",
-    challenge: [
-      "ループ内での大量SQL発行やスロークエリにより、サーバ負荷が高くゲームが重い",
-      "排他制御が未実装で、増殖バグなどのデータ不整合が発生",
-      "レガシーなコードベースで、変更・追加開発が困難",
+    description: "概要: Flashで遊べる版権ソーシャルゲームのサーバサイド追加開発・保守業務",
+    situation: [
+      "レベニューシェア型のプロジェクトで、プラットフォーム・版元・権利取得会社へのマージンなどを加味した上で、チームで毎月数千万の売り上げを求められる現場だった",
+      "フレームワークなどがないレガシーなコードベースで、追加開発の難易度が高い状態だった",
+      "コード内ループで大量のSQL発行やスロークエリが頻発しており、イベント終了間際になるとサーバ負荷が高くなりゲームが重くなる状態だった",
+      "すべてのテーブルでMyISAMエンジンが使われており、当時は排他制御がされてなく、課金アイテム増殖などのデータ不整合が頻発している状態だった",
     ],
     actions: [
-      "新規イベント・キャンペーンのWebシステム追加開発",
-      "イベントデータをExcelからSQL化し、本番DBへ投入",
-      "MySQLのスロークエリを特定し、インデックス追加やクエリ改善で負荷軽減",
-      "排他制御を実装し、データ不整合を軽減",
+      "あるデッキを組んで連続どこまでバトル勝利できるか、などのバトルシステムのWebシステム追加開発",
+      "MySQLのクエリログを分析し、スロークエリや発行過多なクエリを特定し、インデックス追加やクエリ改善を実施して負荷軽減",
+      "課金アイテムを増殖するバグを発見し、楽観的排他制御の実装により修正",
       "ユーザーデータ調査からエンドユーザーへの返信メール作成まで、カスタマーサポート業務を担当",
     ],
     results: [
-      "スロークエリ解消により、ゲームの体感速度が向上",
-      "排他制御実装により、データ不整合の発生頻度を削減",
+      "新規バトルシステムの追加開発を担当してリリースした",
+      "クエリ改善により、イベント終了間際のサーバ負荷が軽減された",
+      "楽観的排他制御の実装により、データ不整合の発生頻度が削減された",
     ],
     learnings: [
-      "DB最適化（インデックス、クエリチューニング）がサービス品質に直結することを実感",
-      "自分でサービスを使い、体験を改善する重要性を学んだ",
-      "本番に近いデータ量でSQL実行速度を検証する必要性を体験",
-      "レガシーコードベースでの開発の難しさを学んだ",
-      "毎朝DAU・売上の確認を通じて、ビジネス視点でサービスを見る重要性を学んだ",
-      "カスタマーサポート対応を通じて、不具合がユーザー体験に与える影響の大きさを実感",
+      "特にゲーム系アプリにおいて、DBアクセスの最適化がユーザー体験に与える影響の大きさを実感",
+      "レガシーコードベースでの開発が辛くて難しいことを実感した、もっとメンテナンスしやすいコードを書きたいと思うようになったが、やり方がわからなかった",
+      "ただ画面をぽちぽちするゲームが与える体験に限界を感じ、PCや家庭用ゲーム機やスマホアプリなど、よりリッチな体験ができるプラットフォームでゲームを作りたいと思うようになった",
+      "システム開発の先には、お金を払ってくれるユーザーがいることを痛感した",
     ],
   },
 ];
@@ -249,7 +253,7 @@ const projects = [
 <Layout title="レジュメ | こーひーあーる" description="こーひーあーるの職務経歴・スキルセット" noindex={true}>
   <Header />
   <main class="flex-1">
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
 
       <!-- Profile -->
       <section class="w-full py-12">
@@ -311,11 +315,11 @@ const projects = [
               <p class="mb-2 text-base-content/70">{project.time}</p>
               <p class="mb-4">{project.description}</p>
 
-              {project.challenge && project.challenge.length > 0 && (
+              {project.situation && project.situation.length > 0 && (
                 <>
-                  <h4 class="font-bold mb-2">背景・課題:</h4>
+                  <h4 class="font-bold mb-2">背景・状況:</h4>
                   <ul class="list-disc pl-5 mb-4 space-y-1">
-                    {project.challenge.map((item) => (
+                    {project.situation.map((item) => (
                       <li>{item}</li>
                     ))}
                   </ul>
@@ -364,19 +368,12 @@ const projects = [
         <h2 class="text-2xl font-bold mb-4">個人開発</h2>
         <ul class="list-disc pl-5 space-y-4">
           <li>
-            <a class="hover:opacity-70 underline" target="_blank" rel="noopener noreferrer" href="https://tsumiki-kichi.com">
-              Webゲーム置き場 TsumikiKichi
-            </a>
-            <p class="text-sm text-base-content/60">
-              使用技術: Laravel、React、TailwindCSS、Golang (Echo)　※開発に際して生成AI(Claude)を活用しています
-            </p>
-          </li>
-          <li>
             <a class="hover:opacity-70 underline" target="_blank" rel="noopener noreferrer" href="https://godotplayer.com">
               フリーゲーム投稿サイト GodotPlayer
             </a>
             <p class="text-sm text-base-content/60">
-              使用技術: Laravel、React、TailwindCSS
+              ~2025 使用技術: Laravel、React、TailwindCSS ※生成AIを使わずに開発しました
+              2026~ 使用技術: Cloudflare Workers, R2, D1, Hono, TailwindCSS　※開発に際して生成AI(Claude)を活用しています
             </p>
           </li>
           <li>
@@ -429,20 +426,18 @@ const projects = [
         <h2 class="text-2xl font-bold mb-4">今後の展望</h2>
         <ul class="list-disc pl-5 space-y-2">
           <li>無理せず長く働き続けたい</li>
-          <li>神奈川にある実家近くに住み、定期的に両親や兄弟とコミュニケーションを取りたい</li>
-          <li>テックリード的な存在を目指しており、現場の課題を踏まえた設計をしたい</li>
+          <li>自分らしさを消さずにうまく観察できるようになりたい</li>
+          <li>自分も相手も大切にする、アサーティブなコミュニケーションをとれるようになりたい</li>
+          <li>生成AIをはじめとした流行りに追いつきつつも、どの時代でも役に立つ基礎技術を身につけたい</li>
+          <li>歴史あるシステムをよしなに改良できるようになりたい</li>
           <li>IPA システムアーキテクト・情報処理安全確保支援士 試験合格</li>
-          <li>PHP以外にバックエンド言語を1つ使いこなせるように</li>
-          <li>TypeScriptベースのWebフロントエンドを最低限触れるように</li>
-          <li>パブリッククラウドで簡単なWebサービスの環境構築をできるように</li>
-          <li>歴史あるシステムをよしなに改良できるように</li>
         </ul>
       </section>
 
       <!-- その他 -->
       <section class="mb-12">
         <h2 class="text-2xl font-bold mb-4">その他</h2>
-        <p class="mb-4">健康上の理由により、下記期間で休職しておりました。クリニックに通いながら、安定した就労を目指しています。</p>
+        <p class="mb-4">健康上の理由により、下記期間で休職しておりました。現在は就労しています。</p>
         <ul class="list-disc pl-5 space-y-2">
           <li>2025年9月 - 2026年3月</li>
           <li>2025年2月 - 2025年4月</li>
@@ -451,25 +446,7 @@ const projects = [
       </section>
     </div>
 
-    <!-- Links -->
-    <section class="w-full py-12 md:py-24 lg:py-32 bg-base-200">
-      <div class="w-full px-4 md:px-6">
-        <h2 class="text-3xl font-bold text-center mb-12">リンク</h2>
-        <div class="flex justify-center flex-wrap gap-4">
-          <a href="https://github.com/coffee-r" target="_blank" rel="noopener noreferrer" class="btn btn-outline gap-2">
-            <img src="/github.svg" width="20" height="20" alt="GitHub" /> GitHub
-          </a>
-          <a href="https://x.com/plus_marumaru" target="_blank" rel="noopener noreferrer" class="btn btn-outline gap-2">
-            <img src="/x.svg" width="20" height="20" alt="X" /> X (旧Twitter)
-          </a>
-          <a href="https://zenn.dev/coffee_r" target="_blank" rel="noopener noreferrer" class="btn btn-outline gap-2">
-            <img src="/zenn.svg" width="20" height="20" alt="Zenn" /> Zenn
-          </a>
-          <a href="/resume" class="btn btn-outline">レジュメ</a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSctIthyLIVGrD1l11Rg7yVWX6orzKusDdY9thawqmTLgz5CNQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="btn btn-outline">お問い合わせ</a>
-        </div>
-      </div>
-    </section>
+    <SocialLinks />
   </main>
   <Footer />
 </Layout>

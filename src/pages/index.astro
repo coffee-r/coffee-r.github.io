@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 
 const projects = [
   {
@@ -36,13 +37,6 @@ const projects = [
 
 
 
-const socialLinks = [
-  { href: "https://github.com/coffee-r", icon: "/github.svg", alt: "GitHub", label: "GitHub", external: true },
-  { href: "https://x.com/plus_marumaru", icon: "/x.svg", alt: "X", label: "X (旧Twitter)", external: true },
-  { href: "https://zenn.dev/coffee_r", icon: "/zenn.svg", alt: "Zenn", label: "Zenn", external: true },
-  { href: "/resume", label: "レジュメ", external: false },
-  { href: "https://docs.google.com/forms/d/e/1FAIpQLSctIthyLIVGrD1l11Rg7yVWX6orzKusDdY9thawqmTLgz5CNQ/viewform?usp=publish-editor", label: "お問い合わせ", external: true },
-];
 ---
 
 <Layout title="こーひーあーる" description="気まぐれITエンジニア こーひーあーるのポートフォリオ">
@@ -68,19 +62,17 @@ const socialLinks = [
             </p>
           </div>
         </div>
-        <div class="mx-auto max-w-3xl mt-12">
+        <div class="mx-auto max-w-7xl mt-12">
           <div class="card bg-base-100 shadow-sm border border-base-200">
             <div class="card-body">
-              <h2 class="card-title">自己紹介</h2>
               <p class="text-base-content/70">
                 大学生時代にラテアート作りを嗜んでたところから、「こーひー」を冠した名前にしましたが、最近はコーヒー愛が冷めてあんまり飲んでいないです。
+              </p> 
+              <p class="text-base-content/70">
                 「あーる」は本名のイニシャルから取っています。
               </p>
               <p class="text-base-content/70">
-                小学3年生の頃から毎日タイピングゲームで遊んでいて、キーボードに触れることが当たり前になっていたのもあり、結果的にIT系技術職のお仕事に関わらせてもらってます。
-              </p>
-              <p class="text-base-content/70">
-                「自分らしさ」にモザイクをかけてしまっていて、自分のことをまだうまく説明できないのですが、最近は負けず嫌いで嫉妬しやすい、褒めて欲しい、ある程度上達したら飽きてしまう、タイプの人間だなと感じています。
+                小学3年生の頃から毎日タイピングゲームで遊んでいて、キーボードに触れることが当たり前になっていたのもあり、結果的にIT系のお仕事に関わらせてもらってます。
               </p>
             </div>
           </div>
@@ -104,7 +96,7 @@ const socialLinks = [
     <section class="w-full py-12 md:py-24 lg:py-32">
       <div class="w-full px-4 md:px-6">
         <h2 class="text-3xl font-bold text-center mb-12">個人開発したもの</h2>
-        <div class="grid gap-6 lg:grid-cols-2 max-w-4xl mx-auto">
+        <div class="grid gap-6 lg:grid-cols-2 max-w-7xl mx-auto">
           {projects.map((project) => (
             <div class="card bg-base-100 shadow-sm border border-base-200">
               <figure class="aspect-video overflow-hidden rounded-t-2xl">
@@ -125,24 +117,7 @@ const socialLinks = [
       </div>
     </section>
 
-    <!-- Links -->
-    <section class="w-full py-12 md:py-24 lg:py-32">
-      <div class="w-full px-4 md:px-6">
-        <h2 class="text-3xl font-bold text-center mb-12">リンク</h2>
-        <div class="flex justify-center flex-wrap gap-4">
-          {socialLinks.map((link) => (
-            <a
-              href={link.href}
-              {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              class="btn btn-outline gap-2"
-            >
-              {link.icon && <img src={link.icon} width="20" height="20" alt={link.alt} />}
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
+    <SocialLinks />
   </main>
   <Footer />
 </Layout>
