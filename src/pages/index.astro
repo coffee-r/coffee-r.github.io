@@ -7,24 +7,28 @@ const projects = [
   {
     title: "フリーゲーム投稿サイト GodotPlayer",
     description: "GodotEngineに対応したブラウザゲーム投稿サイト",
+    image: "/godotplayer.webp",
     link: "https://godotplayer.com",
     linkText: "サイトへ",
   },
   {
     title: "ビンゴ大会終了時間シュミレーター",
     description: "宴会とかで使えるツール",
+    image: "/bingo.webp",
     link: "https://bingo-time-simulator.vercel.app",
     linkText: "サイトへ",
   },
   {
     title: "PCゲーム Re Painter",
     description: "自分の書いたイラストが必殺技になるアクションミニゲーム",
+    image: "/repainter.webp",
     link: "https://store.steampowered.com/app/1096420/Re_Painter",
     linkText: "Steamへ",
   },
   {
     title: "ブラウザで遊べるUnity製ミニゲーム集",
     description: "3分くらい暇つぶしできるものを作ってあります",
+    image: "/unityroom.webp",
     link: "https://unityroom.com/users/3cr10wv7fsuxmag8h594",
     linkText: "unityroomへ",
   },
@@ -33,9 +37,11 @@ const projects = [
 
 
 const socialLinks = [
-  { href: "https://github.com/coffee-r", icon: "/github.svg", alt: "GitHub", label: "GitHub" },
-  { href: "https://x.com/plus_marumaru", icon: "/x.svg", alt: "X", label: "X (旧Twitter)" },
-  { href: "https://zenn.dev/coffee_r", icon: "/zenn.svg", alt: "Zenn", label: "Zenn" },
+  { href: "https://github.com/coffee-r", icon: "/github.svg", alt: "GitHub", label: "GitHub", external: true },
+  { href: "https://x.com/plus_marumaru", icon: "/x.svg", alt: "X", label: "X (旧Twitter)", external: true },
+  { href: "https://zenn.dev/coffee_r", icon: "/zenn.svg", alt: "Zenn", label: "Zenn", external: true },
+  { href: "/resume", label: "レジュメ", external: false },
+  { href: "https://docs.google.com/forms/d/e/1FAIpQLSctIthyLIVGrD1l11Rg7yVWX6orzKusDdY9thawqmTLgz5CNQ/viewform?usp=publish-editor", label: "お問い合わせ", external: true },
 ];
 ---
 
@@ -101,8 +107,8 @@ const socialLinks = [
         <div class="grid gap-6 lg:grid-cols-2 max-w-4xl mx-auto">
           {projects.map((project) => (
             <div class="card bg-base-100 shadow-sm border border-base-200">
-              <figure class="bg-base-200 aspect-video flex items-center justify-center rounded-t-2xl">
-                <span class="text-base-content/30 text-sm">画像準備中</span>
+              <figure class="aspect-video overflow-hidden rounded-t-2xl">
+                <img src={project.image} alt={project.title} class="w-full h-full object-cover" loading="lazy" />
               </figure>
               <div class="card-body">
                 <h3 class="card-title">{project.title}</h3>
@@ -125,15 +131,15 @@ const socialLinks = [
         <h2 class="text-3xl font-bold text-center mb-12">リンク</h2>
         <div class="flex justify-center flex-wrap gap-4">
           {socialLinks.map((link) => (
-            <a href={link.href} target="_blank" rel="noopener noreferrer" class="btn btn-outline gap-2">
-              <img src={link.icon} width="20" height="20" alt={link.alt} />
+            <a
+              href={link.href}
+              {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              class="btn btn-outline gap-2"
+            >
+              {link.icon && <img src={link.icon} width="20" height="20" alt={link.alt} />}
               {link.label}
             </a>
           ))}
-        </div>
-        <p class="text-center text-base-content/60 my-6">採用ご担当様はレジュメをご覧ください。</p>
-        <div class="flex justify-center">
-          <a href="/resume" class="btn btn-outline">レジュメ</a>
         </div>
       </div>
     </section>
