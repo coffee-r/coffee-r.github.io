@@ -56,38 +56,36 @@ const projects = [
   {
     title: "SOAP WebAPIのリプレイス",
     team: "チーム規模: 4名 (内、部長1名、別機能担当エンジニア2名)",
-    role: "役割: メインエンジニア",
+    role: "役割: エンジニア主担当",
     time: "期間: 2024年9月 - 2025年6月 (内7ヶ月間稼働)",
     description: "概要: 10年以上前に協力会社により作成された、ERPと各種アプリケーションを連携させているSOAPプロトコルのWebAPIを内製化し、RESTishなWebAPIにリプレイスするプロジェクト。エラーレートの削減による機会損失の低減、機能要件に自社で対応できるようにすることが目的だった。",
     situation: [
       "ERPとその他のアプリケーションとで不整合がしばしば発覚することはわかっていたが、何が原因かはチームでわかっていなかった",
       "ERPが稼働し続ける限りAPIも同様に稼働させ続ける必要があったので、メンテナンスしやすいアプリ構成にする必要があると感じた",
       "これまで活用していたCodeIgniter3がメンテナンス切れていたため、バージョンを上げるかフレームワークを変える必要があった",
-      "CentOSのサポートも切れていたため、今回改めて開発するアプリの構成や実績が他でも流用される可能性があった",
-      "テストコードを書く文化がなかったので、この機に布教できないかを考えていた",
+      "テストコードが勤め先のシステムでほとんど書かれていない状況",
     ],
     actions: [
-      "タスクの洗い出しおよび進捗管理",
-      "現行サーバのIISからアクセスログを取得し分析",
+      "現行サーバのIISからSOAP WebAPIのアクセスログを取得しパフォーマンス上の問題を分析",
+      "LaravelPHPでどう当社のWebAPIを作れるかのプロトタイプの作成および共有、学習リソースが多いLaravelの使用を提案",
+      "Podmanコンテナを用いた環境構築の提案と実装",
       "10年ほど前に作っていただいたC#製アプリケーションのプログラムを解析し、Laravelで再実装",
       "REST APIのエンドポイントおよびIN/OUT設計",
       "OpenAPI仕様書と実装が乖離していないかのPHPUnit実装",
-      "GitLab CI/CDパイプラインの構築",
-      "LaravelPintとLarastanとPHPUnitをgit precommitで検証するスクリプトを作成",
-      "各種クライアントで、旧APIから作ったAPIへ呼び出しを切り替える作業",
-      "MVC+UseCase構成を採用し、UseCase層でのテストを充実させて、ロジックの動作確認がやりやすいようにした",
+      "GitLab Runnerを使った CI/CDパイプラインの構築",
+      "LaravelPint&Larastan&PHPUnitをgit precommitで検証するスクリプトを作成してメンバーに配布",
+      "MVC+UseCase構成を採用し実装",
     ],
     results: [
       "ログ分析より、決まった時間のERPの日時処理におけるデータベースインデックス再作成のタイミングでAPIエラーが多発することを特定",
-      "CodeIgniter4かLaravelで迷ったものの、学習リソースがより充実していてメンバーがついて行きやすいだろうLaravelを選択",
-      "コンテナでもVMでもAlmaLinuxからDB接続を確認したことで、他のアプリでも構成を真似できるようにした",
-      "構成をコンテナファイル化することで部分的にIaCを実践し、オープンソースやミドルウェアのバージョンアップをしやすくした",
+      "構成をコンテナファイル化することで、環境の容易な配布や、再現性の高い環境構築が可能になった",
       "テストコードを敷くことにより世間一般で標準的な開発に寄せた、OpenAPI仕様書と実装の乖離を検知できるようにした",
     ],
     learnings: [
-      "テストコードを敷いておくことで、特に書き込み系のWebAIPの動作確認がやりやすくなることがわかった",
+      "テストコードを敷いておくことで、特に書き込み系のWebAPIの動作確認がやりやすくなることがわかった",
       "オニオンアーキテクチャかMVC+UseCaseを採用するかで非常に悩んだ、が組織の身の丈にあった構成を選ぶことが大事だと感じた",
       "技術スタックを組織で統一するメリットを体感した、教えることが少なくできるし、採用難易度も下がるし、チームで知見を共有しやすくなる",
+      "現行システムの制約を理解した上で、制約を取っ払うのか従うのか判断するのが難しかった、制約をなくす場合はその影響範囲を把握する必要があるし、その影響をケアするための別の開発が必要になることもある",
     ],
   },
   {
@@ -140,7 +138,7 @@ const projects = [
                 width="160"
                 height="160"
                 alt="こーひーあーる"
-                class="rounded-full w-32 h-32 md:w-40 md:h-40"
+                class="rounded-full w-24 h-24 md:w-32 md:h-32"
               />
               <div class="text-center">
                 <h1 class="text-3xl md:text-4xl font-bold tracking-tight">こーひーあーる</h1>
@@ -175,7 +173,7 @@ const projects = [
               <div class="h-px bg-base-200"></div>
 
               <p class="text-base-content/80 leading-relaxed">
-                25年続くWebシステムの保守・追加開発に携わっています。現状のシステムやビジネスの制約を踏まえながら、SOAP APIをLaravelでRESTWebAPIにリプレイスするなどを取り組みました。
+                20年以上動いている通販Webシステムの保守・追加開発に携わっています。現状のシステムやビジネスの制約を踏まえながら、SOAP APIをLaravelでRESTWebAPIにリプレイスするなどを取り組みました。
               </p>
             </div>
 
@@ -185,7 +183,7 @@ const projects = [
 
       <!-- スキル -->
       <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">スキル</h2>
+        <h2 class="text-2xl font-bold mb-6">スキル</h2>
         <div class="space-y-3">
           {skills.map(({ category, items }) => (
             <div class="flex flex-col sm:flex-row sm:items-center gap-2">
@@ -202,7 +200,7 @@ const projects = [
 
       <!-- 実績 -->
       <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">関わった主なプロジェクト</h2>
+        <h2 class="text-2xl font-bold mb-6">関わった主なプロジェクト</h2>
         {projects.map((project) => (
           <details class="mb-4 card bg-base-100 shadow-sm border border-base-200">
             <summary class="card-body cursor-pointer">
@@ -279,7 +277,7 @@ const projects = [
 
       <!-- 個人開発 -->
       <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">個人開発</h2>
+        <h2 class="text-2xl font-bold mb-6">個人開発</h2>
 
         <div class="card bg-base-100 border border-base-200 shadow-sm mb-4">
           <div class="card-body p-6">
@@ -364,15 +362,13 @@ const projects = [
       <!-- 補足（休職歴） -->
       <section class="mb-12">
         <p class="text-sm text-base-content/50">
-          健康上の理由により、下記期間で休職していました（現在就労中）。<br />
+          健康上の理由により、下記期間で休職していました。現在は就労しています。<br />
           ・2025年9月〜2026年3月<br />
           ・2025年2月〜2025年4月<br />
           ・2022年6月〜2023年8月
         </p>
       </section>
-
     </div>
-
     <SocialLinks />
   </main>
   <Footer />
