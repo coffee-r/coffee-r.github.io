@@ -4,6 +4,16 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import SocialLinks from "../../components/SocialLinks.astro";
 
+const FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSctIthyLIVGrD1l11Rg7yVWX6orzKusDdY9thawqmTLgz5CNQ/viewform?usp=publish-editor";
+
+const skills: { category: string; items: string[] }[] = [
+  { category: "言語", items: ["PHP 7年", "Python", "Shell", "C#"] },
+  { category: "FW / Lib", items: ["CodeIgniter3 4年", "Laravel 1年", "Unity"] },
+  { category: "DB", items: ["MySQL 3年", "OracleDB 3年", "SQL Server"] },
+  { category: "インフラ", items: ["AWS", "AlmaLinux", "Apache", "NGINX"] },
+];
+
 const otherProjects = [
   "2024年3〜5月 / 3Dセキュア2.0対応 / GMOペイメントゲートウェイの決済モジュール入れ替え・3DS2.0実装",
   "2024年6〜8月 / d払いの導入 / GMOペイメントゲートウェイを用いたd払い決済機能実装",
@@ -26,14 +36,11 @@ const projects = [
       "業務フローは存在したが、開発可能な粒度まで落とし込まれていない",
     ],
     actions: [
-      "既存の業務フロー図を分析し、開発可能な粒度まで再整理",
-      "企画・倉庫・カスタマー・販売管理・経理など、関係部門を網羅した業務フロー図を作成",
-      "業務フローからシステム接点を抽出し、ユースケース図を作成",
-      "ユースケース図から開発が必要な機能一覧を作成し、スケジュール表に落とし込み",
+      "企画・倉庫・カスタマー・販売管理・経理など、関係部門を網羅した業務フロー図を作成して確認を投げるところから着手",
+      "業務フローからシステム接点を抽出し、ユースケース図を作成、そこから開発が必要な機能一覧を作成して、スケジュール表に落とし込む",
       "ERPパッケージ運用担当にヒアリングし、制約条件を明確化",
       "WebAPI経由でERPの受注データを取得する仕様を設計（ERP変更を回避）",
-      "商品登録・変更の仕様叩き作成",
-      "倉庫保管手数料算出のための記録仕様を作成",
+      "商品登録・変更、倉庫保管手数料算出のための記録仕様、の叩き作成",
       "ECモールWebアプリ・管理アプリのバックエンド実装（初期フェーズ）",
     ],
     results: [
@@ -118,64 +125,96 @@ const projects = [
   <main class="flex-1">
     <div class="container mx-auto px-4 py-8 max-w-7xl">
 
-      <!-- Profile -->
-      <section class="w-full py-12">
-        <div class="flex flex-col items-center space-y-4 text-center">
-          <img
-            src="/avator.webp"
-            width="200"
-            height="200"
-            alt="こーひーあーる"
-            class="rounded-full"
-          />
-          <div class="space-y-2">
-            <h1 class="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
-              こーひーあーる
-            </h1>
-            <p class="mx-auto max-w-[700px] text-base-content/60 md:text-xl">
-              Webサービスを支えるバックエンドエンジニア
-            </p>
-            <p class="mx-auto max-w-[700px] text-base-content/60 md:text-xl">
-              game.developer.ryo@gmail.com
-            </p>
+      <!-- Hero / FV -->
+      <section class="py-4 md:py-8">
+        <div class="rounded-2xl border border-base-200 shadow-sm overflow-hidden">
+          <div class="flex flex-col md:flex-row">
+
+            <!-- Left: Avatar + Name + CTA -->
+            <div class="flex flex-col items-center justify-center gap-5 p-10 md:p-12 md:flex-1">
+              <img
+                src="/avator.webp"
+                width="160"
+                height="160"
+                alt="こーひーあーる"
+                class="rounded-full w-32 h-32 md:w-40 md:h-40"
+              />
+              <div class="text-center">
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight">こーひーあーる</h1>
+                <p class="text-base-content/50 text-sm mt-1">Webエンジニア（バックエンド寄り）</p>
+              </div>
+              <a
+                href={FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-neutral"
+              >
+                お問い合わせ
+              </a>
+            </div>
+
+            <!-- Vertical divider (desktop) / Horizontal divider (mobile) -->
+            <div class="border-t border-base-200 md:border-t-0 md:border-l"></div>
+
+            <!-- Right: Employment + Tagline -->
+            <div class="flex flex-col justify-center gap-6 p-10 md:p-12 md:flex-1">
+              <div class="space-y-3">
+                <div>
+                  <p class="text-sm font-medium">株式会社Gnzo 情報技術課</p>
+                  <p class="text-xs text-base-content/40 mt-0.5">2019年〜現在</p>
+                </div>
+                <div>
+                  <p class="text-sm font-medium">株式会社テンダ ゲームコンテンツ事業部</p>
+                  <p class="text-xs text-base-content/40 mt-0.5">2015年〜2018年</p>
+                </div>
+              </div>
+
+              <div class="h-px bg-base-200"></div>
+
+              <p class="text-base-content/80 leading-relaxed">
+                25年続くWebシステムの保守・追加開発に携わり、現状のシステムやビジネスの制約を踏まえながら、SOAP APIをLaravelでRESTWebAPIにリプレイスするなどやってました。
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
 
-      <!-- 職務経歴 -->
-      <section class="mb-12">
-        <h2 class="text-2xl font-bold mb-4">職務経歴</h2>
-        <ul class="list-disc pl-5 space-y-2">
-          <li>2019年7月 - 現在 / 株式会社Gnzo / ECサイトの開発・運用、RESTishなWebAPI、BtoBtoCサイト開発、DNSサーバ移行</li>
-          <li>2018年7月 - 2019年6月 / 個人ゲーム開発者 / Unityを使用したゲーム制作および販売</li>
-          <li>2015年4月 - 2018年6月 / 株式会社テンダ / ブラウザソーシャルゲームの開発・運用</li>
-        </ul>
+      <!-- スキル -->
+      <section class="mb-10">
+        <h2 class="text-2xl font-bold mb-4">スキル</h2>
+        <div class="space-y-3">
+          {skills.map(({ category, items }) => (
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+              <span class="text-sm text-base-content/40 w-24 flex-shrink-0">{category}</span>
+              <div class="flex flex-wrap gap-2">
+                {items.map((item) => (
+                  <span class="badge badge-outline text-sm">{item}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      <!-- スキルセット -->
+      <!-- 実績 -->
       <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">スキルセット</h2>
-        <ul class="list-disc pl-5 space-y-2">
-          <li>言語: PHP (7年), Python, Shell, C# (Unity)</li>
-          <li>フレームワーク: CodeIgniter3 (4年), Laravel (1年), Unity (2年)</li>
-          <li>インフラ: AWS (半年), CentOS, AlmaLinux, Apache, NGINX</li>
-          <li>データベース: MySQL (3年), OracleDB (3年), SQL Server (1年)</li>
-        </ul>
-      </section>
-
-      <!-- プロジェクト -->
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">関わった主なプロジェクト (クリックで詳細)</h2>
+        <h2 class="text-2xl font-bold mb-4">関わった主なプロジェクト</h2>
         {projects.map((project) => (
           <details class="mb-4 card bg-base-100 shadow-sm border border-base-200">
-            <summary class="card-body cursor-pointer flex flex-row items-center justify-between">
-              <span class="font-semibold text-lg">{project.title}</span>
-              <span class="text-base-content/40 text-sm ml-2">▼</span>
+            <summary class="card-body cursor-pointer">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <span class="font-semibold text-lg">{project.title}</span>
+                  <div class="text-sm text-base-content/50 mt-1">
+                    {project.time} &nbsp;/&nbsp; {project.role}
+                  </div>
+                </div>
+                <span class="text-base-content/40 text-sm flex-shrink-0 mt-1">▼</span>
+              </div>
             </summary>
             <div class="card-body pt-0">
-              <p class="mb-2 text-base-content/70">{project.team}</p>
-              <p class="mb-2 text-base-content/70">{project.role}</p>
-              <p class="mb-2 text-base-content/70">{project.time}</p>
+              <p class="mb-2 text-base-content/60 text-sm">{project.team}</p>
               <p class="mb-4">{project.description}</p>
 
               {project.situation && project.situation.length > 0 && (
@@ -224,11 +263,12 @@ const projects = [
             </div>
           </details>
         ))}
+
         <div class="mt-6">
-          <h3 class="font-semibold text-base mb-3 text-base-content/70">その他の経験</h3>
+          <h3 class="font-semibold text-sm mb-3 text-base-content/50">その他の経験</h3>
           <ul class="space-y-2">
             {otherProjects.map((item) => (
-              <li class="text-sm text-base-content/70 border-l-2 border-base-200 pl-3">{item}</li>
+              <li class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3">{item}</li>
             ))}
           </ul>
         </div>
@@ -237,84 +277,97 @@ const projects = [
       <!-- 個人開発 -->
       <section class="mb-10">
         <h2 class="text-2xl font-bold mb-4">個人開発</h2>
-        <ul class="list-disc pl-5 space-y-4">
-          <li>
-            <a class="hover:opacity-70 underline" target="_blank" rel="noopener noreferrer" href="https://godotplayer.com">
-              フリーゲーム投稿サイト GodotPlayer
-            </a>
-            <div class="text-sm text-base-content/60 space-y-1 mt-1">
-              <p>~2025: Laravel、React、TailwindCSS <span class="text-base-content/40">※生成AIを使わずに開発しました</span></p>
-              <p>2026~: Cloudflare Workers, R2, D1, Hono, TailwindCSS <span class="text-base-content/40">※開発に際して生成AI(Claude)を活用しています</span></p>
+
+        <div class="card bg-base-100 border border-base-200 shadow-sm mb-4">
+          <div class="card-body p-6">
+            <div class="flex flex-col sm:flex-row gap-5">
+              <img
+                src="/godotplayer.webp"
+                alt="GodotPlayer"
+                width="160"
+                height="120"
+                class="w-full sm:w-40 h-28 object-cover rounded-lg flex-shrink-0"
+                loading="lazy"
+              />
+              <div>
+                <a
+                  href="https://godotplayer.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-lg font-semibold hover:opacity-70 underline"
+                >
+                  GodotPlayer
+                </a>
+                <p class="text-sm text-base-content/60 mt-1">フリーゲーム投稿サイト（現在アクティブ開発中）</p>
+                <div class="text-sm text-base-content/60 space-y-1 mt-3">
+                  <p>〜2025: Laravel、React、TailwindCSS <span class="text-base-content/40">※生成AIを使わずに開発</span></p>
+                  <p>2026〜: Cloudflare Workers, R2, D1, Hono, Go <span class="text-base-content/40">※Claude活用</span></p>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <ul class="space-y-2">
+          <li class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3">
+            <a
+              href="https://store.steampowered.com/app/1096420/Re_Painter"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:opacity-70 underline"
+            >
+              Re Painter
+            </a>
+            — Steamで販売中のPCゲーム (Unity, C#)
           </li>
-          <li>
-            <a class="hover:opacity-70 underline" target="_blank" rel="noopener noreferrer" href="https://bingo-time-simulator.vercel.app">
+          <li class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3">
+            <a
+              href="https://unityroom.com/users/3cr10wv7fsuxmag8h594"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:opacity-70 underline"
+            >
+              ブラウザミニゲーム集
+            </a>
+            — unityroom (Unity, C#)
+          </li>
+          <li class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3">
+            <a
+              href="https://bingo-time-simulator.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:opacity-70 underline"
+            >
               ビンゴ大会終了時間計算シュミレーター
             </a>
-            <p class="text-sm text-base-content/60">
-              使用技術: JavaScript
-            </p>
-          </li>
-          <li>
-            <a class="hover:opacity-70 underline" target="_blank" rel="noopener noreferrer" href="https://store.steampowered.com/app/1096420/Re_Painter">
-              PCゲーム Re Painter
-            </a>
-            <p class="text-sm text-base-content/60">
-              使用技術: Unity, C#
-            </p>
-          </li>
-          <li>
-            <a class="hover:opacity-70 underline" target="_blank" rel="noopener noreferrer" href="https://unityroom.com/users/3cr10wv7fsuxmag8h594">
-              ブラウザで遊べるミニゲーム集
-            </a>
-            <p class="text-sm text-base-content/60">
-              使用技術: Unity, C#
-            </p>
+            — JavaScript
           </li>
         </ul>
       </section>
 
-      <!-- 資格 -->
+      <!-- 資格・学歴 -->
       <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">資格</h2>
-        <ul class="list-disc pl-5 space-y-2">
+        <h2 class="text-xl font-semibold mb-3 text-base-content/50">資格・学歴</h2>
+        <ul class="text-sm text-base-content/50 space-y-1">
           <li>IPA データベーススペシャリスト試験 (2024/12 合格)</li>
           <li>IPA ネットワークスペシャリスト試験 (2024/7 合格)</li>
           <li>IPA 応用情報技術者試験 (2023/6 合格)</li>
           <li>IPA 基本情報技術者試験 (2022/11 合格)</li>
-          <li>AWS Certified Solutions Architect - Associate (2020/4,2023/4 合格)</li>
+          <li>AWS Certified Solutions Architect - Associate (2020/4, 2023/4 合格)</li>
+          <li class="mt-3">芝浦工業大学 材料工学専攻 学部卒（2015年）</li>
         </ul>
       </section>
 
-      <!-- 学歴 -->
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">学歴</h2>
-        <p>芝浦工業大学 材料工学専攻 学部卒（2015年）</p>
-      </section>
-
-      <!-- 今後の展望 -->
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-4">今後の展望</h2>
-        <ul class="list-disc pl-5 space-y-2">
-          <li>無理せず長く働き続けたい</li>
-          <li>自分らしさを消さずにうまく観察できるようになりたい</li>
-          <li>自分も相手も大切にする、アサーティブなコミュニケーションをとれるようになりたい</li>
-          <li>生成AIをはじめとした流行りに追いつきつつも、どの時代でも役に立つ基礎技術を身につけたい</li>
-          <li>歴史あるシステムをよしなに改良できるようになりたい</li>
-          <li>IPA システムアーキテクト・情報処理安全確保支援士 試験合格</li>
-        </ul>
-      </section>
-
-      <!-- その他 -->
+      <!-- 補足（休職歴） -->
       <section class="mb-12">
-        <h2 class="text-2xl font-bold mb-4">その他</h2>
-        <p class="mb-4">健康上の理由により、下記期間で休職しておりました。現在は就労しています。</p>
-        <ul class="list-disc pl-5 space-y-2">
-          <li>2025年9月 - 2026年3月</li>
-          <li>2025年2月 - 2025年4月</li>
-          <li>2022年6月 - 2023年8月</li>
-        </ul>
+        <p class="text-sm text-base-content/30">
+          健康上の理由により、下記期間で休職していました（現在就労中）。<br />
+          ・2025年9月〜2026年3月<br />
+          ・2025年2月〜2025年4月<br />
+          ・2022年6月〜2023年8月
+        </p>
       </section>
+
     </div>
 
     <SocialLinks />
