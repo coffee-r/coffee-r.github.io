@@ -9,7 +9,7 @@ const FORM_URL =
 
 const skills: { category: string; items: string[] }[] = [
   { category: "言語", items: ["PHP 7年", "Python", "Shell", "C#"] },
-  { category: "FW / Lib", items: ["CodeIgniter3 4年", "Laravel 1年", "Unity"] },
+  { category: "フレームワーク", items: ["CodeIgniter3 4年", "Laravel 2年", "Unity"] },
   { category: "DB", items: ["MySQL 3年", "OracleDB 3年", "SQL Server"] },
   { category: "インフラ", items: ["AWS", "AlmaLinux", "Apache", "NGINX"] },
 ];
@@ -28,6 +28,7 @@ const projects = [
     title: "ECモールのフルフィルメント化",
     team: "チーム規模: 6名 (内、部長1名、要件定義・サービス設計1名、フロントエンド1名、バックエンド2名) ※企画部門や倉庫部門含めると数十名",
     role: "役割: バックエンド 機能開発担当",
+    tech: ["PHP", "Laravel", "CodeIgniter", "OracleDB", "SQL Server", "Podman", "AlmaLinux", "CentOS", "OpenAPI", "GitLab", "Jenkins"],
     time: "期間: 2025年7月 - 2025年9月 プロジェクトの途中まで参加",
     description: "概要: Yahoo/楽天型の自社ECモールを、AmazonライクなECモールにする",
     situation: [
@@ -41,12 +42,12 @@ const projects = [
       "WebAPI経由でERPの受注データを取得する仕様を設計",
       "商品登録・変更、倉庫保管手数料算出のための記録仕様、の叩き作成",
       "ECモールWebアプリ・管理アプリのバックエンド実装（初期フェーズ）",
+      "納品計画登録画面のバックエンド実装",
     ],
     results: [
       "業務フロー・ユースケース図により、システム全体像を可視化",
       "開発スコープを明確化し、「何をすれば完了か」をチーム全体で共有",
       "ERP制約を整理し、既存業務への影響を最小化した",
-      "納品計画登録画面のバックエンド実装を完了",
     ],
     learnings: [
       "曖昧な要件を図解で可視化することで、関係者の認識を揃えられることを実感",
@@ -55,8 +56,9 @@ const projects = [
   },
   {
     title: "SOAP WebAPIのリプレイス",
-    team: "チーム規模: 4名 (内、部長1名、別機能担当エンジニア2名)",
-    role: "役割: エンジニア主担当",
+    team: "チーム規模: 4名 (内、部長1名、別機能担当エンジニア2名、自分)",
+    role: "役割: リードエンジニア（設計〜実装まで主導）",
+    tech: ["PHP", "Laravel", "SQL Server", "PHPUnit", "OpenAPI", "Podman", "AlmaLinux", "GitLab Runner", "C#"],
     time: "期間: 2024年9月 - 2025年6月 (内7ヶ月間稼働)",
     description: "概要: 10年以上前に協力会社により作成された、ERPと各種アプリケーションを連携させているSOAPプロトコルのWebAPIを内製化し、RESTishなWebAPIにリプレイスするプロジェクト。エラーレートの削減による機会損失の低減、機能要件に自社で対応できるようにすることが目的だった。",
     situation: [
@@ -67,7 +69,7 @@ const projects = [
     ],
     actions: [
       "現行サーバのIISからSOAP WebAPIのアクセスログを取得しパフォーマンス上の問題を分析",
-      "LaravelPHPでどう当社のWebAPIを作れるかのプロトタイプの作成および共有、学習リソースが多いLaravelの使用を提案",
+      "Laravelを用いたプロトタイプを作成・共有し、学習リソースが豊富なLaravelの採用を提案",
       "Podmanコンテナを用いた環境構築の提案と実装",
       "10年ほど前に作っていただいたC#製アプリケーションのプログラムを解析し、Laravelで再実装",
       "REST APIのエンドポイントおよびIN/OUT設計",
@@ -85,13 +87,14 @@ const projects = [
       "テストコードを敷いておくことで、特に書き込み系のWebAPIの動作確認がやりやすくなることがわかった",
       "オニオンアーキテクチャかMVC+UseCaseを採用するかで非常に悩んだ、が組織の身の丈にあった構成を選ぶことが大事だと感じた",
       "技術スタックを組織で統一するメリットを体感した、教えることが少なくできるし、採用難易度も下がるし、チームで知見を共有しやすくなる",
-      "現行システムの制約を理解した上で、制約を取っ払うのか従うのか判断するのが難しかった、制約をなくす場合はその影響範囲を把握する必要があるし、その影響をケアするための別の開発が必要になることもある",
+      "既存システムの制約を変える際は影響範囲を把握し、影響をケアするための追加実装も必要になることを学んだ",
     ],
   },
   {
     title: "ブラウザソーシャルゲームの追加開発・保守",
-    team: "チーム規模: 5名 (内 ディレクター1名、プランナー1名、Webデザイナー1名、プログラマ1名)",
+    team: "チーム規模: 5名 (内 ディレクター1名、プランナー1名、Webデザイナー1名、プログラマ2名)",
     role: "役割: サーバサイドPHPのプログラマ",
+    tech: ["PHP", "MySQL"],
     time: "期間: 2015年7月 - 2018年6月",
     description: "概要: Flashで遊べる版権ソーシャルゲームのサーバサイド追加開発・保守業務",
     situation: [
@@ -104,7 +107,6 @@ const projects = [
       "あるデッキを組んで連続どこまでバトル勝利できるか、などのバトルシステムのWebシステム追加開発",
       "MySQLのクエリログを分析し、スロークエリや発行過多なクエリを特定し、インデックス追加やクエリ改善を実施して負荷軽減",
       "課金アイテムを増殖するバグを発見し、楽観的排他制御の実装により修正",
-      "ユーザーデータ調査からエンドユーザーへの返信メール作成まで、カスタマーサポート業務を担当",
     ],
     results: [
       "新規バトルシステムの追加開発を担当してリリースした",
@@ -113,8 +115,6 @@ const projects = [
     ],
     learnings: [
       "特にゲーム系アプリにおいて、DBアクセスの最適化がユーザー体験に与える影響の大きさを実感",
-      "レガシーコードベースでの開発が辛くて難しいことを実感した、もっとメンテナンスしやすいコードを書きたいと思うようになったが、やり方がわからなかった",
-      "ただ画面をぽちぽちするゲームが与える体験に限界を感じ、PCや家庭用ゲーム機やスマホアプリなど、よりリッチな体験ができるプラットフォームでゲームを作りたいと思うようになった",
       "システム開発の先には、お金を払ってくれるユーザーがいることを痛感した",
     ],
   },
@@ -177,7 +177,7 @@ const projects = [
                 ノンフレームワークなPHPやテストコードのない現場を経験してきたこともあり、開発ワークフローを整えることに関心があります。<br/>
               </p>
               <p class="text-base-content/80 leading-relaxed">
-                現在は20年以上稼働している通販Webシステムの保守・追加開発に携わっています。現状のシステムやビジネスの制約を踏まえながら、SOAP APIをLaravelでRESTWebAPIにリプレイスするなどを取り組みました。
+                現在は20年以上稼働している通販Webシステムの保守・追加開発に携わっています。現状のシステムやビジネスの制約を踏まえながら、SOAP APIをLaravelでRESTWebAPIにリプレイスするなどに取り組みました。
               </p>
             </div>
 
@@ -191,7 +191,7 @@ const projects = [
         <div class="space-y-3">
           {skills.map(({ category, items }) => (
             <div class="flex flex-col sm:flex-row sm:items-center gap-2">
-              <span class="text-sm text-base-content/40 w-24 flex-shrink-0">{category}</span>
+              <span class="text-sm text-base-content/40 w-28 flex-shrink-0">{category}</span>
               <div class="flex flex-wrap gap-2">
                 {items.map((item) => (
                   <span class="badge badge-outline text-sm">{item}</span>
@@ -214,6 +214,13 @@ const projects = [
                   <div class="text-sm text-base-content/50 mt-1">
                     {project.time} &nbsp;/&nbsp; {project.role}
                   </div>
+                  {project.tech && project.tech.length > 0 && (
+                    <div class="flex flex-wrap gap-1 mt-2">
+                      {project.tech.map((t) => (
+                        <span class="badge badge-ghost badge-sm text-xs">{t}</span>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <span class="text-base-content/40 text-sm flex-shrink-0 mt-1">▼</span>
               </div>
@@ -305,8 +312,8 @@ const projects = [
                 </a>
                 <p class="text-sm text-base-content/60 mt-1">フリーゲーム投稿サイト（現在アクティブ開発中、公開ゲーム数500以上、月間PV3万以上）</p>
                 <div class="text-sm text-base-content/60 space-y-1 mt-3">
-                  <p>〜2025: Laravel、React、TailwindCSS <span class="text-base-content/40">※生成AIを使わずに開発</span></p>
-                  <p>2026〜: Cloudflare Workers, R2, D1, Hono, Go <span class="text-base-content/40">※Claude活用</span></p>
+                  <p>2023年ファーストリリース: Railway.app、Laravel、React、Inertia.js、TailwindCSS <span class="text-base-content/40">※生成AIを使わずに開発</span></p>
+                  <p>2026年: Cloudflare Workers, R2, D1, Hono, Railway.app、Go <span class="text-base-content/40">※Claude活用</span></p>
                 </div>
               </div>
             </div>
@@ -366,7 +373,7 @@ const projects = [
       <!-- 補足（休職歴） -->
       <section class="mb-12">
         <p class="text-sm text-base-content/50">
-          健康上の理由により、下記期間で休職していました。現在は就労しています。<br />
+          健康上の理由により、下記期間で休職していました。現在は時短勤務（回復中）で就労しています。<br />
           ・2025年9月〜2026年3月<br />
           ・2025年2月〜2025年4月<br />
           ・2022年6月〜2023年8月
