@@ -9,9 +9,10 @@ const FORM_URL =
 
 const skills: { category: string; items: string[] }[] = [
   { category: "言語", items: ["PHP 7年", "Python", "Shell", "C#"] },
-  { category: "フレームワーク", items: ["CodeIgniter3 4年", "Laravel 2年", "Unity"] },
+  { category: "フレームワーク", items: ["CodeIgniter3 4年", "Laravel 2年"] },
   { category: "DB", items: ["MySQL 3年", "OracleDB 3年", "SQL Server"] },
   { category: "インフラ", items: ["AWS", "AlmaLinux", "Apache", "NGINX"] },
+  { category: "その他", items: ["Unity", "Podman", "GitLab Runner", "Zabbix"] },
 ];
 
 const otherProjects = [
@@ -30,7 +31,7 @@ const projects = [
     role: "役割: バックエンド機能開発担当",
     tech: ["PHP", "Laravel", "OracleDB", "Podman", "AlmaLinux", "OpenAPI", "GitLab"],
     time: "期間: 2026年4月 ~ 参加中",
-    description: "特定の媒体より通販注文を受け付けられるWebAPIの開発プロジェクト。(媒体や協力会社については非公開)",
+    description: "概要: 特定の媒体より通販注文を受け付けられるWebAPIの開発プロジェクト。(媒体や協力会社については非公開)",
     situation: [],
     actions: [
       "LaravelとOracleDBを組み合わせたPHPUnit実行環境の整備",
@@ -55,7 +56,7 @@ const projects = [
       "企画・倉庫・カスタマー・販売管理・経理など、関係部門を網羅した業務フロー図を作成して確認を投げるところから着手",
       "業務フローからシステム接点を抽出し、ユースケース図を作成、ERPパッケージ運用担当にヒアリングし制約条件を確認、以上を踏まえて開発が必要な機能一覧を作成して、スケジュール表に落とし込む",
       "WebAPI経由でERPの受注データを取得する仕様を設計",
-      "商品登録・変更、倉庫保管手数料算出のための記録仕様、の叩き作成",
+      "商品登録・変更、倉庫保管手数料算出のための記録仕様、の叩き台を作成",
       "ECモールWebアプリ・管理アプリのバックエンド実装（初期フェーズ）",
       "納品計画登録画面のバックエンド実装",
     ],
@@ -86,7 +87,7 @@ const projects = [
       "現行サーバのIISからSOAP WebAPIのアクセスログを取得しパフォーマンス上の問題を分析",
       "Laravelを用いたプロトタイプを作成・共有し、学習リソースが豊富なLaravelの採用を提案",
       "Podmanコンテナを用いた環境構築の提案と実装",
-      "10年ほど前に作っていただいたC#製アプリケーションのプログラムを解析し、Laravelで再実装",
+      "協力会社が10年前に開発したC#製アプリケーションのコードを解析し、Laravelで再実装",
       "REST APIのエンドポイントおよびIN/OUT設計",
       "OpenAPI仕様書と実装が乖離していないかのPHPUnit実装",
       "GitLab Runnerを使った CI/CDパイプラインの構築",
@@ -96,7 +97,7 @@ const projects = [
     results: [
       "ログ分析より、決まった時間のERPの日時処理におけるデータベースインデックス再作成のタイミングでAPIエラーが多発することを特定",
       "構成をコンテナファイル化することで、環境の容易な配布や、再現性の高い環境構築が可能になった",
-      "テストコードを敷くことにより世間一般で標準的な開発に寄せた、OpenAPI仕様書と実装の乖離を検知できるようにした",
+      "テストコードを整備し、標準的な開発フローに近づけた。OpenAPI仕様書と実装の乖離を自動検知できるようにした",
     ],
     learnings: [
       "テストコードを敷いておくことで、特に書き込み系のWebAPIの動作確認がやりやすくなることがわかった",
@@ -192,7 +193,7 @@ const projects = [
                 ノンフレームワークなPHPやテストコードのない現場を経験してきたこともあり、CI/CD・テスト環境を整備してチームの開発のしやすさを底上げしてきました。<br/>
               </p>
               <p class="text-base-content/80 leading-relaxed">
-                現在は20年以上稼働している通販Webシステムの保守・追加開発に携わっています。現状のシステムやビジネスの制約を踏まえながら、SOAP APIをLaravelでRESTWebAPIにリプレイスするなどに取り組みました。
+                現在は20年以上稼働している通販Webシステムの保守・追加開発に携わっています。現状のシステムやビジネスの制約を踏まえながら、SOAP APIをLaravelでREST WebAPIにリプレイスするなどに取り組みました。
               </p>
             </div>
 
@@ -365,7 +366,7 @@ const projects = [
               rel="noopener noreferrer"
               class="hover:opacity-70 underline"
             >
-              ビンゴ大会終了時間計算シュミレーター
+              ビンゴ大会終了時間計算シミュレーター
             </a>
             — JavaScript
           </li>
