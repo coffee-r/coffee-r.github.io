@@ -5,398 +5,505 @@ import Footer from "../../components/Footer.astro";
 import SocialLinks from "../../components/SocialLinks.astro";
 
 const FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSctIthyLIVGrD1l11Rg7yVWX6orzKusDdY9thawqmTLgz5CNQ/viewform?usp=publish-editor";
+    "https://docs.google.com/forms/d/e/1FAIpQLSctIthyLIVGrD1l11Rg7yVWX6orzKusDdY9thawqmTLgz5CNQ/viewform?usp=publish-editor";
 
 const skills: { category: string; items: string[] }[] = [
-  { category: "言語", items: ["PHP 7年", "Python", "Shell", "C#"] },
-  { category: "フレームワーク", items: ["CodeIgniter3 4年", "Laravel 2年"] },
-  { category: "DB", items: ["MySQL 3年", "OracleDB 3年", "SQL Server"] },
-  { category: "インフラ", items: ["AWS", "AlmaLinux", "Apache", "NGINX"] },
-  { category: "その他", items: ["Unity", "Podman", "GitLab Runner", "Zabbix"] },
+    { category: "言語", items: ["PHP 7年", "Python", "Shell", "C#"] },
+    { category: "フレームワーク", items: ["Laravel 2年", "CodeIgniter3 5年"] },
+    { category: "DB", items: ["MySQL 3年", "OracleDB 3年", "SQL Server"] },
+    {
+        category: "インフラ",
+        items: ["AWS", "VMWare", "AlmaLinux", "Apache", "NGINX"],
+    },
+    {
+        category: "その他",
+        items: ["Unity", "Podman", "GitLab Runner", "Zabbix"],
+    },
 ];
 
 const otherProjects = [
-  "2024年3〜5月 / 3Dセキュア2.0対応 / GMOペイメントゲートウェイの決済モジュール入れ替え・3DS2.0実装",
-  "2024年6〜8月 / d払いの導入 / GMOペイメントゲートウェイを用いたd払い決済機能実装",
-  "2021年頃〜2022年5月 / 自社ECサイト向けRESTish API開発 / エンドポイント設計・OpenAPI仕様書作成・実装 (CodeIgniter3)",
-  "2021年 / BtoBtoCコミュニティサイト開発 / AWS S3・CloudFrontを用いた静的コンテンツ配信構築",
-  "2020年 / オンプレDNSサーバのAWS Route53移行 / 移行計画・作業主担当、ダウンタイムなしで全ドメイン移行完遂",
-  "2020年 / 自社ECアプリのPHP・CodeIgniterバージョンアップ / PHP5→7、CodeIgniter2→3対応・E2Eテスト作成",
+    "2026年7月〜 / Webアプリケーションの脆弱性診断 / 検査シナリオ整備、検査端末操作",
+    "2026年4〜7月 / AIボイスbot導入支援 / 電話シナリオ制作、WebAPI連携",
+    "2024年3〜5月 / 3Dセキュア2.0対応 / GMOペイメントゲートウェイの決済モジュール入れ替え・3DS2.0実装",
+    "2024年6〜8月 / d払いの導入 / GMOペイメントゲートウェイを用いたd払い決済機能実装",
+    "2021年頃〜2022年5月 / 自社ECサイト向けRESTish API開発 / エンドポイント設計・OpenAPI仕様書作成・実装 (CodeIgniter3)",
+    "2021年 / BtoBtoCコミュニティサイト開発 / AWS S3・CloudFrontを用いた静的コンテンツ配信構築",
+    "2020年 / オンプレDNSサーバのAWS Route53移行 / 移行計画・作業主担当、ダウンタイムなしで全ドメイン移行完遂",
+    "2020年 / 自社ECアプリのPHP・CodeIgniterバージョンアップ / PHP5→7、CodeIgniter2→3対応・E2Eテスト作成",
 ];
 
 const projects = [
-  {
-    title: "協力会社サービスから呼び出されるWebAPIの開発",
-    team: "チーム規模: 5名 (内、部長1名、要件定義・サービス設計1名、運用設計1名、WebAppバックエンド2名)",
-    role: "役割: バックエンド機能開発担当",
-    tech: ["PHP", "Laravel", "OracleDB", "Podman", "AlmaLinux", "OpenAPI", "GitLab"],
-    time: "期間: 2026年4月 ~ 参加中",
-    description: "概要: 特定の媒体より通販注文を受け付けられるWebAPIの開発プロジェクト。(媒体や協力会社については非公開)",
-    situation: [],
-    actions: [
-      "LaravelとOracleDBを組み合わせたPHPUnit実行環境の整備",
-      "OracleXEコンテナを用いた開発用DBの構築（検証用DBからスキーマ・マスタデータをdump・importして環境を再現）",
-    ],
-    results: [],
-    learnings: [],
-  },
-  {
-    title: "ECモールのフルフィルメント化",
-    team: "チーム規模: 6名 (内、部長1名、要件定義・サービス設計1名、フロントエンド1名、バックエンド2名) ※企画部門や倉庫部門含めると数十名",
-    role: "役割: バックエンド 機能開発担当",
-    tech: ["PHP", "Laravel", "CodeIgniter", "OracleDB", "SQL Server", "Podman", "AlmaLinux", "CentOS", "OpenAPI", "GitLab", "Jenkins"],
-    time: "期間: 2025年7月 - 2025年9月 プロジェクトの途中まで参加",
-    description: "概要: Yahoo/楽天型の自社ECモールを、AmazonライクなECモールにする",
-    situation: [
-      "開発担当としてアサインされたもののシステム全体像が不明瞭で何を開発すればいいかわからない状態だった",
-      "ERPシステムの制約（仕様変更すると在庫管理・販売管理が影響を受け、部門業務の変更が必要になる）",
-      "業務フローは存在したが、開発可能な粒度まで落とし込まれていない",
-    ],
-    actions: [
-      "企画・倉庫・カスタマー・販売管理・経理など、関係部門を網羅した業務フロー図を作成して確認を投げるところから着手",
-      "業務フローからシステム接点を抽出し、ユースケース図を作成、ERPパッケージ運用担当にヒアリングし制約条件を確認、以上を踏まえて開発が必要な機能一覧を作成して、スケジュール表に落とし込む",
-      "WebAPI経由でERPの受注データを取得する仕様を設計",
-      "商品登録・変更、倉庫保管手数料算出のための記録仕様、の叩き台を作成",
-      "ECモールWebアプリ・管理アプリのバックエンド実装（初期フェーズ）",
-      "納品計画登録画面のバックエンド実装",
-    ],
-    results: [
-      "業務フロー・ユースケース図により、システム全体像を可視化",
-      "開発スコープを明確化し、「何をすれば完了か」をチーム全体で共有",
-      "ERP制約を整理し、既存業務への影響を最小化した",
-    ],
-    learnings: [
-      "曖昧な要件を図解で可視化することで、関係者の認識を揃えられることを実感",
-      "既存のシステムを活用する際には制約条件を確認しておく必要性を学んだ",
-    ],
-  },
-  {
-    title: "SOAP WebAPIのリプレイス",
-    team: "チーム規模: 4名 (内、部長1名、別機能担当エンジニア2名、自分)",
-    role: "役割: リードエンジニア（設計〜実装まで主導）",
-    tech: ["PHP", "Laravel", "SQL Server", "PHPUnit", "OpenAPI", "Podman", "AlmaLinux", "GitLab Runner", "C#"],
-    time: "期間: 2024年9月 - 2025年6月 (内7ヶ月間稼働)",
-    description: "概要: 10年以上前に協力会社により作成された、ERPと各種アプリケーションを連携させているSOAPプロトコルのWebAPIを内製化し、RESTishなWebAPIにリプレイスするプロジェクト。エラーレートの削減による機会損失の低減、機能要件に自社で対応できるようにすることが目的だった。",
-    situation: [
-      "ERPとその他のアプリケーションとで不整合がしばしば発覚することはわかっていたが、何が原因かはチームでわかっていなかった",
-      "ERPが稼働し続ける限りAPIも同様に稼働させ続ける必要があったので、メンテナンスしやすいアプリ構成にする必要があると感じた",
-      "これまで活用していたCodeIgniter3がメンテナンス切れていたため、バージョンを上げるかフレームワークを変える必要があった",
-      "テストコードが勤め先のシステムでほとんど書かれていない状況",
-    ],
-    actions: [
-      "現行サーバのIISからSOAP WebAPIのアクセスログを取得しパフォーマンス上の問題を分析",
-      "Laravelを用いたプロトタイプを作成・共有し、学習リソースが豊富なLaravelの採用を提案",
-      "Podmanコンテナを用いた環境構築の提案と実装",
-      "協力会社が10年前に開発したC#製アプリケーションのコードを解析し、Laravelで再実装",
-      "REST APIのエンドポイントおよびIN/OUT設計",
-      "OpenAPI仕様書と実装が乖離していないかのPHPUnit実装",
-      "GitLab Runnerを使った CI/CDパイプラインの構築",
-      "LaravelPint&Larastan&PHPUnitをgit precommitで検証するスクリプトを作成してメンバーに配布",
-      "MVC+UseCase構成を採用し実装",
-    ],
-    results: [
-      "ログ分析より、決まった時間のERPの日時処理におけるデータベースインデックス再作成のタイミングでAPIエラーが多発することを特定",
-      "構成をコンテナファイル化することで、環境の容易な配布や、再現性の高い環境構築が可能になった",
-      "テストコードを整備し、標準的な開発フローに近づけた。OpenAPI仕様書と実装の乖離を自動検知できるようにした",
-    ],
-    learnings: [
-      "テストコードを敷いておくことで、特に書き込み系のWebAPIの動作確認がやりやすくなることがわかった",
-      "オニオンアーキテクチャかMVC+UseCaseを採用するかで非常に悩んだ、が組織の身の丈にあった構成を選ぶことが大事だと感じた",
-      "技術スタックを組織で統一するメリットを体感した、教えることが少なくできるし、採用難易度も下がるし、チームで知見を共有しやすくなる",
-      "既存システムの制約を変える際は影響範囲を把握し、影響をケアするための追加実装も必要になることを学んだ",
-    ],
-  },
-  {
-    title: "ブラウザソーシャルゲームの追加開発・保守",
-    team: "チーム規模: 5名 (内 ディレクター1名、プランナー1名、Webデザイナー1名、プログラマ2名)",
-    role: "役割: サーバサイドPHPのプログラマ",
-    tech: ["PHP", "MySQL"],
-    time: "期間: 2015年7月 - 2018年6月",
-    description: "概要: Flashで遊べる版権ソーシャルゲームのサーバサイド追加開発・保守業務",
-    situation: [
-      "レベニューシェア型のプロジェクトで、プラットフォーム・版元・権利取得会社へのマージンなどを加味した上で、チームで毎月数千万の売り上げを求められる現場だった",
-      "フレームワークなどがないレガシーなコードベースで、追加開発の難易度が高い状態だった",
-      "コード内ループで大量のSQL発行やスロークエリが頻発しており、イベント終了間際になるとサーバ負荷が高くなりゲームが重くなる状態だった",
-      "すべてのテーブルでMyISAMエンジンが使われており、当時は排他制御がされてなく、課金アイテム増殖などのデータ不整合が頻発している状態だった",
-    ],
-    actions: [
-      "あるデッキを組んで連続どこまでバトル勝利できるか、などのバトルシステムのWebシステム追加開発",
-      "MySQLのクエリログを分析し、スロークエリや発行過多なクエリを特定し、インデックス追加やクエリ改善を実施して負荷軽減",
-      "課金アイテムを増殖するバグを発見し、楽観的排他制御の実装により修正",
-    ],
-    results: [
-      "新規バトルシステムの追加開発を担当してリリースした",
-      "クエリ改善により、イベント終了間際のサーバ負荷が軽減された",
-      "楽観的排他制御の実装により、データ不整合の発生頻度が削減された",
-    ],
-    learnings: [
-      "特にゲーム系アプリにおいて、DBアクセスの最適化がユーザー体験に与える影響の大きさを実感",
-      "システム開発の先には、お金を払ってくれるユーザーがいることを痛感した",
-    ],
-  },
+    {
+        title: "SOAP WebAPIのリプレイス",
+        open: true,
+        team: "チーム規模: 4名 (内、部長1名、別機能担当エンジニア2名、自分)",
+        role: "役割: 主担当（設計〜実装まで担当）",
+        tech: [
+            "PHP",
+            "Laravel",
+            "SQL Server",
+            "PHPUnit",
+            "OpenAPI",
+            "Podman",
+            "AlmaLinux",
+            "GitLab Runner",
+            "C#",
+        ],
+        time: "期間: 2024年9月 - 2025年6月",
+        description:
+            "概要: 10年以上前に協力会社により作成された、ERPと各種アプリケーションを連携させているSOAPプロトコルのWebAPIを内製化し、RESTishなWebAPIにリプレイスするプロジェクト。エラーレートの削減による機会損失の低減、機能要件に自社で対応できるようにすることが目的だった。",
+        situation: [
+            "ERPとその他のアプリケーションとで不整合がしばしば発覚することはわかっていたが、何が原因かはチームでわかっていなかった",
+            "ERPが稼働し続ける限りAPIも同様に稼働させ続ける必要があったので、メンテナンスしやすいアプリ構成にする必要があると感じた",
+            "これまで活用していたCodeIgniter3がメンテナンス切れていたため、バージョンを上げるかフレームワークを変える必要があった",
+            "テストコードが勤め先のシステムでほとんど書かれていない状況",
+        ],
+        actions: [
+            "現行サーバのIISからSOAP WebAPIのアクセスログを取得しパフォーマンス上の問題を分析",
+            "Laravelを用いたプロトタイプを作成・共有し、学習リソースが豊富なLaravelの採用を提案",
+            "Podmanコンテナを用いた環境構築の提案と実装",
+            "協力会社が10年前に開発したC#製アプリケーションのコードを解析し、Laravelで再実装",
+            "REST APIのエンドポイントおよびIN/OUT設計",
+            "OpenAPI仕様書と実装が乖離していないかのPHPUnit実装",
+            "GitLab Runnerを使った CI/CDパイプラインの構築",
+            "LaravelPint&Larastan&PHPUnitをgit precommitで検証するスクリプトを作成してメンバーに配布",
+            "MVC+UseCase構成を採用し実装",
+        ],
+        results: [
+            "ログ分析より、決まった時間のERPの日時処理におけるデータベースインデックス再作成のタイミングでAPIエラーが多発することを特定",
+            "構成をコンテナファイル化することで、環境の容易な配布や、再現性の高い環境構築が可能になった",
+            "テストコードを整備し、標準的な開発フローに近づけた。OpenAPI仕様書と実装の乖離を自動検知できるようにした",
+        ],
+        learnings: [
+            "オニオンアーキテクチャかMVC+UseCaseを採用するかで非常に悩んだ、が組織の身の丈にあった構成を選ぶことが大事だと感じた",
+        ],
+    },
+    {
+        title: "ECモールのフルフィルメント化",
+        team: "チーム規模: 6名 (内、部長1名、要件定義・サービス設計1名、フロントエンド1名、バックエンド2名) ※企画部門や倉庫部門含めると数十名",
+        role: "役割: バックエンド 機能開発担当",
+        tech: [
+            "PHP",
+            "Laravel",
+            "CodeIgniter",
+            "OracleDB",
+            "SQL Server",
+            "Podman",
+            "AlmaLinux",
+            "CentOS",
+            "OpenAPI",
+            "GitLab",
+            "Jenkins",
+        ],
+        time: "期間: 2025年7月 - 2025年9月",
+        description:
+            "概要: Yahoo/楽天型の自社ECモールを、AmazonライクなECモールにする",
+        situation: [
+            "開発担当としてアサインされたもののシステム全体像が不明瞭で何を開発すればいいかわからない状態だった",
+            "ERPシステムの制約（仕様変更すると在庫管理・販売管理が影響を受け、部門業務の変更が必要になる）",
+            "業務フローは存在したが、開発可能な粒度まで落とし込まれていない",
+        ],
+        actions: [
+            "企画・倉庫・カスタマー・販売管理・経理など、関係部門を網羅した業務フロー図を作成して確認を投げるところから着手",
+            "業務フローからシステム接点を抽出し、ユースケース図を作成、ERPパッケージ運用担当にヒアリングし制約条件を確認、以上を踏まえて開発が必要な機能一覧を作成して、スケジュール表に落とし込む",
+            "WebAPI経由でERPの受注データを取得する仕様を設計",
+            "商品登録・変更、倉庫保管手数料算出のための記録仕様、の叩き台を作成",
+            "ECモールWebアプリ・管理アプリのバックエンド実装（初期フェーズ）",
+            "納品計画登録画面のバックエンド実装",
+        ],
+        results: [
+            "業務フロー・ユースケース図により、システム全体像を可視化",
+            "開発スコープを明確化し、「何をすれば完了か」をチーム全体で共有",
+            "ERP制約を整理し、既存業務への影響を最小化した",
+        ],
+        learnings: [
+            "曖昧な要件を図解で可視化することで、関係者の認識を揃えられることを実感",
+        ],
+    },
+    {
+        title: "ブラウザソーシャルゲームの追加開発・保守",
+        team: "チーム規模: 5名 (内 ディレクター1名、プランナー1名、Webデザイナー1名、プログラマ2名)",
+        role: "役割: サーバサイドPHPのプログラマ",
+        tech: ["PHP", "MySQL"],
+        time: "期間: 2015年7月 - 2018年6月",
+        description:
+            "概要: Flashで遊べる版権ソーシャルゲームのサーバサイド追加開発・保守業務",
+        situation: [
+            "レベニューシェア型のプロジェクトで、プラットフォーム・版元・権利取得会社へのマージンなどを加味した上で、チームで毎月数千万の売り上げを求められる現場だった",
+            "フレームワークなどがないレガシーなコードベースで、追加開発の難易度が高い状態だった",
+            "コード内ループで大量のSQL発行やスロークエリが頻発しており、イベント終了間際になるとサーバ負荷が高くなりゲームが重くなる状態だった",
+            "すべてのテーブルでMyISAMエンジンが使われており、当時は排他制御がされてなく、課金アイテム増殖などのデータ不整合が頻発している状態だった",
+        ],
+        actions: [
+            "あるデッキを組んで連続どこまでバトル勝利できるか、などのバトルシステムのWebシステム追加開発",
+            "MySQLのクエリログを分析し、スロークエリや発行過多なクエリを特定し、インデックス追加やクエリ改善を実施して負荷軽減",
+            "課金アイテムを増殖するバグを発見し、楽観的排他制御の実装により修正",
+        ],
+        results: [
+            "新規バトルシステムの追加開発を担当してリリースした",
+            "クエリ改善により、イベント終了間際のサーバ負荷が軽減された",
+            "楽観的排他制御の実装により、データ不整合の発生頻度が削減された",
+        ],
+        learnings: [
+            "システム開発の先には、お金を払ってくれるユーザーがいることを痛感した",
+        ],
+    },
 ];
 ---
 
-<Layout title="レジュメ | こーひーあーる" description="こーひーあーるの職務経歴・スキルセット" noindex={true}>
-  <Header />
-  <main class="flex-1">
-    <div class="container mx-auto px-4 py-8 max-w-7xl">
-
-      <!-- Hero / FV -->
-      <section class="py-4 md:py-8">
-        <div class="rounded-2xl border border-base-200 shadow-sm overflow-hidden">
-          <div class="flex flex-col md:flex-row">
-
-            <!-- Left: Avatar + Name + CTA -->
-            <div class="flex flex-col items-center justify-center gap-5 p-10 md:p-12 md:flex-1">
-              <img
-                src="/avator.webp"
-                width="160"
-                height="160"
-                alt="こーひーあーる"
-                class="rounded-full w-24 h-24 md:w-32 md:h-32"
-              />
-              <div class="text-center">
-                <h1 class="text-3xl md:text-4xl font-bold tracking-tight">こーひーあーる</h1>
-                <p class="text-base-content/50 text-sm mt-1">Webエンジニア（バックエンド寄り）</p>
-              </div>
-              <a
-                href={FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-neutral"
-              >
-                お問い合わせ
-              </a>
-            </div>
-
-            <!-- Vertical divider (desktop) / Horizontal divider (mobile) -->
-            <div class="border-t border-base-200 md:border-t-0 md:border-l"></div>
-
-            <!-- Right: Employment + Tagline -->
-            <div class="flex flex-col justify-center gap-6 p-10 md:p-12 md:flex-1">
-              <div class="space-y-3">
-                <div>
-                  <p class="text-sm font-medium">株式会社Gnzo 情報技術課</p>
-                  <p class="text-xs text-base-content/40 mt-0.5">2019年7月〜現在</p>
-                </div>
-                <div>
-                  <p class="text-sm font-medium">株式会社テンダ ゲームコンテンツ事業部</p>
-                  <p class="text-xs text-base-content/40 mt-0.5">2015年4月〜2018年6月</p>
-                </div>
-              </div>
-
-              <div class="h-px bg-base-200"></div>
-
-              <p class="text-base-content/80 leading-relaxed">
-                バックエンドを中心としたWebアプリケーション開発が得意です。<br/>
-                ノンフレームワークなPHPやテストコードのない現場を経験してきたこともあり、CI/CD・テスト環境を整備してチームの開発のしやすさを底上げしてきました。<br/>
-              </p>
-              <p class="text-base-content/80 leading-relaxed">
-                現在は20年以上稼働している通販Webシステムの保守・追加開発に携わっています。現状のシステムやビジネスの制約を踏まえながら、SOAP APIをLaravelでREST WebAPIにリプレイスするなどに取り組みました。
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- スキル -->
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-6">スキル</h2>
-        <div class="space-y-3">
-          {skills.map(({ category, items }) => (
-            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
-              <span class="text-sm text-base-content/40 w-28 flex-shrink-0">{category}</span>
-              <div class="flex flex-wrap gap-2">
-                {items.map((item) => (
-                  <span class="badge badge-outline text-sm">{item}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <!-- 実績 -->
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-6">関わった主なプロジェクト</h2>
-        {projects.map((project) => (
-          <details class="mb-4 card bg-base-100 shadow-sm border border-base-200">
-            <summary class="card-body cursor-pointer">
-              <div class="flex items-start justify-between gap-2">
-                <div>
-                  <span class="font-semibold text-lg">{project.title}</span>
-                  <div class="text-sm text-base-content/50 mt-1">
-                    {project.time} &nbsp;/&nbsp; {project.role}
-                  </div>
-                  {project.tech && project.tech.length > 0 && (
-                    <div class="flex flex-wrap gap-1 mt-2">
-                      {project.tech.map((t) => (
-                        <span class="badge badge-ghost badge-sm text-xs">{t}</span>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                <span class="text-base-content/40 text-sm flex-shrink-0 mt-1">▼</span>
-              </div>
-            </summary>
-            <div class="card-body pt-0">
-              <p class="mb-2 text-base-content/60 text-sm">{project.team}</p>
-              <p class="mb-4">{project.description}</p>
-
-              {project.situation && project.situation.length > 0 && (
-                <>
-                  <h4 class="font-bold mb-2">背景・状況:</h4>
-                  <ul class="list-disc pl-5 mb-4 space-y-1">
-                    {project.situation.map((item) => (
-                      <li>{item}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {project.actions && project.actions.length > 0 && (
-                <>
-                  <h4 class="font-bold mb-2">取り組んだこと:</h4>
-                  <ul class="list-disc pl-5 mb-4 space-y-1">
-                    {project.actions.map((item) => (
-                      <li>{item}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {project.results && project.results.length > 0 && (
-                <>
-                  <h4 class="font-bold mb-2">成果:</h4>
-                  <ul class="list-disc pl-5 mb-4 space-y-1">
-                    {project.results.map((item) => (
-                      <li>{item}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {project.learnings && project.learnings.length > 0 && (
-                <>
-                  <h4 class="font-bold mb-2">学び:</h4>
-                  <ul class="list-disc pl-5 space-y-1">
-                    {project.learnings.map((item) => (
-                      <li>{item}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </div>
-          </details>
-        ))}
-
-        <div class="mt-6">
-          <h3 class="font-semibold text-sm mb-3 text-base-content/50">その他の経験</h3>
-          <ul class="space-y-2">
-            {otherProjects.map((item) => (
-              <li class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3">{item}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <!-- 個人開発 -->
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold mb-6">個人開発</h2>
-
-        <div class="card bg-base-100 border border-base-200 shadow-sm mb-4">
-          <div class="card-body p-6">
-            <div class="flex flex-col sm:flex-row gap-5">
-              <img
-                src="/godotplayer.webp"
-                alt="GodotPlayer"
-                width="160"
-                height="120"
-                class="w-full sm:w-40 h-28 object-cover rounded-lg flex-shrink-0"
-                loading="lazy"
-              />
-              <div>
-                <a
-                  href="https://godotplayer.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-lg font-semibold hover:opacity-70 underline"
+<Layout
+    title="レジュメ | こーひーあーる"
+    description="こーひーあーるの職務経歴・スキルセット"
+    noindex={true}
+>
+    <Header />
+    <main class="flex-1">
+        <div class="container mx-auto px-4 py-8 max-w-7xl">
+            <!-- Hero / FV -->
+            <section class="py-4 md:py-8">
+                <div
+                    class="rounded-2xl border border-base-200 shadow-sm overflow-hidden"
                 >
-                  GodotPlayer
-                </a>
-                <p class="text-sm text-base-content/60 mt-1">フリーゲーム投稿サイト（現在アクティブ開発中、公開ゲーム数500以上、月間PV3万以上）</p>
-                <div class="text-sm text-base-content/60 space-y-1 mt-3">
-                  <p>2023年ファーストリリース: Railway.app、Laravel、React、Inertia.js、TailwindCSS <span class="text-base-content/40">※生成AIを使わずに開発</span></p>
-                  <p>2026年: Cloudflare Workers, R2, D1, Hono, Railway.app、Go <span class="text-base-content/40">※Claude活用</span></p>
+                    <div class="flex flex-col md:flex-row">
+                        <!-- Left: Avatar + Name + CTA -->
+                        <div
+                            class="flex flex-col items-center justify-center gap-5 p-10 md:p-12 md:flex-1"
+                        >
+                            <img
+                                src="/avator.webp"
+                                width="160"
+                                height="160"
+                                alt="こーひーあーる"
+                                class="rounded-full w-24 h-24 md:w-32 md:h-32"
+                            />
+                            <div class="text-center">
+                                <h1
+                                    class="text-3xl md:text-4xl font-bold tracking-tight"
+                                >
+                                    こーひーあーる
+                                </h1>
+                                <p class="text-base-content/50 text-sm mt-1">
+                                    20年稼働の通販システムを保守・リプレイスしているバックエンドエンジニア
+                                </p>
+                            </div>
+                            <a
+                                href={FORM_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-neutral"
+                            >
+                                お問い合わせ
+                            </a>
+                        </div>
+
+                        <!-- Vertical divider (desktop) / Horizontal divider (mobile) -->
+                        <div
+                            class="border-t border-base-200 md:border-t-0 md:border-l"
+                        >
+                        </div>
+
+                        <!-- Right: Employment + Tagline -->
+                        <div
+                            class="flex flex-col justify-center gap-6 p-10 md:p-12 md:flex-1"
+                        >
+                            <div class="space-y-3">
+                                <div>
+                                    <p class="text-sm font-medium">
+                                        株式会社Gnzo 情報技術課
+                                    </p>
+                                    <p
+                                        class="text-xs text-base-content/40 mt-0.5"
+                                    >
+                                        2019年7月〜現在
+                                    </p>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium">
+                                        株式会社テンダ ゲームコンテンツ事業部
+                                    </p>
+                                    <p
+                                        class="text-xs text-base-content/40 mt-0.5"
+                                    >
+                                        2015年4月〜2018年6月
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="h-px bg-base-200"></div>
+
+                            <p class="text-base-content/80 leading-relaxed">
+                                SOAP
+                                APIをLaravelでREST化するリプレイスでは、主担当として設計から実装までを担当。テストコードのなかった現場にPHPUnit・CI/CDを整備してきました。
+                            </p>
+                            <p class="text-base-content/80 leading-relaxed">
+                                現在は20年以上稼働している通販Webシステムの保守・追加開発に携わっています。現状のシステムやビジネスの制約を踏まえながら開発を進めています。
+                            </p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
+            </section>
+
+            <!-- スキル -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-6">スキル</h2>
+                <div class="space-y-3">
+                    {
+                        skills.map(({ category, items }) => (
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+                                <span class="text-sm text-base-content/40 w-28 flex-shrink-0">
+                                    {category}
+                                </span>
+                                <div class="flex flex-wrap gap-2">
+                                    {items.map((item) => (
+                                        <span class="badge badge-outline text-sm">
+                                            {item}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </section>
+
+            <!-- 資格・学歴 -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-6">資格・試験・学歴</h2>
+                <ul class="text-sm text-base-content/80 space-y-1">
+                    <li>IPA データベーススペシャリスト試験 (2024/12 合格)</li>
+                    <li>IPA ネットワークスペシャリスト試験 (2024/7 合格)</li>
+                    <li>IPA 応用情報技術者試験 (2023/6 合格)</li>
+                    <li>IPA 基本情報技術者試験 (2022/11 合格)</li>
+                    <li>
+                        AWS Certified Solutions Architect - Associate (2020/4,
+                        2023/4 合格)
+                    </li>
+                    <li class="mt-3">
+                        芝浦工業大学 材料工学専攻 学部卒（2015年）
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 実績 -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-6">
+                    関わった主なプロジェクト
+                </h2>
+                {
+                    projects.map((project) => (
+                        <details
+                            class="mb-4 card bg-base-100 shadow-sm border border-base-200"
+                            open={project.open}
+                        >
+                            <summary class="card-body cursor-pointer">
+                                <div class="flex items-start justify-between gap-2">
+                                    <div>
+                                        <span class="font-semibold text-lg">
+                                            {project.title}
+                                        </span>
+                                        <div class="text-sm text-base-content/50 mt-1">
+                                            {project.time} &nbsp;/&nbsp;{" "}
+                                            {project.role}
+                                        </div>
+                                        {project.tech &&
+                                            project.tech.length > 0 && (
+                                                <div class="flex flex-wrap gap-1 mt-2">
+                                                    {project.tech.map((t) => (
+                                                        <span class="badge badge-ghost badge-sm text-xs">
+                                                            {t}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            )}
+                                    </div>
+                                    <span class="text-base-content/40 text-sm flex-shrink-0 mt-1">
+                                        ▼
+                                    </span>
+                                </div>
+                            </summary>
+                            <div class="card-body pt-0">
+                                <p class="mb-2 text-base-content/60 text-sm">
+                                    {project.team}
+                                </p>
+                                <p class="mb-4">{project.description}</p>
+
+                                {project.situation &&
+                                    project.situation.length > 0 && (
+                                        <>
+                                            <h4 class="font-bold mb-2">
+                                                背景・状況:
+                                            </h4>
+                                            <ul class="list-disc pl-5 mb-4 space-y-1">
+                                                {project.situation.map(
+                                                    (item) => (
+                                                        <li>{item}</li>
+                                                    ),
+                                                )}
+                                            </ul>
+                                        </>
+                                    )}
+
+                                {project.actions &&
+                                    project.actions.length > 0 && (
+                                        <>
+                                            <h4 class="font-bold mb-2">
+                                                取り組んだこと:
+                                            </h4>
+                                            <ul class="list-disc pl-5 mb-4 space-y-1">
+                                                {project.actions.map((item) => (
+                                                    <li>{item}</li>
+                                                ))}
+                                            </ul>
+                                        </>
+                                    )}
+
+                                {project.results &&
+                                    project.results.length > 0 && (
+                                        <>
+                                            <h4 class="font-bold mb-2">
+                                                成果:
+                                            </h4>
+                                            <ul class="list-disc pl-5 mb-4 space-y-1">
+                                                {project.results.map((item) => (
+                                                    <li>{item}</li>
+                                                ))}
+                                            </ul>
+                                        </>
+                                    )}
+
+                                {project.learnings &&
+                                    project.learnings.length > 0 && (
+                                        <>
+                                            <h4 class="font-bold mb-2">
+                                                学び:
+                                            </h4>
+                                            <ul class="list-disc pl-5 space-y-1">
+                                                {project.learnings.map(
+                                                    (item) => (
+                                                        <li>{item}</li>
+                                                    ),
+                                                )}
+                                            </ul>
+                                        </>
+                                    )}
+                            </div>
+                        </details>
+                    ))
+                }
+
+                <div class="mt-6">
+                    <h3 class="font-semibold text-sm mb-3 text-base-content/50">
+                        その他の経験
+                    </h3>
+                    <ul class="space-y-2">
+                        {
+                            otherProjects.map((item) => (
+                                <li class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3">
+                                    {item}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 個人開発 -->
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-6">個人開発</h2>
+
+                <div
+                    class="card bg-base-100 border border-base-200 shadow-sm mb-4"
+                >
+                    <div class="card-body p-6">
+                        <div class="flex flex-col sm:flex-row gap-5">
+                            <img
+                                src="/godotplayer.webp"
+                                alt="GodotPlayer"
+                                width="160"
+                                height="120"
+                                class="w-full sm:w-40 h-28 object-cover rounded-lg flex-shrink-0"
+                                loading="lazy"
+                            />
+                            <div>
+                                <a
+                                    href="https://godotplayer.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-lg font-semibold hover:opacity-70 underline"
+                                >
+                                    GodotPlayer
+                                </a>
+                                <p class="text-sm text-base-content/60 mt-1">
+                                    フリーゲーム投稿サイト（現在アクティブ開発中、公開ゲーム数500以上、月間PV3万以上）
+                                </p>
+                                <div
+                                    class="text-sm text-base-content/60 space-y-1 mt-3"
+                                >
+                                    <p>
+                                        2023年ファーストリリース:
+                                        Railway.app、Laravel、React、Inertia.js、TailwindCSS
+                                        <span class="text-base-content/40"
+                                            >※生成AIを使わずに開発</span
+                                        >
+                                    </p>
+                                    <p>
+                                        2026年: Cloudflare Workers, R2, D1,
+                                        Hono, Railway.app、Go <span
+                                            class="text-base-content/40"
+                                            >※Claude活用</span
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="space-y-2">
+                    <li
+                        class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3"
+                    >
+                        <a
+                            href="https://store.steampowered.com/app/1096420/Re_Painter"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hover:opacity-70 underline"
+                        >
+                            Re Painter
+                        </a>
+                        — 離職中の1年間、コワーキングスペースに通い詰めて開発し、2020年1月にSteamでリリースしたオリジナルゲーム
+                        (Unity, C#)
+                    </li>
+                    <li
+                        class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3"
+                    >
+                        <a
+                            href="https://unityroom.com/users/3cr10wv7fsuxmag8h594"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hover:opacity-70 underline"
+                        >
+                            ブラウザミニゲーム集
+                        </a>
+                        — unityroom (Unity, C#)
+                    </li>
+                    <li
+                        class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3"
+                    >
+                        <a
+                            href="https://bingo-time-simulator.vercel.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hover:opacity-70 underline"
+                        >
+                            ビンゴ大会終了時間計算シミュレーター
+                        </a>
+                        — JavaScript
+                    </li>
+                </ul>
+            </section>
         </div>
-
-        <ul class="space-y-2">
-          <li class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3">
-            <a
-              href="https://store.steampowered.com/app/1096420/Re_Painter"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover:opacity-70 underline"
-            >
-              Re Painter
-            </a>
-            — 離職中の1年間、コワーキングスペースに通い詰めて開発し、2020年1月にSteamでリリースしたオリジナルゲーム (Unity, C#)
-          </li>
-          <li class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3">
-            <a
-              href="https://unityroom.com/users/3cr10wv7fsuxmag8h594"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover:opacity-70 underline"
-            >
-              ブラウザミニゲーム集
-            </a>
-            — unityroom (Unity, C#)
-          </li>
-          <li class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3">
-            <a
-              href="https://bingo-time-simulator.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hover:opacity-70 underline"
-            >
-              ビンゴ大会終了時間計算シミュレーター
-            </a>
-            — JavaScript
-          </li>
-        </ul>
-      </section>
-
-      <!-- 資格・学歴 -->
-      <section class="mb-10">
-        <h2 class="text-xl font-semibold mb-3 text-base-content/50">資格・試験・学歴</h2>
-        <ul class="text-sm text-base-content/50 space-y-1">
-          <li>IPA データベーススペシャリスト試験 (2024/12 合格)</li>
-          <li>IPA ネットワークスペシャリスト試験 (2024/7 合格)</li>
-          <li>IPA 応用情報技術者試験 (2023/6 合格)</li>
-          <li>IPA 基本情報技術者試験 (2022/11 合格)</li>
-          <li>AWS Certified Solutions Architect - Associate (2020/4, 2023/4 合格)</li>
-          <li class="mt-3">芝浦工業大学 材料工学専攻 学部卒（2015年）</li>
-        </ul>
-      </section>
-
-      <!-- 補足（休職歴） -->
-      <section class="mb-12">
-        <p class="text-sm text-base-content/50">
-          健康上の理由により、下記期間で休職していました。現在は時短勤務（回復中）で就労しています。<br />
-          ・2025年9月〜2026年3月<br />
-          ・2025年2月〜2025年4月<br />
-          ・2022年6月〜2023年8月
-        </p>
-      </section>
-    </div>
-    <SocialLinks />
-  </main>
-  <Footer />
+        <SocialLinks />
+    </main>
+    <Footer />
 </Layout>
