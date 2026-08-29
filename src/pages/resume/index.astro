@@ -7,149 +7,192 @@ import SocialLinks from "../../components/SocialLinks.astro";
 const FORM_URL =
     "https://docs.google.com/forms/d/e/1FAIpQLSctIthyLIVGrD1l11Rg7yVWX6orzKusDdY9thawqmTLgz5CNQ/viewform?usp=publish-editor";
 
-const skills: { category: string; items: string[] }[] = [
-    {
-        category: "言語",
-        items: [
-            "PHP 7年",
-            "Python（社内スクリプト）",
-            "Shell（運用スクリプト）",
-            "C#（既存C#資産の解析）",
-        ],
-    },
-    { category: "フレームワーク", items: ["Laravel 2年", "CodeIgniter3 5年"] },
-    {
-        category: "データベース",
-        items: [
-            "MySQL 3年",
-            "Oracle Database 3年",
-            "SQL Server（WebAPIリプレイスで使用）",
-        ],
-    },
-    {
-        category: "インフラ",
-        items: [
-            "AWS（Route 53移行・S3+CloudFront構築）",
-            "VMware",
-            "AlmaLinux",
-            "CentOS7",
-            "Apache",
-            "NGINX",
-        ],
-    },
-    {
-        category: "その他",
-        items: [
-            "PHPUnit",
-            "OpenAPI",
-            "Podman",
-            "GitLab Runner（CI/CD構築）",
-            "Zabbix",
-            "Unity (C#)（個人開発・Steamリリース）",
-        ],
-    },
-];
+const md = (level: number) => "#".repeat(level);
+
+function headingId(label: string) {
+    return label.replace(/\s+/g, "");
+}
+
+type Project = {
+    title: string;
+    team: string;
+    role: string;
+    time: string;
+    description: string;
+    scope?: {
+        requested: string;
+        took: string;
+        outside: string | string[];
+    };
+    situation?: string[];
+    actions?: string[];
+    results?: string[];
+    remaining?: string[];
+};
 
 const otherProjects = [
-    "2026年7月〜 / 自社通販Webアプリケーションの脆弱性診断（今年度主担当） / 実施スケジュール策定・検査シナリオ整備・検査端末操作",
-    "2026年4〜7月 / AIボイスbot導入支援 / 電話シナリオ制作、WebAPI連携",
     "2024年6〜8月 / d払いの導入 / GMOペイメントゲートウェイを用いたd払い決済機能実装",
     "2024年3〜5月 / 3Dセキュア2.0対応 / GMOペイメントゲートウェイの決済モジュール入れ替え・3DS2.0実装",
-    "2021年頃〜2022年5月 / 自社ECサイト向けRESTish API開発 / エンドポイント設計・OpenAPI仕様書作成・実装 (CodeIgniter3)",
+    "2021年頃〜2022年5月 / 自社ECサイト向けRESTish API開発（機能実装担当） / 設計は別途主担当。自分は実装とStoplight上のOpenAPIを担当。ドメインごとに担当が分かれており、横断で見たときの表記ゆれにどう手を打つか、統一した場合の効果も、当時は持てなかった。元モノリスは深いネスト・カートがDB・PHPUnit/Composerなし (CodeIgniter3)",
     "2021年 / BtoBtoCコミュニティサイト開発 / Amazon S3・CloudFrontを用いた静的コンテンツ配信構築",
-    "2020年 / オンプレDNSサーバのAmazon Route 53移行 / 移行計画・作業主担当、ダウンタイムなしで全ドメイン移行完遂",
+    "2020年 / オンプレDNSサーバのAmazon Route 53移行（作業主担当） / リンク負荷分散配下でAレコード固定だと回線障害時に死んだIPを返し続ける問題を、ヘルスチェック＋フェイルオーバールーティングで回避。メールサーバ移行は専門外",
     "2020年 / 自社ECアプリのPHP・CodeIgniterバージョンアップ / PHP5→7、CodeIgniter2→3対応・E2Eテスト作成",
 ];
 
-const projects = [
+const projects: Project[] = [
     {
-        title: "SOAP WebAPIのリプレイス",
-        open: false,
-        team: "チーム規模: 4名 (内、部長1名、別機能担当エンジニア2名、自分)",
-        role: "役割: 主担当（部長の内製化方針のもと、アプリ構成・テスト方式・開発環境・CI/CDを設計。APIはエンドポイント単位で分担し、在庫まわりの設計〜実装を担当）",
-        tech: [
-            "PHP",
-            "Laravel",
-            "SQL Server",
-            "PHPUnit",
-            "OpenAPI",
-            "Podman",
-            "AlmaLinux",
-            "GitLab Runner",
-            "C#",
-        ],
-        time: "期間: 2024年9月 - 2025年6月",
+        title: "自社通販Webアプリケーションの脆弱性診断",
+        team: "チーム規模: 2026年の実施は自分が主担当。2024・2025年は別の実施者",
+        role: "役割: 主担当（実施スケジュール、検査シナリオ、検査端末）",
+        time: "期間: 2026年7月 - 2026年9月",
         description:
-            "概要: 10年以上前に協力会社により作成された、ERPと各種アプリケーションを連携させているSOAPプロトコルのWebAPIを内製化し、RESTishなWebAPIにリプレイスするプロジェクト。エラーレートの削減による機会損失の低減、機能要件に自社で対応できるようにすることが目的だった。",
-        situation: [
-            "ERPとその他のアプリケーションとで不整合がしばしば発覚することはわかっていたが、何が原因かはチームでわかっていなかった",
-            "ERPが稼働し続ける限りAPIも同様に稼働させ続ける必要があったので、メンテナンスしやすいアプリ構成にする必要があると感じた",
-            "これまで活用していたCodeIgniter3のサポートが終了していたため、バージョンを上げるかフレームワークを変える必要があった",
-            "テストコードが勤め先のシステムでほとんど書かれていない状況",
-        ],
+            "内製している通販系Webアプリケーションの年次脆弱性診断。社内で毎年実施するポリシーが近年決まり、2026年の実施を主担当として回した。診断ツールは協力会社提供。",
+        scope: {
+            requested:
+                "年次診断を主担当として回すこと（実施スケジュール、検査シナリオ、検査端末操作）",
+            took: "検査ツールのライセンス期間が限られるなかで、効率よく回すため検査速度を上げ、対象WebAppを前年の3つより増やすことを目標にした",
+            outside: [
+                "検出結果の評価（攻撃が成立するか、誤検知か、直すか、来年に持ち越すか）",
+                "評価と対応の作業は別の開発者に依頼",
+            ],
+        },
         actions: [
-            "現行サーバのIISからSOAP WebAPIのアクセスログを取得しパフォーマンス上の問題を分析",
-            "フレームワーク選定ではCodeIgniter4（CI3から書き方が大きく変化）やGo（チームの学習負担・採用への影響）と比較し、普及度と学習リソースの豊富さからLaravelを選定。プロトタイプを作成して提案し、チームに確認のうえ採用",
-            "Podmanコンテナを用いた環境構築の提案と実装",
-            "既存C#コードから仕様を復元できるはずという部長の仮説を受け、協力会社が10年前に開発したC#製アプリケーションを解析してLaravelで再実装",
-            "在庫まわりのREST APIエンドポイントおよびIN/OUT設計（エンドポイント単位でチーム分担）",
-            "テストのなかった現場に、OpenAPI仕様書と実装の乖離を自動検知するPHPUnitテストを自ら導入",
-            "自ら必要性を判断してGitLab RunnerによるCI/CDパイプラインを構築。Laravel Pint・Larastan・PHPUnitをgit pre-commitフックで検証するスクリプトも作成しメンバーに配布",
-            "MVC+UseCase構成を採用し実装",
+            "検査が遅い原因として、検査パターン過多ではないかと仮説を置いた",
+            "シグネチャを減らすだけだと、見なきゃいけないものまで削るので、何を残すかの選定をした",
+            "条件を変えて検査速度を比較した",
+            "検査用のダミーデータ生成がなかった。検証環境の登録時SQLログから基準データを拾い、メールアドレスなどユニーク項目だけ差し替える簡易シーダーをPythonで実装した",
         ],
         results: [
-            "ログ分析より、決まった時間のERPの日次処理におけるデータベースインデックス再作成のタイミングでAPIエラーが多発することを特定",
-            "構成をコンテナファイル化することで、環境の容易な配布や、再現性の高い環境構築が可能になった",
-            "テストコードを整備し、標準的な開発フローに近づけた。OpenAPI仕様書と実装の乖離を自動検知できるようにした",
+            "診断対象が使っていないNoSQLやOpenID Connectなどの検査パターンを外し、単純計算で検査数を70%に抑えた",
+            "ダミーデータを使い回しているシナリオで、大量の履歴が顧客に紐づき検査速度が落ちることを特定し、ダミーデータを追加で作った",
+            "診断対象を前年の3 WebAppから9 WebAppまで広げた",
         ],
-        learnings: [
-            "オニオンアーキテクチャかMVC+UseCaseを採用するかで非常に悩んだ、が組織の身の丈にあった構成を選ぶことが大事だと感じた",
+        remaining: [
+            "ここまで対象が広がる想定で検査シナリオを設計していなかった。拡大にシナリオ設計が追いついていない",
+            "商品マスタが検証DBのdump依存のため、販売期間が過ぎると検査が期待通り走らない",
+            "残した検査シグネチャの選定が妥当かどうかは、まだ見切れていない",
+        ],
+    },
+    {
+        title: "AIボイスbot導入支援",
+        team: "チーム規模: 主担当2名＋途中からの支援（自分）",
+        role: "役割: 途中からの支援（電話シナリオ制作、WebAPI連携）",
+        time: "期間: 2026年4月 - 2026年7月",
+        description:
+            "繁忙期の電話落とし対策として、リピーター受注をボイスbotに寄せる導入。別部門の試算では毎シーズン数百万円以上の機会損失。botは協力会社提供で、ブラウザGUI上で電話フローと音声認識の応答を組み、外部WebAPIをノードに指定できる。",
+        scope: {
+            requested:
+                "途中ジョインの支援として、電話シナリオとWebAPI連携。現行APIがレガシーで、別案件の新APIとどちらを使うかの提案も上長から求められた",
+            took: "シナリオエディタが未着手だったので、自社APIを組んで動くデモを出すこと。8月稼働を成立させるために現行APIを使う判断を取りにいくこと",
+            outside:
+                "自分たちでシナリオを組める状態にすること（そこに能力を上げる活動や運用まで入っており、自分では背負えなかった）。部門横断の方針。WebAPIリプレイスライン。引き継ぎ後の推進（別のWebApp担当者）",
+        },
+        situation: [
+            "以前の検証で、新規は通話が長く離脱しやすいことがわかっており、リピーターの電話を自動化する方針が先に決まっていた",
+            "主担当は既に2人いた。途中から支援で入った",
+            "今期の繁忙期に間に合わせるとして、誰がいつまでに何をするかを、誰もハンドリングしていなかった",
+            "シナリオを作れる画面は提供されていたが、誰も作っていなかった",
+        ],
+        actions: [
+            "途中ジョインで全体が見えなかったので、空いている手から動くものを出して判断材料を先に置いた。GUIのシナリオエディタで自社システムのAPIを組み、動くものを社内デモした",
+            "作るだけではなく、自分たちでシナリオを組み続けられる必要があると感じた。ただしそこには音声精度や電話受注の型を上げる活動、運用まで入っており、自分では背負えなかった。その担当は誰か、を確認した",
+            "現行WebAPIのリプレイスが別ラインにあり、5月時点で8月稼働希望だった。スケジュールの成立を優先し、現行APIを使う判断を提案して仮で固めた",
+        ],
+        results: [
+            "シナリオが「画面はあるが未着手」の状態から、自社API連携で動くデモがある状態にした",
+            "リプレイス待ちにせず現行APIを使う方針を仮固定し、別のWebApp担当者へ引き継いだ",
+            "8月リリースには至らなかった",
+        ],
+        remaining: [
+            "自分たちでシナリオを組み、精度や運用まで見る状態には、自分の関与では持っていけなかった",
         ],
     },
     {
         title: "ECモールのフルフィルメント化",
         team: "チーム規模: 6名 (内、部長1名、要件定義・サービス設計1名、フロントエンド1名、バックエンド2名) ※企画部門や倉庫部門含めると数十名",
         role: "役割: バックエンド 機能開発担当",
-        tech: [
-            "PHP",
-            "CodeIgniter",
-            "Oracle Database",
-            "SQL Server",
-            "業務パッケージ",
-        ],
         time: "期間: 2025年7月 - 2025年9月",
         description:
-            "概要: Yahoo/楽天型の自社ECモールを、AmazonライクなECモールにする",
+            "Yahoo/楽天型の出品・販売の仕組みを、預かり配送まで担うAmazonライクなフルフィルメントへ寄せる。機能としてはそうだが、取扱商品のコンセプトでは差別化があった",
+        scope: {
+            requested: "バックエンドの機能開発担当としてアサインされること",
+            took: "全体像が見えず何を開発すればいいかわからなかったので、関係部門の業務フロー図・ユースケース・機能一覧まで自分で起こして、開発可能な粒度に落とそうとしたこと",
+            outside:
+                "企画そのもの。部門横断の方針。開発担当の立場から、企画の曖昧さにどう働きかけるか",
+        },
         situation: [
-            "開発担当としてアサインされたもののシステム全体像が不明瞭で何を開発すればいいかわからない状態だった",
-            "ERPシステムの制約（仕様変更すると在庫管理・販売管理が影響を受け、部門業務の変更が必要になる）",
-            "業務フローは存在したが、開発可能な粒度まで落とし込まれていない",
+            "開発担当として入ったが、システム全体像が不明瞭で、何を開発すればいいかわからない状態だった",
+            "企画がはっきりしない、と感じたが、自分の立場でどう働きかけるかがわからなかった",
+            "ERPの仕様を変えると在庫管理・販売管理と部門業務が動く",
+            "業務フローはあったが、開発可能な粒度まで落ちていなかった",
         ],
         actions: [
-            "企画・倉庫・カスタマー・販売管理・経理など、関係部門を網羅した業務フロー図の作成から着手（可視化から始める進め方は自分で判断）",
-            "業務フローからシステム接点を抽出し、ユースケース図を作成、ERPパッケージ運用担当にヒアリングし制約条件を確認、以上を踏まえて開発が必要な機能一覧を作成して、スケジュール表に落とし込む",
-            "WebAPI経由でERPの受注データを取得する仕様を設計",
-            "商品登録・変更、倉庫保管手数料算出のための記録仕様、の叩き台を作成",
-            "ECモールWebアプリ・管理アプリのバックエンド実装（初期フェーズ）",
-            "納品計画登録画面のバックエンド実装",
+            "企画・倉庫・カスタマー・販売管理・経理など、関係部門を網羅した業務フロー図の作成から着手した（可視化から始める判断は自分）",
+            "システム接点をユースケース図にし、ERPパッケージ運用担当に制約を聞き、機能一覧とスケジュールに落とした",
+            "WebAPI経由でERPの受注データを取得する仕様、商品登録・変更、倉庫保管手数料算出のための記録仕様の叩き台を作った",
+            "ECモールWebアプリ・管理アプリのバックエンド初期実装、納品計画登録画面のバックエンドを担当した",
         ],
         results: [
-            "業務フロー・ユースケース図により、システム全体像を可視化",
-            "開発スコープを明確化し、「何をすれば完了か」をチーム全体で共有",
-            "ERP制約を整理し、既存業務への影響を最小化した",
+            "業務フロー図とユースケース図は作った",
+            "ただしその後、書いたとおりの企画では進まなかった。図がチームにどう作用したかは、自分からは観測できていない",
         ],
-        learnings: [
-            "曖昧な要件を図解で可視化することで、関係者の認識を揃えられることを実感",
+        remaining: [
+            "企画が動かないときに開発担当からどう働きかけるかは、当時も今も持てていない",
+        ],
+    },
+    {
+        title: "SOAP WebAPIのリプレイス",
+        team: "チーム規模: 4名 (内、部長1名、別機能担当エンジニア2名、自分)",
+        role: "役割: 主担当（アプリ構成・テスト方式・開発環境・CI/CDを設計。APIはエンドポイント単位で分担し、在庫まわりの設計〜実装を担当）",
+        time: "期間: 2024年9月 - 2025年6月",
+        description:
+            "10年以上前に協力会社が作った、ERPと各種アプリケーションを連携するSOAP WebAPIを内製化し、RESTishなWebAPIへリプレイスする。上長からの依頼は作り替えと、WebAPIの200系成功率の改善。機能要件に自社で対応できるようにすることも目的だった。",
+        scope: {
+            requested:
+                "協力会社製SOAP WebAPIの内製リプレイス。WebAPIの200系成功率を上げてほしい、という上長リクエスト",
+            took: "エラーがいつ・どれくらい出ているかをログから切ること。CI3 EOLを受けてフレームワークと検証手段（テスト・CI・コンテナ）を選定し、在庫まわりの設計〜実装まで担うこと",
+            outside:
+                "当該時間帯のリアルタイムエラーをAPI側で減らすこと（減らせない結論。バッチリカバリは上長）。テーブル作成は協力会社・運用。APIはエンドポイント単位で分担",
+        },
+        situation: [
+            "上長から作り替えと成功率改善の依頼を受けたが、実際のエラー発生率や条件はチームで把握していなかった",
+            "ERPとその他アプリの不整合は見えていたが、原因はわかっていなかった",
+            "CodeIgniter3がEOL。社内のWebApp内製が触れる言語はPHP。テーブル作成は協力会社・運用が扱っており、マイグレーションは使わない前提だった",
+            "テストコードが勤め先のシステムでほとんど書かれていない状況だった",
+        ],
+        actions: [
+            "現行サーバのIISからSOAP WebAPIのアクセスログを取り、早朝帯にエラー率が約10%の時間帯を見つけた。単独では原因まで閉じられず、相談の結果、coreシステムのindex再作成と時間帯が重なることが判明した",
+            "既存はC#、DBはSQL Serverなので.NETに寄せる選択肢もあったが、社内のWebApp内製チームが触れるのがPHPなので寄せなかった。CodeIgniter4は書き方が大きく変わる。Goはチームの学習負担を見て見送り、Laravelでプロトタイプを作って提案し、採用した",
+            "パッチの当てやすさを理由に、Podmanでのコンテナ環境を自ら選定して導入した",
+            "既存C#コードから仕様を復元できる、という部長の仮説を受け、協力会社が10年前に作ったC#製アプリケーションを解析してLaravelで再実装した",
+            "在庫まわりのREST APIエンドポイントおよびIN/OUT設計（エンドポイント単位でチーム分担）",
+            "OpenAPI仕様書と実装の乖離を検知するPHPUnitテスト（OpenAPI Validator）、GitLab RunnerによるCI、Pint・PHPStan（Larastan）・PHPUnitをgit pre-commitで回す仕組みを入れてメンバーに配布した",
+            "MVC+UseCase構成で実装した。オニオンアーキテクチャかで悩んだが、組織の身の丈に合わせてこちらを選んだ",
+        ],
+        results: [
+            "早朝のエラー帯をログで特定し、原因候補（index再作成との重複）まで辿った。当該時間帯のリアルタイムエラーは減らせない、という結論になった。連携はその時間帯を諦め、上長判断でバッチリカバリする方針になった。エラーが減ったとは言えない",
+            "Pint・PHPStan・PHPUnitで機械的に検証が回るようになり、共通処理を触ったときにどこが壊れそうかのあたりがつけやすくなった。PHPUnitで、どこまで作ってどこまで確認したかが見えるようになった",
+            "型のあるPHPになり、VSCodeで追えるようになった（CI3の this->load->xxx は補完が効かず辛かった）",
+        ],
+        remaining: [
+            "Podmanデプロイのダウンタイムが0ではない",
+            "停電対応の運用担当者がコンテナをわからない。チームとしてパッチを当てる活動にも乗っておらず、パッチ当てやすさで選んだ意味が薄い",
+            "VMの上にコンテナを乗せているので、軽量性のメリットを評価しきれていない。オンプレ前提でコンテナが適切だったかの評価方法も、まだ持てていない",
         ],
     },
     {
         title: "ブラウザソーシャルゲームの追加開発・保守",
         team: "チーム規模: 5名 (内 ディレクター1名、プランナー1名、Webデザイナー1名、プログラマ2名)",
         role: "役割: サーバサイドPHPのプログラマ",
-        tech: ["PHP", "MySQL"],
         time: "期間: 2015年7月 - 2018年6月",
         description:
-            "概要: Flashで遊べる版権ソーシャルゲームのサーバサイド追加開発・保守業務",
+            "Flashで遊べる版権ソーシャルゲームのサーバサイド追加開発・保守業務",
+        scope: {
+            requested: "サーバサイドPHPの追加開発・保守",
+            took: "スロークエリと課金アイテム増殖など、イベントや売上に直撃する不具合の切り分けと修正",
+            outside:
+                "プラン・演出・クライアント。レベニューシェアの事業条件そのもの",
+        },
         situation: [
             "レベニューシェア型のプロジェクトで、プラットフォーム・版元・権利取得会社へのマージンなどを加味した上で、チームで毎月数千万の売り上げを求められる現場だった",
             "フレームワークなどがないレガシーなコードベースで、追加開発の難易度が高い状態だった",
@@ -163,383 +206,506 @@ const projects = [
         ],
         results: [
             "新規バトルシステムの追加開発を担当してリリースした",
-            "クエリ改善により、イベント終了間際のサーバ負荷が軽減された",
-            "楽観的排他制御の実装により、データ不整合の発生頻度が削減された",
-        ],
-        learnings: [
-            "システム開発の先には、お金を払ってくれるユーザーがいることを痛感した",
+            "スロークエリと課金アイテム増殖には手を入れた。イベント終了間際の負荷も、アイテム増殖も、現場が楽になったと言えるほどには抑えきれなかった",
         ],
     },
+];
+
+const toc: { id: string; label: string; depth: number }[] = [
+    { id: "top", label: "こーひーあーる", depth: 1 },
+    { id: "career", label: "職歴", depth: 2 },
+    { id: "certs", label: "資格・試験・学歴", depth: 2 },
+    { id: "projects", label: "案件", depth: 3 },
+    ...projects.map((p) => ({
+        id: headingId(p.title),
+        label: p.title,
+        depth: 4,
+    })),
+    { id: "other", label: "その他の経験", depth: 3 },
+    { id: "personal", label: "個人開発", depth: 3 },
+    { id: "godotplayer", label: "godotplayer", depth: 4 },
+    { id: "re-painter", label: "Re Painter", depth: 4 },
+    { id: "minigames", label: "ブラウザミニゲーム集", depth: 4 },
+    { id: "bingo", label: "ビンゴ大会終了時間計算シミュレーター", depth: 4 },
 ];
 ---
 
 <Layout
     title="レジュメ | こーひーあーる"
-    description="こーひーあーるの職務経歴・スキルセット"
+    description="こーひーあーるの職務経歴"
     noindex={true}
 >
     <Header />
     <main class="flex-1">
-        <div class="container mx-auto px-4 py-8 max-w-7xl">
-            <!-- Hero / FV -->
-            <section class="py-4 md:py-8">
-                <div
-                    class="rounded-2xl border border-base-200 shadow-sm overflow-hidden"
-                >
-                    <div class="flex flex-col md:flex-row">
-                        <!-- Left: Avatar + Name + CTA -->
-                        <div
-                            class="flex flex-col items-center justify-center gap-5 p-10 md:p-12 md:flex-1"
-                        >
-                            <img
-                                src="/avator.webp"
-                                width="160"
-                                height="160"
-                                alt="こーひーあーる"
-                                class="rounded-full w-24 h-24 md:w-32 md:h-32"
-                            />
-                            <div class="text-center">
-                                <h1
-                                    class="text-3xl md:text-4xl font-bold tracking-tight"
-                                >
-                                    こーひーあーる
-                                </h1>
-                                <p class="text-base-content/50 text-sm mt-1">
-                                    20年稼働の通販システムを保守・リプレイスしているバックエンドエンジニア
-                                </p>
-                            </div>
-                            <a
-                                href={FORM_URL}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="btn btn-neutral"
-                            >
-                                お問い合わせ
-                            </a>
-                        </div>
+        <div
+            class="resume-wrap mx-auto px-4 py-10 max-w-3xl lg:max-w-6xl lg:grid lg:grid-cols-[15rem_minmax(0,45rem)] lg:gap-x-10 lg:justify-center"
+        >
+            <nav class="resume-toc hidden lg:block" aria-label="目次">
+                {
+                    toc.map((item) => (
+                        <a href={`#${item.id}`} class="resume-toc-link">
+                            <span class="resume-hash">{md(item.depth)} </span>
+                            {item.label}
+                        </a>
+                    ))
+                }
+            </nav>
+            <article class="resume-md">
+                <p class="resume-p">
+                    <img
+                        src="/avator.webp"
+                        width="72"
+                        height="72"
+                        alt="こーひーあーる"
+                        class="rounded-full w-16 h-16 mb-4"
+                    />
+                </p>
 
-                        <!-- Vertical divider (desktop) / Horizontal divider (mobile) -->
-                        <div
-                            class="border-t border-base-200 md:border-t-0 md:border-l"
-                        >
-                        </div>
+                <h1 id="top" class="resume-h resume-h1">
+                    <span class="resume-hash">{md(1)}{" "}</span>こーひーあーる
+                </h1>
+                <p class="resume-p resume-dim">バックエンドエンジニア</p>
+                <p class="resume-p">
+                    <a
+                        href={FORM_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
+                    >
+                        [お問い合わせ]
+                    </a>
+                </p>
 
-                        <!-- Right: Employment + Tagline -->
-                        <div
-                            class="flex flex-col justify-center gap-6 p-10 md:p-12 md:flex-1"
-                        >
-                            <div class="space-y-3">
-                                <div>
-                                    <p class="text-sm font-medium">
-                                        株式会社Gnzo 情報技術課
-                                    </p>
-                                    <p
-                                        class="text-xs text-base-content/40 mt-0.5"
-                                    >
-                                        2019年7月〜現在
-                                    </p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium">
-                                        株式会社テンダ ゲームコンテンツ事業部
-                                    </p>
-                                    <p
-                                        class="text-xs text-base-content/40 mt-0.5"
-                                    >
-                                        2015年4月〜2018年6月
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="h-px bg-base-200"></div>
-
-                            <ul
-                                class="text-base-content/80 text-sm leading-relaxed list-disc pl-5 space-y-1"
-                            >
-                                <li>
-                                    長期稼働システムの解析と段階的リプレイス（SOAP→RESTish、PHP5→7）
-                                </li>
-                                <li>
-                                    テスト・CI/CD文化がない現場への導入実績（PHPUnit、GitLab
-                                    Runner、pre-commit）
-                                </li>
-                                <li>
-                                    業務フロー図・ユースケース図で曖昧な要件を開発可能な粒度に落とし込む
-                                </li>
-                            </ul>
-
-                            <p class="text-base-content/80 leading-relaxed">
-                                SOAP
-                                WebAPIをLaravelでRESTishなWebAPIへリプレイスする際は、主担当として設計から実装までを担当。テストコードのなかった現場にPHPUnit・CI/CDを整備してきました。
-                            </p>
-                            <p class="text-base-content/80 leading-relaxed">
-                                現在は20年以上稼働している通販Webシステムの保守・追加開発に携わっています。現状のシステムやビジネスの制約を踏まえながら開発を進めています。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- スキル -->
-            <section class="mb-10">
-                <h2 class="text-2xl font-bold mb-6">スキル</h2>
-                <div class="space-y-3">
-                    {
-                        skills.map(({ category, items }) => (
-                            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
-                                <span class="text-sm text-base-content/40 w-28 flex-shrink-0">
-                                    {category}
-                                </span>
-                                <div class="flex flex-wrap gap-2">
-                                    {items.map((item) => (
-                                        <span class="badge badge-outline text-sm">
-                                            {item}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-            </section>
-
-            <!-- 資格・学歴 -->
-            <section class="mb-10">
-                <h2 class="text-2xl font-bold mb-6">資格・試験・学歴</h2>
-                <ul class="text-sm text-base-content/80 space-y-1">
-                    <li>IPA データベーススペシャリスト試験 (2024/12 合格)</li>
-                    <li>IPA ネットワークスペシャリスト試験 (2024/7 合格)</li>
-                    <li>IPA 応用情報技術者試験 (2023/6 合格)</li>
-                    <li>IPA 基本情報技術者試験 (2022/11 合格)</li>
-                    <li>
-                        AWS Certified Solutions Architect - Associate (2020/4
-                        合格, 2023/4 再認定)
-                    </li>
-                    <li class="mt-3">芝浦工業大学 材料工学科 卒業（2015年）</li>
-                </ul>
-            </section>
-
-            <!-- 実績 -->
-            <section class="mb-10">
-                <h2 class="text-2xl font-bold mb-6">
-                    関わった主なプロジェクト
+                <h2 id="career" class="resume-h">
+                    <span class="resume-hash">{md(2)}{" "}</span>職歴
                 </h2>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>株式会社Gnzo
+                    情報技術課（2019年7月〜現在）
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>株式会社テンダ
+                    ゲームコンテンツ事業部（2015年4月〜2018年6月）
+                </p>
+
+                <h2 id="certs" class="resume-h">
+                    <span class="resume-hash">{md(2)}{" "}</span
+                    >資格・試験・学歴
+                </h2>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>IPA
+                    データベーススペシャリスト試験 (2024/12 合格)
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>IPA
+                    ネットワークスペシャリスト試験 (2024/7 合格)
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>IPA
+                    応用情報技術者試験 (2023/6 合格)
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>IPA
+                    基本情報技術者試験 (2022/11 合格)
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>AWS Certified
+                    Solutions Architect - Associate (2020/4 合格, 2023/4 再認定)
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>芝浦工業大学
+                    材料工学科 卒業（2015年）
+                </p>
+
+                <h3 id="projects" class="resume-h resume-h3">
+                    <span class="resume-hash">{md(3)}{" "}</span>案件
+                </h3>
                 {
                     projects.map((project) => (
-                        <details
-                            class="mb-4 card bg-base-100 shadow-sm border border-base-200"
-                            open={project.open}
-                        >
-                            <summary class="card-body cursor-pointer">
-                                <div>
-                                    <div class="flex items-center gap-2">
-                                        <span class="font-semibold text-lg">
-                                            {project.title}
+                        <section class="resume-project">
+                            <h4
+                                id={headingId(project.title)}
+                                class="resume-h resume-h4"
+                            >
+                                <span class="resume-hash">{md(4)} </span>
+                                {project.title}
+                            </h4>
+                            <p class="resume-p resume-dim">
+                                {project.time} / {project.role}
+                            </p>
+                            <p class="resume-p resume-dim">{project.team}</p>
+                            <p class="resume-p">{project.description}</p>
+
+                            {(project.scope ||
+                                (project.situation &&
+                                    project.situation.length > 0)) && (
+                                <>
+                                    <h5 class="resume-h resume-h5">
+                                        <span class="resume-hash">
+                                            {md(5)}{" "}
                                         </span>
-                                        <span class="text-base-content/40 text-sm">
-                                            ▼
-                                        </span>
-                                    </div>
-                                    <div class="text-sm text-base-content/50 mt-1">
-                                        {project.time} &nbsp;/&nbsp;{" "}
-                                        {project.role}
-                                    </div>
-                                    {project.tech &&
-                                        project.tech.length > 0 && (
-                                            <div class="flex flex-wrap gap-1 mt-2">
-                                                {project.tech.map((t) => (
-                                                    <span class="badge badge-ghost badge-sm text-xs">
-                                                        {t}
+                                        状況
+                                    </h5>
+                                    {project.scope && (
+                                        <>
+                                            <p class="resume-li">
+                                                <span class="resume-hash">
+                                                    -{" "}
+                                                </span>
+                                                頼まれたこと:{" "}
+                                                {project.scope.requested}
+                                            </p>
+                                            <p class="resume-li">
+                                                <span class="resume-hash">
+                                                    -{" "}
+                                                </span>
+                                                自分からやったこと:{" "}
+                                                {project.scope.took}
+                                            </p>
+                                            {(Array.isArray(
+                                                project.scope.outside,
+                                            )
+                                                ? project.scope.outside
+                                                : [project.scope.outside]
+                                            ).map((item) => (
+                                                <p class="resume-li">
+                                                    <span class="resume-hash">
+                                                        -{" "}
                                                     </span>
-                                                ))}
-                                            </div>
-                                        )}
-                                </div>
-                            </summary>
-                            <div class="card-body pt-0">
-                                <p class="mb-2 text-base-content/60 text-sm">
-                                    {project.team}
-                                </p>
-                                <p class="mb-4">{project.description}</p>
-
-                                {project.situation &&
-                                    project.situation.length > 0 && (
-                                        <>
-                                            <h4 class="font-bold mb-2">
-                                                背景・状況:
-                                            </h4>
-                                            <ul class="list-disc pl-5 mb-4 space-y-1">
-                                                {project.situation.map(
-                                                    (item) => (
-                                                        <li>{item}</li>
-                                                    ),
-                                                )}
-                                            </ul>
+                                                    外 / まだ決まっていないこと:{" "}
+                                                    {item}
+                                                </p>
+                                            ))}
                                         </>
                                     )}
+                                    {project.situation?.map((item) => (
+                                        <p class="resume-li">
+                                            <span class="resume-hash">- </span>
+                                            {item}
+                                        </p>
+                                    ))}
+                                </>
+                            )}
 
-                                {project.actions &&
-                                    project.actions.length > 0 && (
-                                        <>
-                                            <h4 class="font-bold mb-2">
-                                                取り組んだこと:
-                                            </h4>
-                                            <ul class="list-disc pl-5 mb-4 space-y-1">
-                                                {project.actions.map((item) => (
-                                                    <li>{item}</li>
-                                                ))}
-                                            </ul>
-                                        </>
-                                    )}
+                            {project.actions && project.actions.length > 0 && (
+                                <>
+                                    <h5 class="resume-h resume-h5">
+                                        <span class="resume-hash">
+                                            {md(5)}{" "}
+                                        </span>
+                                        取り組んだこと
+                                    </h5>
+                                    {project.actions.map((item) => (
+                                        <p class="resume-li">
+                                            <span class="resume-hash">- </span>
+                                            {item}
+                                        </p>
+                                    ))}
+                                </>
+                            )}
 
-                                {project.results &&
-                                    project.results.length > 0 && (
-                                        <>
-                                            <h4 class="font-bold mb-2">
-                                                成果:
-                                            </h4>
-                                            <ul class="list-disc pl-5 mb-4 space-y-1">
-                                                {project.results.map((item) => (
-                                                    <li>{item}</li>
-                                                ))}
-                                            </ul>
-                                        </>
-                                    )}
+                            {project.results && project.results.length > 0 && (
+                                <>
+                                    <h5 class="resume-h resume-h5">
+                                        <span class="resume-hash">
+                                            {md(5)}{" "}
+                                        </span>
+                                        成果
+                                    </h5>
+                                    {project.results.map((item) => (
+                                        <p class="resume-li">
+                                            <span class="resume-hash">- </span>
+                                            {item}
+                                        </p>
+                                    ))}
+                                </>
+                            )}
 
-                                {project.learnings &&
-                                    project.learnings.length > 0 && (
-                                        <>
-                                            <h4 class="font-bold mb-2">
-                                                学び:
-                                            </h4>
-                                            <ul class="list-disc pl-5 space-y-1">
-                                                {project.learnings.map(
-                                                    (item) => (
-                                                        <li>{item}</li>
-                                                    ),
-                                                )}
-                                            </ul>
-                                        </>
-                                    )}
-                            </div>
-                        </details>
+                            {project.remaining &&
+                                project.remaining.length > 0 && (
+                                    <>
+                                        <h5 class="resume-h resume-h5">
+                                            <span class="resume-hash">
+                                                {md(5)}{" "}
+                                            </span>
+                                            残っていること
+                                        </h5>
+                                        {project.remaining.map((item) => (
+                                            <p class="resume-li">
+                                                <span class="resume-hash">
+                                                    -{" "}
+                                                </span>
+                                                {item}
+                                            </p>
+                                        ))}
+                                    </>
+                                )}
+                        </section>
                     ))
                 }
 
-                <div class="mt-6">
-                    <h3 class="font-semibold text-sm mb-3 text-base-content/50">
-                        その他の経験
-                    </h3>
-                    <ul class="space-y-2">
-                        {
-                            otherProjects.map((item) => (
-                                <li class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3">
-                                    {item}
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
-            </section>
+                <h3 id="other" class="resume-h resume-h3">
+                    <span class="resume-hash">{md(3)}{" "}</span>その他の経験
+                </h3>
+                {
+                    otherProjects.map((item) => (
+                        <p class="resume-li">
+                            <span class="resume-hash">- </span>
+                            {item}
+                        </p>
+                    ))
+                }
 
-            <!-- 個人開発 -->
-            <section class="mb-10">
-                <h2 class="text-2xl font-bold mb-6">個人開発</h2>
+                <h3 id="personal" class="resume-h resume-h3">
+                    <span class="resume-hash">{md(3)}{" "}</span>個人開発
+                </h3>
 
-                <div
-                    class="card bg-base-100 border border-base-200 shadow-sm mb-4"
-                >
-                    <div class="card-body p-6">
-                        <div class="flex flex-col sm:flex-row gap-5">
-                            <img
-                                src="/godotplayer.webp"
-                                alt="GodotPlayer"
-                                width="160"
-                                height="120"
-                                class="w-full sm:w-40 h-28 object-cover rounded-lg flex-shrink-0"
-                                loading="lazy"
-                            />
-                            <div>
-                                <a
-                                    href="https://godotplayer.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-lg font-semibold hover:opacity-70 underline"
-                                >
-                                    godotplayer
-                                </a>
-                                <p class="text-sm text-base-content/60 mt-1">
-                                    フリーゲーム投稿サイト（公開ゲーム数600以上、月間PV1.3万以上）
-                                </p>
-                                <div
-                                    class="text-sm text-base-content/60 space-y-1 mt-3"
-                                >
-                                    <p>
-                                        2023年ファーストリリース:
-                                        Railway.app、Laravel、React、Inertia.js、TailwindCSS
-                                        <span class="text-base-content/40">
-                                            ※生成AIを使わずに開発</span
-                                        >
-                                    </p>
-                                    <p>
-                                        2026年: Cloudflare Workers, R2, D1,
-                                        Hono, Google Cloud Run、Go <span
-                                            class="text-base-content/40"
-                                        >
-                                            ※Claude活用</span
-                                        >
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h4 id="godotplayer" class="resume-h resume-h4">
+                    <span class="resume-hash">{md(4)}{" "}</span>
+                    <a
+                        href="https://godotplayer.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
+                    >
+                        godotplayer
+                    </a>
+                </h4>
+                <p class="resume-p">
+                    <img
+                        src="/godotplayer.webp"
+                        alt="GodotPlayer"
+                        width="320"
+                        height="240"
+                        class="w-full max-w-xs h-auto"
+                        loading="lazy"
+                    />
+                </p>
+                <p class="resume-p">
+                    フリーゲーム投稿サイト（公開ゲーム数600以上、月間PV1.3万以上）
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span
+                    >2023年ファーストリリース:
+                    Railway.app、Laravel、React、Inertia.js、TailwindCSS
+                    ※生成AIを使わずに開発
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>2026年: Cloudflare
+                    Workers, R2, D1, Hono, Google Cloud Run、Go ※Claude活用
+                </p>
 
-                <ul class="space-y-2">
-                    <li
-                        class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3"
+                <h4 id="re-painter" class="resume-h resume-h4">
+                    <span class="resume-hash">{md(4)}{" "}</span>
+                    <a
+                        href="https://store.steampowered.com/app/1096420/Re_Painter"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
                     >
-                        <a
-                            href="https://store.steampowered.com/app/1096420/Re_Painter"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="hover:opacity-70 underline"
-                        >
-                            Re Painter
-                        </a>
-                        — 離職中の1年間、コワーキングスペースに通い詰めて開発し、2020年1月にSteamでリリースしたオリジナルゲーム
-                        (Unity, C#)
-                    </li>
-                    <li
-                        class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3"
+                        Re Painter
+                    </a>
+                </h4>
+                <p class="resume-p">
+                    離職中の1年間、コワーキングスペースに通い詰めて開発し、2020年1月にSteamでリリースしたオリジナルゲーム
+                    (Unity, C#)
+                </p>
+
+                <h4 id="minigames" class="resume-h resume-h4">
+                    <span class="resume-hash">{md(4)}{" "}</span>
+                    <a
+                        href="https://unityroom.com/users/3cr10wv7fsuxmag8h594"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
                     >
-                        <a
-                            href="https://unityroom.com/users/3cr10wv7fsuxmag8h594"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="hover:opacity-70 underline"
-                        >
-                            ブラウザミニゲーム集
-                        </a>
-                        — unityroom (Unity, C#)
-                    </li>
-                    <li
-                        class="text-sm text-base-content/60 border-l-2 border-base-200 pl-3"
+                        ブラウザミニゲーム集
+                    </a>
+                </h4>
+                <p class="resume-p">unityroom (Unity, C#)</p>
+
+                <h4 id="bingo" class="resume-h resume-h4">
+                    <span class="resume-hash">{md(4)}{" "}</span>
+                    <a
+                        href="https://bingo-time-simulator.vercel.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
                     >
-                        <a
-                            href="https://bingo-time-simulator.vercel.app"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="hover:opacity-70 underline"
-                        >
-                            ビンゴ大会終了時間計算シミュレーター
-                        </a>
-                        — JavaScript
-                    </li>
-                </ul>
-            </section>
+                        ビンゴ大会終了時間計算シミュレーター
+                    </a>
+                </h4>
+                <p class="resume-p">JavaScript</p>
+            </article>
         </div>
         <SocialLinks />
     </main>
     <Footer />
 </Layout>
+
+<style>
+    .resume-md,
+    .resume-md :where(h1, h2, h3, h4, h5, p, a) {
+        font-family:
+            ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Hiragino Kaku Gothic ProN", monospace;
+        font-size: 0.925rem;
+        line-height: 1.75;
+        font-weight: 400;
+    }
+    .resume-md {
+        word-break: break-word;
+    }
+    .resume-hash {
+        color: color-mix(in oklch, var(--color-base-content) 38%, transparent);
+        font-weight: 400;
+    }
+    .resume-h {
+        font-size: inherit;
+        font-weight: 600;
+        line-height: 1.75;
+        margin: 1.75rem 0 0.5rem;
+        scroll-margin-top: 1.5rem;
+    }
+    .resume-h1 {
+        margin-top: 0;
+    }
+    .resume-h3 {
+        margin-top: 2.5rem;
+    }
+    .resume-h4 {
+        margin-top: 2rem;
+    }
+    .resume-h5 {
+        margin-top: 1.1rem;
+    }
+    .resume-p {
+        margin: 0.35rem 0;
+    }
+    .resume-li {
+        margin: 0.12rem 0;
+    }
+    .resume-dim {
+        color: color-mix(in oklch, var(--color-base-content) 55%, transparent);
+    }
+    .resume-link {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+    .resume-link:hover {
+        opacity: 0.7;
+    }
+    .resume-project + .resume-project {
+        margin-top: 0.5rem;
+    }
+    .resume-toc {
+        position: sticky;
+        top: 1.5rem;
+        align-self: start;
+        max-height: calc(100vh - 3rem);
+        overflow-y: auto;
+        font-family:
+            ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Hiragino Kaku Gothic ProN", monospace;
+        font-size: 0.8rem;
+        line-height: 1.55;
+        padding-bottom: 2rem;
+    }
+    .resume-toc-link {
+        display: block;
+        color: color-mix(in oklch, var(--color-base-content) 62%, transparent);
+        text-decoration: none;
+        padding: 0.12rem 0;
+        word-break: break-word;
+    }
+    .resume-toc-link:hover {
+        color: var(--color-base-content);
+    }
+    .resume-toc-link.is-active {
+        color: var(--color-base-content);
+        font-weight: 600;
+    }
+</style>
+
+<script>
+    const nav = document.querySelector(".resume-toc");
+    if (nav) {
+        const links = [...nav.querySelectorAll("a[href^='#']")];
+        const headings = links
+            .map((a) =>
+                document.getElementById(
+                    decodeURIComponent(a.getAttribute("href")?.slice(1) ?? ""),
+                ),
+            )
+            .filter((el): el is HTMLElement => el instanceof HTMLElement);
+
+        const setActive = (id: string) => {
+            for (const a of links) {
+                a.classList.toggle(
+                    "is-active",
+                    decodeURIComponent(a.getAttribute("href") ?? "") ===
+                        `#${id}`,
+                );
+            }
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visible = entries
+                    .filter((e) => e.isIntersecting)
+                    .sort(
+                        (a, b) =>
+                            a.boundingClientRect.top - b.boundingClientRect.top,
+                    );
+                if (visible[0]?.target.id) setActive(visible[0].target.id);
+            },
+            { rootMargin: "-15% 0px -70% 0px", threshold: 0 },
+        );
+
+        for (const el of headings) observer.observe(el);
+
+        const nativeSmoothMs = 500;
+        const durationMs = nativeSmoothMs / 1.25;
+        let scrollFrame = 0;
+
+        const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
+
+        nav.addEventListener("click", (event) => {
+            const a = (event.target as Element | null)?.closest("a[href^='#']");
+            if (!(a instanceof HTMLAnchorElement)) return;
+
+            const id = decodeURIComponent(a.hash.slice(1));
+            const el = document.getElementById(id);
+            if (!el) return;
+
+            event.preventDefault();
+            history.pushState(null, "", a.hash);
+            setActive(id);
+
+            const marginTop =
+                parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+            const end =
+                el.getBoundingClientRect().top + window.scrollY - marginTop;
+            const reduced = window.matchMedia(
+                "(prefers-reduced-motion: reduce)",
+            ).matches;
+
+            if (reduced) {
+                window.scrollTo(0, end);
+                return;
+            }
+
+            const start = window.scrollY;
+            const delta = end - start;
+            const started = performance.now();
+            cancelAnimationFrame(scrollFrame);
+
+            const step = (now: number) => {
+                const t = Math.min(1, (now - started) / durationMs);
+                window.scrollTo(0, start + delta * easeOutCubic(t));
+                if (t < 1) scrollFrame = requestAnimationFrame(step);
+            };
+            scrollFrame = requestAnimationFrame(step);
+        });
+    }
+</script>
