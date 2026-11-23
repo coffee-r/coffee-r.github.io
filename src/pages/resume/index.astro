@@ -1,0 +1,659 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import SocialLinks from "../../components/SocialLinks.astro";
+
+const FORM_URL =
+    "https://docs.google.com/forms/d/e/1FAIpQLSctIthyLIVGrD1l11Rg7yVWX6orzKusDdY9thawqmTLgz5CNQ/viewform?usp=publish-editor";
+
+const md = (level: number) => "#".repeat(level);
+
+function headingId(label: string) {
+    return label.replace(/\s+/g, "");
+}
+
+type Project = {
+    title: string;
+    team: string;
+    role: string;
+    time: string;
+    description?: string;
+    scope?: {
+        requested: string;
+        took: string;
+        outside: string | string[];
+    };
+    situation?: string[];
+    actions?: string[];
+    results?: string[];
+    remaining?: string[];
+};
+
+const skills: { category: string; items: string }[] = [
+    { category: "言語", items: "PHP（8年） / SQL（8年）" },
+    { category: "フレームワーク", items: "Laravel（2年） / CodeIgniter3（5年）" },
+    { category: "DB", items: "MySQL（3年） / Oracle（5年） / SQL Server（2年）" },
+    { category: "クラウド", items: "AWS Route 53 / S3 / CloudFront（〜1年）" },
+    { category: "インフラ", items: "Podman（1年） / VMware ESXi（〜1年） / BIND（〜1年）" },
+    { category: "生成AI", items: "Claude Code（〜1年）" },
+    { category: "その他", items: "OpenAPI（1年） / GitLab Runner" },
+    { category: "個人開発", items: "Go / Hono / Cloudflare Workers / Unity・C# / Godot" },
+];
+
+const otherProjects: { company: string; items: string[] }[] = [
+    {
+        company: "通販事業会社",
+        items: [
+            "2026年07月 DASTツールを活用した自社通販Webアプリケーションの脆弱性診断",
+            "2026年04月 AIボイスBot導入支援（シナリオ作成）",
+            "2025年07月 ECモールのフルフィルメント化（納品時の業務フロー作成）",
+            "2024年06月 通販サイトへのd払い決済の導入",
+            "2024年03月 通販サイトの3Dセキュア2.0対応",
+            "2021年01月 自社ECサイト向けRESTish API開発（モノリシックな構成をフロントエンド／バックエンドに分割）",
+            "2021年01月 BtoBtoCコミュニティサイト開発（Amazon S3とCloudFrontの設定）",
+            "2020年05月 オンプレミスのBIND DNSサーバのAmazon Route 53への移行（リンク負荷分散の構成に、フェイルオーバールーティングで対応）",
+            "2020年01月 自社ECアプリのPHP・CodeIgniterのバージョンアップ",
+        ],
+    },
+    {
+        company: "SIer（2015年04月〜2018年06月）",
+        items: ["ブラウザソーシャルゲームの追加開発・保守（サーバサイドPHP）"],
+    },
+];
+
+const projects: Project[] = [
+    {
+        title: "AIエージェントの導入提案、およびAIを利活用したECモール管理アプリケーションのリプレイス",
+        team: "チーム2人 ／ ステークホルダーは他部門を含め10名前後",
+        role: "主担当",
+        time: "2026年11月〜現在",
+        situation: [
+            "Webシステムは、老朽化したものが多い状況だった",
+            "昨今のサイバーセキュリティ事案の報告増加を踏まえ、私からシステム部長に作り替えを提案した",
+        ],
+        actions: [
+            "生成AI利用費用の稟議作成",
+            "AIを取り扱う際のセキュリティの検討",
+            "旧アプリ探索時のトークン削減のため、codegraphを作成",
+            "Claude Codeを使ったリプレイスの実施",
+            "旧アプリとの機能の同等性を担保するため、ゴールデンマスターテストの仕組みを作成",
+        ],
+    },
+    {
+        title: "SOAP WebAPIのリプレイス",
+        team: "チーム4人（立ち上げ時は2人）",
+        role: "主担当（アプリ構成・テスト方式・開発環境・CI/CDを設計。APIはエンドポイント単位で分担し、在庫系APIの設計〜実装を担当）",
+        time: "2024年09月〜2025年06月",
+        description:
+            "外部委託で開発された、ERPと各種アプリケーションを連携するSOAP WebAPIを内製化し、RESTishなWebAPIへリプレイスする。依頼は作り替えと、API成功率の改善。機能要件に自社で対応できるようにすることも目的だった。",
+        scope: {
+            requested: "SOAP WebAPIの内製リプレイスと、API成功率の改善",
+            took: "エラーの発生傾向をアクセスログから切り分けること。フレームワークと検証手段（テスト・CI・コンテナ）を選定し、分担した在庫系APIの設計〜実装まで担うこと",
+            outside:
+                "連携できなかった分のリカバリー実装は上長および同僚へ依頼した。他エンドポイントは分担した同僚へ任せた",
+        },
+        actions: [
+            "アクセスログを分析し、エラーが特定の時間帯に偏っていることを見つけた。関係者に相談して原因を切り分け、その時間帯は明示的にエラーを返す仕様にした",
+            "既存はC#だったが、社内で内製を担うチームが扱えるPHPに寄せた。フレームワークのEOLを受け、Laravelでプロトタイプを作って提案し、採用された",
+            "セキュリティパッチの当てやすさ、環境の再配布のしやすさ、CI/CDとの相性から、Podmanでのコンテナ環境を選定して導入した",
+            "既存のC#アプリケーションを解析して仕様を復元し、Laravelで再実装した",
+            "在庫系REST APIエンドポイントおよびIN/OUT設計（エンドポイント単位でチーム分担）",
+            "OpenAPIドキュメントの整備",
+            "同一エンドポイントへのリクエストでDBの差分が変わらないことを確認する、機能担保のテストを作成",
+            "OpenAPI仕様書と実装の乖離を検知するPHPUnitテスト（league/openapi-psr7-validator）、GitLab RunnerによるCI、Pint・PHPStan（Larastan）・PHPUnitをpre-commitで回す仕組みを入れてメンバーに配布した",
+            "構成はMVC+UseCase。オニオンアーキテクチャかで悩んだが、組織の体制に合わせてこちらを選んだ。UseCaseのフィーチャーテストを重点的に書いた",
+        ],
+        results: [
+            "エラーの発生傾向をログで特定し、原因候補まで辿った。オンライン連携の枠では良い手が出せず、該当時間帯は明示的にエラーを返すようにした",
+            "静的解析・テストが機械的に回るようになり、共通処理を変更したときの影響範囲を把握しやすくなった",
+        ],
+    },
+];
+
+const toc: { id: string; label: string; depth: number }[] = [
+    { id: "top", label: "こーひーあーる", depth: 1 },
+    { id: "career", label: "職歴", depth: 2 },
+    { id: "certs", label: "資格・試験・学歴", depth: 2 },
+    { id: "skills", label: "スキル", depth: 2 },
+    { id: "projects", label: "案件", depth: 3 },
+    ...projects.map((p) => ({
+        id: headingId(p.title),
+        label: p.title,
+        depth: 4,
+    })),
+    { id: "other", label: "その他の案件", depth: 3 },
+    { id: "personal", label: "個人開発", depth: 3 },
+    { id: "otonarigaki", label: "おとなり描き", depth: 4 },
+    { id: "godotplayer", label: "godotplayer", depth: 4 },
+    { id: "re-painter", label: "Re Painter", depth: 4 },
+    { id: "minigames", label: "ブラウザミニゲーム集", depth: 4 },
+    { id: "bingo", label: "ビンゴ大会終了時間計算シミュレーター", depth: 4 },
+];
+---
+
+<Layout
+    title="レジュメ | こーひーあーる"
+    description="こーひーあーるの職務経歴"
+    noindex={true}
+>
+    <Header />
+    <main class="flex-1">
+        <div
+            class="resume-wrap mx-auto px-4 py-10 max-w-3xl lg:max-w-6xl lg:grid lg:grid-cols-[15rem_minmax(0,45rem)] lg:gap-x-10 lg:justify-center"
+        >
+            <nav class="resume-toc hidden lg:block" aria-label="目次">
+                {
+                    toc.map((item) => (
+                        <a href={`#${item.id}`} class="resume-toc-link">
+                            <span class="resume-hash">{md(item.depth)} </span>
+                            {item.label}
+                        </a>
+                    ))
+                }
+            </nav>
+            <article class="resume-md">
+                <p class="resume-p">
+                    <img
+                        src="/avator.webp"
+                        width="72"
+                        height="72"
+                        alt="こーひーあーる"
+                        class="rounded-full w-16 h-16 mb-4"
+                    />
+                </p>
+
+                <h1 id="top" class="resume-h resume-h1">
+                    <span class="resume-hash">{md(1)}{" "}</span>こーひーあーる
+                </h1>
+                <p class="resume-p resume-dim">バックエンドエンジニア</p>
+                <p class="resume-p">
+                    EC領域でシステム開発に従事。設計から運用後の追加開発までを主に担当。事業が何十年と続いている特性上、老朽化したWebシステムの改修・リプレイスを担当することが多い
+                </p>
+                <p class="resume-p">
+                    <a
+                        href={FORM_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
+                    >
+                        [お問い合わせ]
+                    </a>
+                </p>
+
+                <h2 id="career" class="resume-h">
+                    <span class="resume-hash">{md(2)}{" "}</span>職歴
+                </h2>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>通販事業会社
+                    （2019年7月〜現在）
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>SIer
+                    ゲームコンテンツ事業部（2015年4月〜2018年6月）
+                </p>
+
+                <h2 id="certs" class="resume-h">
+                    <span class="resume-hash">{md(2)}{" "}</span
+                    >資格・試験・学歴
+                </h2>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>IPA
+                    データベーススペシャリスト試験 (2024/12 合格)
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>IPA
+                    ネットワークスペシャリスト試験 (2024/7 合格)
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>IPA
+                    応用情報技術者試験 (2023/6 合格)
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>IPA
+                    基本情報技術者試験 (2022/11 合格)
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>AWS Certified
+                    Solutions Architect - Associate (2020/4 合格, 2023/4 再認定)
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>芝浦工業大学
+                    材料工学科 卒業（2015年）
+                </p>
+
+                <h2 id="skills" class="resume-h">
+                    <span class="resume-hash">{md(2)}{" "}</span>スキル
+                </h2>
+                {
+                    skills.map(({ category, items }) => (
+                        <p class="resume-li">
+                            <span class="resume-hash">- </span>
+                            {category}: {items}
+                        </p>
+                    ))
+                }
+
+                <h3 id="projects" class="resume-h resume-h3">
+                    <span class="resume-hash">{md(3)}{" "}</span>案件
+                </h3>
+                {
+                    projects.map((project) => (
+                        <section class="resume-project">
+                            <h4
+                                id={headingId(project.title)}
+                                class="resume-h resume-h4"
+                            >
+                                <span class="resume-hash">{md(4)} </span>
+                                {project.title}
+                            </h4>
+                            <p class="resume-p resume-dim">
+                                {project.time} / {project.role}
+                            </p>
+                            <p class="resume-p resume-dim">{project.team}</p>
+                            {project.description && <p class="resume-p">{project.description}</p>}
+
+                            {(project.scope ||
+                                (project.situation &&
+                                    project.situation.length > 0)) && (
+                                <>
+                                    <h5 class="resume-h resume-h5">
+                                        <span class="resume-hash">
+                                            {md(5)}{" "}
+                                        </span>
+                                        状況
+                                    </h5>
+                                    {project.scope && (
+                                        <>
+                                            <p class="resume-li">
+                                                <span class="resume-hash">
+                                                    -{" "}
+                                                </span>
+                                                頼まれたこと:{" "}
+                                                {project.scope.requested}
+                                            </p>
+                                            <p class="resume-li">
+                                                <span class="resume-hash">
+                                                    -{" "}
+                                                </span>
+                                                自分からやったこと:{" "}
+                                                {project.scope.took}
+                                            </p>
+                                            {(Array.isArray(
+                                                project.scope.outside,
+                                            )
+                                                ? project.scope.outside
+                                                : [project.scope.outside]
+                                            ).map((item) => (
+                                                <p class="resume-li">
+                                                    <span class="resume-hash">
+                                                        -{" "}
+                                                    </span>
+                                                    他の人に頼ろうとしたところ:{" "}
+                                                    {item}
+                                                </p>
+                                            ))}
+                                        </>
+                                    )}
+                                    {project.situation?.map((item) => (
+                                        <p class="resume-li">
+                                            <span class="resume-hash">- </span>
+                                            {item}
+                                        </p>
+                                    ))}
+                                </>
+                            )}
+
+                            {project.actions && project.actions.length > 0 && (
+                                <>
+                                    <h5 class="resume-h resume-h5">
+                                        <span class="resume-hash">
+                                            {md(5)}{" "}
+                                        </span>
+                                        取り組んだこと
+                                    </h5>
+                                    {project.actions.map((item) => (
+                                        <p class="resume-li">
+                                            <span class="resume-hash">- </span>
+                                            {item}
+                                        </p>
+                                    ))}
+                                </>
+                            )}
+
+                            {project.results && project.results.length > 0 && (
+                                <>
+                                    <h5 class="resume-h resume-h5">
+                                        <span class="resume-hash">
+                                            {md(5)}{" "}
+                                        </span>
+                                        結果
+                                    </h5>
+                                    {project.results.map((item) => (
+                                        <p class="resume-li">
+                                            <span class="resume-hash">- </span>
+                                            {item}
+                                        </p>
+                                    ))}
+                                </>
+                            )}
+
+                            {project.remaining &&
+                                project.remaining.length > 0 && (
+                                    <>
+                                        <h5 class="resume-h resume-h5">
+                                            <span class="resume-hash">
+                                                {md(5)}{" "}
+                                            </span>
+                                            残っていること
+                                        </h5>
+                                        {project.remaining.map((item) => (
+                                            <p class="resume-li">
+                                                <span class="resume-hash">
+                                                    -{" "}
+                                                </span>
+                                                {item}
+                                            </p>
+                                        ))}
+                                    </>
+                                )}
+                        </section>
+                    ))
+                }
+
+                <h3 id="other" class="resume-h resume-h3">
+                    <span class="resume-hash">{md(3)}{" "}</span>その他の案件
+                </h3>
+                {
+                    otherProjects.map((group) => (
+                        <>
+                            <p class="resume-li">
+                                <span class="resume-hash">- </span>
+                                {group.company}
+                            </p>
+                            {group.items.map((item) => (
+                                <p class="resume-li pl-[2ch]">
+                                    <span class="resume-hash">- </span>
+                                    {item}
+                                </p>
+                            ))}
+                        </>
+                    ))
+                }
+
+                <h3 id="personal" class="resume-h resume-h3">
+                    <span class="resume-hash">{md(3)}{" "}</span>個人開発
+                </h3>
+
+                <h4 id="otonarigaki" class="resume-h resume-h4">
+                    <span class="resume-hash">{md(4)}{" "}</span>
+                    <a
+                        href="https://otonarigaki.lolipop-now.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
+                    >
+                        おとなり描き
+                    </a>
+                </h4>
+                <p class="resume-p">
+                    <img
+                        src="/otonarigaki.webp"
+                        alt="おとなり描き"
+                        width="320"
+                        height="191"
+                        class="w-full max-w-xs h-auto"
+                        loading="lazy"
+                    />
+                </p>
+                <p class="resume-p">となりにしか描けないイラスト投稿サイト</p>
+
+                <h4 id="godotplayer" class="resume-h resume-h4">
+                    <span class="resume-hash">{md(4)}{" "}</span>
+                    <a
+                        href="https://godotplayer.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
+                    >
+                        godotplayer
+                    </a>
+                </h4>
+                <p class="resume-p">
+                    <img
+                        src="/godotplayer.webp"
+                        alt="GodotPlayer"
+                        width="320"
+                        height="240"
+                        class="w-full max-w-xs h-auto"
+                        loading="lazy"
+                    />
+                </p>
+                <p class="resume-p">
+                    フリーゲーム投稿サイト（公開ゲーム数600以上、月間PV1.3万以上）
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span
+                    >2023年ファーストリリース:
+                    Railway.app、Laravel、React、Inertia.js、TailwindCSS
+                    ※生成AIを使わずに開発
+                </p>
+                <p class="resume-li">
+                    <span class="resume-hash">-{" "}</span>2026年: Cloudflare
+                    Workers, R2, D1, Hono, Google Cloud Run、Go ※Claude活用
+                </p>
+
+                <h4 id="re-painter" class="resume-h resume-h4">
+                    <span class="resume-hash">{md(4)}{" "}</span>
+                    <a
+                        href="https://store.steampowered.com/app/1096420/Re_Painter"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
+                    >
+                        Re Painter
+                    </a>
+                </h4>
+                <p class="resume-p">
+                    離職中の1年間、コワーキングスペースに通い詰めて開発し、2020年1月にSteamでリリースしたオリジナルゲーム。遊びの設計とドット絵制作も一人で担当
+                    (Unity, C#)
+                </p>
+
+                <h4 id="minigames" class="resume-h resume-h4">
+                    <span class="resume-hash">{md(4)}{" "}</span>
+                    <a
+                        href="https://unityroom.com/users/3cr10wv7fsuxmag8h594"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
+                    >
+                        ブラウザミニゲーム集
+                    </a>
+                </h4>
+                <p class="resume-p">unityroom (Unity, C#)</p>
+
+                <h4 id="bingo" class="resume-h resume-h4">
+                    <span class="resume-hash">{md(4)}{" "}</span>
+                    <a
+                        href="https://bingo-time-simulator-v2.game-developer-ryo.workers.dev/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="resume-link"
+                    >
+                        ビンゴ大会終了時間計算シミュレーター
+                    </a>
+                </h4>
+                <p class="resume-p">JavaScript</p>
+            </article>
+        </div>
+        <SocialLinks />
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    .resume-md,
+    .resume-md :where(h1, h2, h3, h4, h5, p, a) {
+        font-family:
+            ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Hiragino Kaku Gothic ProN", monospace;
+        font-size: 0.925rem;
+        line-height: 1.75;
+        font-weight: 400;
+    }
+    .resume-md {
+        word-break: break-word;
+    }
+    .resume-hash {
+        color: color-mix(in oklch, var(--color-base-content) 38%, transparent);
+        font-weight: 400;
+    }
+    .resume-h {
+        font-size: inherit;
+        font-weight: 600;
+        line-height: 1.75;
+        margin: 1.75rem 0 0.5rem;
+        scroll-margin-top: 1.5rem;
+    }
+    .resume-h1 {
+        margin-top: 0;
+    }
+    .resume-h3 {
+        margin-top: 2.5rem;
+    }
+    .resume-h4 {
+        margin-top: 2rem;
+    }
+    .resume-h5 {
+        margin-top: 1.1rem;
+    }
+    .resume-p {
+        margin: 0.35rem 0;
+    }
+    .resume-li {
+        margin: 0.12rem 0;
+    }
+    .resume-dim {
+        color: color-mix(in oklch, var(--color-base-content) 55%, transparent);
+    }
+    .resume-link {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+    .resume-link:hover {
+        opacity: 0.7;
+    }
+    .resume-project + .resume-project {
+        margin-top: 0.5rem;
+    }
+    .resume-toc {
+        position: sticky;
+        top: 1.5rem;
+        align-self: start;
+        max-height: calc(100vh - 3rem);
+        overflow-y: auto;
+        font-family:
+            ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Hiragino Kaku Gothic ProN", monospace;
+        font-size: 0.8rem;
+        line-height: 1.55;
+        padding-bottom: 2rem;
+    }
+    .resume-toc-link {
+        display: block;
+        color: color-mix(in oklch, var(--color-base-content) 62%, transparent);
+        text-decoration: none;
+        padding: 0.12rem 0;
+        word-break: break-word;
+    }
+    .resume-toc-link:hover {
+        color: var(--color-base-content);
+    }
+    .resume-toc-link.is-active {
+        color: var(--color-base-content);
+        font-weight: 600;
+    }
+</style>
+
+<script>
+    const nav = document.querySelector(".resume-toc");
+    if (nav) {
+        const links = [...nav.querySelectorAll("a[href^='#']")];
+        const headings = links
+            .map((a) =>
+                document.getElementById(
+                    decodeURIComponent(a.getAttribute("href")?.slice(1) ?? ""),
+                ),
+            )
+            .filter((el): el is HTMLElement => el instanceof HTMLElement);
+
+        const setActive = (id: string) => {
+            for (const a of links) {
+                a.classList.toggle(
+                    "is-active",
+                    decodeURIComponent(a.getAttribute("href") ?? "") ===
+                        `#${id}`,
+                );
+            }
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visible = entries
+                    .filter((e) => e.isIntersecting)
+                    .sort(
+                        (a, b) =>
+                            a.boundingClientRect.top - b.boundingClientRect.top,
+                    );
+                if (visible[0]?.target.id) setActive(visible[0].target.id);
+            },
+            { rootMargin: "-15% 0px -70% 0px", threshold: 0 },
+        );
+
+        for (const el of headings) observer.observe(el);
+
+        const nativeSmoothMs = 500;
+        const durationMs = nativeSmoothMs / 1.25;
+        let scrollFrame = 0;
+
+        const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
+
+        nav.addEventListener("click", (event) => {
+            const a = (event.target as Element | null)?.closest("a[href^='#']");
+            if (!(a instanceof HTMLAnchorElement)) return;
+
+            const id = decodeURIComponent(a.hash.slice(1));
+            const el = document.getElementById(id);
+            if (!el) return;
+
+            event.preventDefault();
+            history.pushState(null, "", a.hash);
+            setActive(id);
+
+            const marginTop =
+                parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+            const end =
+                el.getBoundingClientRect().top + window.scrollY - marginTop;
+            const reduced = window.matchMedia(
+                "(prefers-reduced-motion: reduce)",
+            ).matches;
+
+            if (reduced) {
+                window.scrollTo(0, end);
+                return;
+            }
+
+            const start = window.scrollY;
+            const delta = end - start;
+            const started = performance.now();
+            cancelAnimationFrame(scrollFrame);
+
+            const step = (now: number) => {
+                const t = Math.min(1, (now - started) / durationMs);
+                window.scrollTo(0, start + delta * easeOutCubic(t));
+                if (t < 1) scrollFrame = requestAnimationFrame(step);
+            };
+            scrollFrame = requestAnimationFrame(step);
+        });
+    }
+</script>

@@ -1,0 +1,27 @@
+---
+const links = [
+  { href: "https://github.com/coffee-r", icon: "/github.svg", alt: "GitHub", label: "GitHub", external: true },
+  { href: "https://x.com/plus_marumaru", icon: "/x.svg", alt: "X", label: "X (旧Twitter)", external: true },
+  { href: "https://zenn.dev/coffee_r", icon: "/zenn.svg", alt: "Zenn", label: "Zenn", external: true },
+  { href: "/resume", label: "レジュメ", external: false },
+  { href: "https://docs.google.com/forms/d/e/1FAIpQLSctIthyLIVGrD1l11Rg7yVWX6orzKusDdY9thawqmTLgz5CNQ/viewform?usp=publish-editor", label: "お問い合わせ", external: true },
+];
+---
+
+<section class="w-full py-12 md:py-24 lg:py-32 bg-base-200">
+  <div class="w-full px-4 md:px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">リンク</h2>
+    <div class="flex justify-center flex-wrap gap-4">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+          class="btn btn-outline gap-2"
+        >
+          {link.icon && <img src={link.icon} width="20" height="20" alt={link.alt} />}
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
